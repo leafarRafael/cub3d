@@ -6,14 +6,14 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/01 11:39:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/01 13:03:47 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include </nfs/homes/rbutzke/cub3D/lib/MLX42/include/MLX42/MLX42.h>
+#include <../../lib/MLX42/include/MLX42/MLX42.h>
 
 #define WIDTH 512
 #define HEIGHT 512
