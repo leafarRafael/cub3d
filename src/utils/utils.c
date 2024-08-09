@@ -6,12 +6,13 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/07 13:55:13 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/08 15:50:00 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include <stdio.h>
+
 #include <../lib/MLX42/include/MLX42/MLX42.h>
 
 void putmsg(char *str)
@@ -33,7 +34,7 @@ int putpixel(int height, int width, int rgb[], mlx_image_t* image, int div)
 	for (int i = 0; i < height / div; ++i)
 	{
 		for (int y = 0; y < width / div; ++y)
-			mlx_put_pixel(image, i, y, color);
+			mlx_put_pixel(image, height + i, y, color);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/07 18:33:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/08 15:58:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #define pos_x 128
 #define pos_y 128
 
+
 int					rgb[4] = {255, 0, 0, 255};
 int					rgbflor[4] = {100, 100, 100, 255};
 int					rgbceling[4] = {0, 200, 200, 155};
@@ -32,7 +33,11 @@ void ft_randomize(void* param)
 	int	*rgb;
 
 	rgb = (int*)param;
-	putpixel(40, 40, rgb, image, 1);
+	for (int i = 0; i < 20; i++)
+	{
+		for (int x = 0; x < 20; x++)
+			putpixel(i, x, rgb, image, 1);
+	}
 }
 
 void ft_hook(void* param)
@@ -62,7 +67,7 @@ int32_t main(void)
 	mlx_image_t*	plain;
 
 	mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
-	image = mlx_new_image(mlx, 80, 80);
+	image = mlx_new_image(mlx, 40, 40);
 	plain = mlx_new_image(mlx, WIDTH, HEIGHT );
 	putpixel(WIDTH, HEIGHT / 2, rgbflor, plain, 1);
 	putpixel(WIDTH, HEIGHT / 2, rgbceling, plain, 1);
