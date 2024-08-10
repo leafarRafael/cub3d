@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/10 16:01:53 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/10 17:32:46 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ int	rendering_ceiling_and_floor(t_game *game)
 	return (EXIT_SUCCESS);
 }
 
-
 void	re_rendering_image(t_game *game, keys_t pressed_key)
 {
 	if (pressed_key == MLX_KEY_W)
@@ -247,8 +246,6 @@ int		defineColor(t_game *main_struct)
 
 void	dda(t_game *main_struct)
 {
-	main_struct->deltaDistX = fabs(1 / main_struct->rayDirX);
-	main_struct->deltaDistY = fabs(1 / main_struct->rayDirY);
 	main_struct->hit = 0;
 	while (main_struct->hit == 0)
 	{
@@ -267,16 +264,18 @@ void	dda(t_game *main_struct)
 		if (worldMap[main_struct->mapX][main_struct->mapY] > 0)
 			main_struct->hit = 1;
 	}
-	if (main_struct->side == 0) 
-		main_struct->perpWallDist = (main_struct->sideDistX - main_struct->deltaDistX);
-	else
-		main_struct->perpWallDist = (main_struct->sideDistY - main_struct->deltaDistY);
+
 }
 
 void draw(int width, t_game *main_struct)
 {
 	int color = defineColor(main_struct);
 	int row = main_struct->drawStart;
+
+	if (main_struct->side == 0) 
+		main_struct->perpWallDist = (main_struct->sideDistX - main_struct->deltaDistX);
+	else
+		main_struct->perpWallDist = (main_struct->sideDistY - main_struct->deltaDistY);
 	while (row < main_struct->drawEnd)
 	{
 		mlx_put_pixel(main_struct->screen_img, width, row, color);
@@ -312,16 +311,13 @@ void side(t_game *main_struct)
 
 void	init_value(int x, t_game *main_struct)
 {
-	// coordenada x no espaço da câmera
 	main_struct->cameraX = 2 * x / (double)WIDTH -1;
-
-	// direção dos raios X e Y
 	main_struct->rayDirX = main_struct->dirX + main_struct->planeX * main_struct->cameraX;
 	main_struct->rayDirY = main_struct->dirY + main_struct->planeY * main_struct->cameraX;
 	main_struct->mapX = (int) main_struct->posX;
 	main_struct->mapY = (int) main_struct->posY;
-/* 	main_struct->deltaDistX = fabs(1 / main_struct->rayDirX);
-	main_struct->deltaDistY = fabs(1 / main_struct->rayDirY); */
+	main_struct->deltaDistX = (main_struct->rayDirX == 0) ? 1e30 : abs_double(1 / main_struct->rayDirX);
+	main_struct->deltaDistY = (main_struct->rayDirY == 0) ? 1e30 : abs_double(1 / main_struct->rayDirY);
 }
 
 // raycasting loop
@@ -354,20 +350,12 @@ int	main(void)
 		return (EXIT_FAILURE);
 	main_struct.screen_img = mlx_new_image(main_struct.mlx, WIDTH, HEIGHT);
 	first_step(&main_struct);
-	
-	// vetor de posição do player
+
 	main_struct.posX = 22, main_struct.posY = 12;
-	// vetor de direção inicial
 	main_struct.dirX = -1, main_struct.dirY = 0;
-	// versão 2D raycaster do plano da câmera
 	main_struct.planeX = 0, main_struct.planeY = 0.66;
-
-	// tempo atual do frame
 	main_struct.time = 0;
-	// tempo anterior do frame
 	main_struct.oldtime = 0;
-
-	// mlx_image_t *render_line = mlx_new_image(mlx, WIDTH, HEIGHT);
 	raycasting(&main_struct);
 	mlx_image_to_window(main_struct.mlx, main_struct.screen_img, 0, 0);
 	instatiation_window(main_struct.mlx, &main_struct);
