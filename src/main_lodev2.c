@@ -6,14 +6,13 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/09 13:58:36 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/09 15:01:24 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
 #include <stdio.h>
 #include <math.h>
-
 
 int worldmap[mapWidth][mapHeight];
 void init_data(t_data *data);

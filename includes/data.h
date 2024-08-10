@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/08 17:02:44 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/09 19:53:19 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,24 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "utils.h"
+#include <math.h>
 
 #define mapWidth 24
 #define mapHeight 24
+#define HEIGHT 880
 #define WIDTH 1024
-#define HEIGHT 512
-#define X 0
-#define Y 1
-
-
-
-
+#define Y 0
+#define X 1
 
 typedef struct s_data
 {
 	mlx_t* 			mlx;
 	mlx_image_t*	image;
+	mlx_image_t*	player;
 	int		multiplier;
 	int		floor_rgb[4];
 	int		ceiling_rgb[4];
+	int		player_rgb[4];
   	double  pos[2];
 	double	dir[2];
 	double	plane[2];
