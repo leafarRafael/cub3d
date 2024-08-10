@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/09 15:31:01 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/10 15:48:33 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ FILE_UTILS		:= utils.c
 #-----------------------------------------------------------------------------------------
 # Source files
 SRC_FILES			:= $(addprefix $(UTILS), $(FILE_UTILS))\
-					main_test_rafa.c
+					main_marcal.c
 
 #-----------------------------------------------------------------------------------------
 NUM_FILES	:= $(words $(SRC_FILES))
