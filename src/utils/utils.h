@@ -6,18 +6,13 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/08 15:50:27 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/11 15:37:39 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
  #define UTILS_H
-#include <../lib/MLX42/include/MLX42/MLX42.h>
 
-
-void putmsg(char *str);
-int ft_pixel(int r, int g, int b, int a);
-
-int putpixel(int height, int width, int rgb[], mlx_image_t* image, int div);
+int		ft_color(int r, int g, int b, int a);
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/10 15:48:33 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/11 14:45:13 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,20 +27,37 @@ CMD_CLEAN		:= rm -Rf
 #-----------------------------------------------------------------------------------------
 # DIRECTORY and Header file
 UTILS			:= utils/
+PARSE			:= parse/
+HOOK_MOVE		:= hook_move/
+DRAW_IMAGE		:= draw_image/
+INCLUDE			:= ../includes
+MLX42			:= ../lib/MLX42/include/MLX42/
+LIBFT			:= ../lib/lib_get_print/includes/
 
 #-----------------------------------------------------------------------------------------
 # Header file includes
-INCLUDES		:= -I ../includes -I $(UTILS) -I $(THREAD)\
-				-I $(LIST) -I $(ARGS) -I $(ROUTINE)
+INCLUDES		:= -I$(INCLUDE)\
+				-I $(UTILS)\
+				-I $(PARSE)\
+				-I $(HOOK_MOVE)\
+				-I $(MLX42)\
+				-I $(LIBFT)\
+				-I $(DRAW_IMAGE)
 
 #-----------------------------------------------------------------------------------------
 # Source files
 FILE_UTILS		:= utils.c
+FILE_PARSE		:= parse.c
+FILE_HOOK		:= hook.c
+FILE_DRAW_IMAGE	:= draw_image.c
 
 #-----------------------------------------------------------------------------------------
 # Source files
-SRC_FILES			:= $(addprefix $(UTILS), $(FILE_UTILS))\
-					main_marcal.c
+SRC_FILES		:= $(addprefix $(DRAW_IMAGE), $(FILE_DRAW_IMAGE))\
+					$(addprefix $(UTILS), $(FILE_UTILS))\
+					$(addprefix $(PARSE), $(FILE_PARSE))\
+					$(addprefix $(HOOK_MOVE), $(FILE_HOOK))\
+					main.c\
 
 #-----------------------------------------------------------------------------------------
 NUM_FILES	:= $(words $(SRC_FILES))

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/11 15:23:16 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/11 11:57:59 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/11 11:58:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include <stdio.h>
-#include <../lib/MLX42/include/MLX42/MLX42.h>
+#ifndef PARSE_H
+ #define PARSE_H
 
-int ft_color(int r, int g, int b, int a)
-{
-    return (r << 24 | g << 16 | b << 8 | a);
-}
+struct t_data;
+
+t_data *parse(int argc, char **argv);
+
+#endif

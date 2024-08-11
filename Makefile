@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:04 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/08 16:23:50 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/11 13:28:12 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ $(NAME): object libmlx linked_list libft
 
 
 #-----------------------------------------------------------------------------------------
-# Rule ti create object
+# Rule to create object
 object:
 	@$(MAKE) -C $(PATH_MAKE_OBJ) --no-print-directory
 
