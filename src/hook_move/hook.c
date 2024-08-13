@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/11 16:00:42 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/13 09:44:33 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,23 @@ void ft_hook(void* param)
 	t_data *data;
 
 	data = (t_data*) param;
-	if (mlx_is_key_down(data->mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(data->mlx);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_UP))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE))
+		mlx_close_window(data->window.mlx);
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_UP))
 		ctrl(MLX_KEY_UP, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_DOWN))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_DOWN))
 		ctrl(MLX_KEY_DOWN, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_LEFT))
 		ctrl(MLX_KEY_LEFT, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_RIGHT))
 		ctrl(MLX_KEY_RIGHT, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_A))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_A))
 		ctrl(MLX_KEY_A, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_D))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_D))
 		ctrl(MLX_KEY_D, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_S))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_S))
 		ctrl(MLX_KEY_S, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_W))
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_W))
 		ctrl(MLX_KEY_W, data);
 }
 

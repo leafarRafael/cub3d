@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/11 16:00:17 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/13 09:47:51 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,10 @@ t_data *parse(int argc, char **argv)
 
 static int init_data(t_data *data, char *file)
 {
-	data->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
-	data->image = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	data->player = mlx_new_image(data->mlx, 200, 200);
-	data->pos[X] = 19;
-	data->pos[Y] = 21;
-	data->dir[X] = -1;
-	data->dir[Y] = 0;
-	data->plane[X] = 0;
-	data->plane[Y] = 0.66;
+	data->window.mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
+	data->window.image = mlx_new_image(data->window.mlx, WIDTH, HEIGHT);
+	data->window.player = mlx_new_image(data->window.mlx, 200, 200);
+	
 	data->rgb_floor[0] = 0;
 	data->rgb_floor[1] = 100;
 	data->rgb_floor[2] = 0;

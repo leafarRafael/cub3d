@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   dda.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 08:40:15 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/13 08:54:40 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/13 08:56:29 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include <stdio.h>
-#include <../lib/MLX42/include/MLX42/MLX42.h>
+#ifndef DDA_H
+ #define DDA_H
 
-int ft_color(int r, int g, int b, int a)
+typedef struct s_dda
 {
-    return (r << 24 | g << 16 | b << 8 | a);
-}
+	int	hit;
+	
+
+}		t_dda;
+
+#endif
