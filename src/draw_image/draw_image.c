@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 09:40:19 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/13 13:06:32 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "utils.h"
 #include "data.h"
 #include "libft.h"
+#include "defines.h"
 
 static void	draw_pixel(int plaine[2],
 				int pos[2], int color, mlx_image_t *image);

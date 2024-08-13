@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/11 14:45:13 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/13 14:14:41 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,15 @@ UTILS			:= utils/
 PARSE			:= parse/
 HOOK_MOVE		:= hook_move/
 DRAW_IMAGE		:= draw_image/
+RAYCASTING		:= raycasting/
 INCLUDE			:= ../includes
 MLX42			:= ../lib/MLX42/include/MLX42/
 LIBFT			:= ../lib/lib_get_print/includes/
 
 #-----------------------------------------------------------------------------------------
 # Header file includes
-INCLUDES		:= -I$(INCLUDE)\
+INCLUDES		:= -I $(RAYCASTING)\
+				-I$(INCLUDE)\
 				-I $(UTILS)\
 				-I $(PARSE)\
 				-I $(HOOK_MOVE)\
@@ -50,10 +52,12 @@ FILE_UTILS		:= utils.c
 FILE_PARSE		:= parse.c
 FILE_HOOK		:= hook.c
 FILE_DRAW_IMAGE	:= draw_image.c
+FILE_RAY		:= ray_casting.c dda.c
 
 #-----------------------------------------------------------------------------------------
 # Source files
 SRC_FILES		:= $(addprefix $(DRAW_IMAGE), $(FILE_DRAW_IMAGE))\
+					$(addprefix $(RAYCASTING), $(FILE_RAY))\
 					$(addprefix $(UTILS), $(FILE_UTILS))\
 					$(addprefix $(PARSE), $(FILE_PARSE))\
 					$(addprefix $(HOOK_MOVE), $(FILE_HOOK))\
@@ -88,7 +92,7 @@ $(OBJS)/%.o: %.c
 
 #-----------------------------------------------------------------------------------------
 # Include dependency files
--include $(DEP_FILES)
+#-include $(DEP_FILES)
 
 #-----------------------------------------------------------------------------------------
 # Rule to clean

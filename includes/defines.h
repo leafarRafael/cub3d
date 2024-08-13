@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dda.h                                              :+:      :+:    :+:   */
+/*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 08:54:40 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 14:19:22 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/13 13:09:48 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DDA_H
- #define DDA_H
+#ifndef DEFINES_H
+ #define DEFINES_H
 
-typedef struct s_data t_data;
-typedef struct s_ray_casting t_ray;
-
-typedef struct s_dda
-{
-	int		hit;
-	int		side;
-	int		map[2];
-	double	side_dist[2];
-	double	delta_dist[2];
-	int		step[2];
-}		t_dda;
-
-void ft_dda(t_data *data, t_ray *ray, t_dda *dda);
+#define mapWidth 24
+#define mapHeight 24
+#define WIDTH 800
+#define HEIGHT 600
+#define Y 0
+#define X 1
+#define CURRENT 0
+#define OLD_TIME 1
 
 #endif

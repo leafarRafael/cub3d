@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 09:43:28 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/13 14:54:29 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@
 #include "libft.h"
 #include "MLX42.h"
 #include <stdlib.h>
+#include "ray_casting.h"
+#include <stdio.h>
+#include "defines.h"
 
 int main(int argc, char **argv)
 {
 	t_data	*data;
 
 	data = parse(argc, argv);
-	if (!data)
-		return (EXIT_FAILURE);
+
+	ray_casting(data);
 	draw_plaine(data);
 	mlx_image_to_window(data->window.mlx, data->window.image, 0, 0);
 	mlx_loop_hook(data->window.mlx, ft_hook, (void*)data);

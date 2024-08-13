@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 09:44:33 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/13 13:06:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include "draw_image.h"
 #include <libft.h>
+#include "defines.h"
 
 static void ctrl(int c, t_data *data);
 
