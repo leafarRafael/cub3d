@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:53 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 14:57:20 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/13 16:20:43 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,10 @@ static void define_step(t_data *data, t_dda *dda, t_ray *ray, int eixo)
 		dda->step[eixo] = 1;
 		dda->side_dist[eixo] = (dda->map[eixo] + 1.0 - data->coord->pos[eixo]) * dda->delta_dist[eixo];
 	}
+	
 }
 
+#include <stdlib.h>
 static void	find_collision(t_data *data, t_dda *dda, t_ray *ray)
 {
 	while (dda->hit == 0)
@@ -77,4 +79,5 @@ static void	find_collision(t_data *data, t_dda *dda, t_ray *ray)
 		ray->distance_wall = (dda->side_dist[X] - dda->delta_dist[X]);
 	else
 		ray->distance_wall = (dda->side_dist[Y] - dda->delta_dist[Y]);
+
 }

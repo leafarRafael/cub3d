@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 13:06:38 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/13 16:25:45 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "draw_image.h"
 #include <libft.h>
 #include "defines.h"
+#include "ray_casting.h"
 
 static void ctrl(int c, t_data *data);
 
@@ -50,25 +51,31 @@ static void ctrl(int c, t_data *data)
 	{
 		printf("Aguardando desenvolvimento da tecla [UP]\n");
 		draw_plaine(data);
+		ray_casting(data);
 	}
 	else if (c == MLX_KEY_DOWN)
 	{
 		printf("Aguardando desenvolvimento da tecla [DOWN]\n");
 		draw_plaine(data);
+		ray_casting(data);
 	}
 	else if (c == MLX_KEY_LEFT)
 	{
+;
 		printf("Aguardando desenvolvimento da tecla [<-]\n");	
 		draw_plaine(data);
+		ray_casting(data);
 	}
 	else if (c == MLX_KEY_RIGHT)
 	{
 		printf("Aguardando desenvolvimento da tecla [->]\n");
 		draw_plaine(data);
+		ray_casting(data);
 	}
 	else
 	{
 		printf("Aguardando desenvolvimento da tecla [%c]\n", c);
 		draw_plaine(data);
+		ray_casting(data);
 	}
 }
