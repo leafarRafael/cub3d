@@ -6,10 +6,11 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 14:55:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/14 14:17:35 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "data.h"
 #include "utils.h"
 #include <MLX42.h>
@@ -23,7 +24,7 @@
 #include "defines.h"
 
 static int init_data(t_data *data, char *file);
-static char **cpy_file(char *file);
+static int **cpy_file(char *file);
 static void	init_coord(t_plr *coord, t_data *data);
 
 t_data *parse(int argc, char **argv)
@@ -55,21 +56,17 @@ static int init_data(t_data *data, char *file)
 	data->rgb_cel[1] = 0;
 	data->rgb_cel[2] = 100;
 	data->rgb_cel[3] = 255;
-	data->player_rgb[0] = 100;
-	data->player_rgb[1] = 0;
-	data->player_rgb[2] = 0;
-	data->player_rgb[3] = 255;
 	data->worldmap = cpy_file(file);
 	if(!data->worldmap)
 		return (1);
 	return (0);
 }
 
-static char **cpy_file(char *file)
+static int **cpy_file(char *file)
 {
 	int		fd;
 	int		i;
-	char	**cpy;
+	int		**cpy;
 	char	*str;
 
 	cpy = NULL;
@@ -82,13 +79,26 @@ static char **cpy_file(char *file)
 		free(str);
 		i++;
 	}
-	cpy = ft_calloc(sizeof(char *), i + 1);
+	cpy = malloc(sizeof(int *) * (i + 1));
 	close(fd);
 	fd = open(file, O_RDONLY);
 	i = 0;
+	int m = 0;
+	int index;
 	while ((str = get_next_line(fd)))
 	{
-		cpy[i] = str;
+		m = 0;
+		index = 0;
+		cpy[i] = malloc(sizeof(int) * (ft_strlen(str) +1));
+		while (str[m])
+		{
+			if (str[m] != ' ' && str[m] != '\n')
+			{
+				cpy[i][index] = str[m] - '0';
+				index++;
+			}
+			m++;
+		}
 		i++;
 	}
 	cpy[i] = NULL;
@@ -102,9 +112,10 @@ static void init_coord(t_plr *coord, t_data *data)
 	coord->pos[Y] = 12;
 	coord->plane[X] = 0;
 	coord->plane[Y] = 0.66;
-	coord->dir[X] = 0;
-	coord->dir[Y] = -1;
+	coord->dir[X] = -1;
+	coord->dir[Y] = 0;
 	coord->time[OLD_TIME] = 0;
 	coord->time[CURRENT] = 0;
+	coord->move_speed = 10;
 	data->coord = coord; 
 }
