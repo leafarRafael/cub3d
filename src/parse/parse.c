@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 14:17:35 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/14 16:15:41 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static int init_data(t_data *data, char *file)
 	data->rgb_cel[1] = 0;
 	data->rgb_cel[2] = 100;
 	data->rgb_cel[3] = 255;
+	data->move_speed = 150;
+	data->rote_speed = 50;
 	data->worldmap = cpy_file(file);
 	if(!data->worldmap)
 		return (1);
@@ -114,8 +116,8 @@ static void init_coord(t_plr *coord, t_data *data)
 	coord->plane[Y] = 0.66;
 	coord->dir[X] = -1;
 	coord->dir[Y] = 0;
-	coord->time[OLD_TIME] = 0;
 	coord->time[CURRENT] = 0;
-	coord->move_speed = 10;
+	coord->time[OLD_TIME] = 0;
+
 	data->coord = coord; 
 }
