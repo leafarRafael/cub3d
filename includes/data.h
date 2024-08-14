@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 16:05:48 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/14 17:33:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ typedef struct s_data
 {
 	t_comp_mlx	window;
 	t_plr		*coord;
-	double		move_speed;
-	double		rote_speed;
 	int 		**worldmap;
 	int			rgb_floor[4];
 	int			rgb_cel[4];

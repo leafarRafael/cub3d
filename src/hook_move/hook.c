@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 16:19:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/14 17:34:17 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,35 +55,35 @@ static void ctrl(int c, t_data *data)
 
 	if (c == MLX_KEY_W)
 	{
-		if (data->worldmap[(int)(data->coord->pos[X] + data->coord->dir[X] * data->move_speed)][(int) (data->coord->pos[Y])] == false)
-			data->coord->pos[X] +=  data->coord->dir[X] * data->move_speed;
-		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] + data->coord->dir[Y] * data->move_speed)] == false)
-			data->coord->pos[Y] += data->coord->dir[Y] * data->move_speed;
+		if (data->worldmap[(int)(data->coord->pos[X] + data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == false)
+			data->coord->pos[X] +=  data->coord->dir[X] * MOVE_SPPED;
+		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] + data->coord->dir[Y] * MOVE_SPPED)] == false)
+			data->coord->pos[Y] += data->coord->dir[Y] * MOVE_SPPED;
 	}
 	else if (c == MLX_KEY_S)
 	{
-		if (data->worldmap[(int)(data->coord->pos[X] - data->coord->dir[X] * data->move_speed)][(int) (data->coord->pos[Y])] == false)
-			data->coord->pos[X] +=  data->coord->dir[X] * data->move_speed;
-		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] - data->coord->dir[Y] * data->move_speed)] == false)
-			data->coord->pos[Y] += data->coord->dir[Y] * data->move_speed;
-	}
-	else if (c == MLX_KEY_A)
-	{
-		dir = data->coord->dir[X];
-		plane = data->coord->plane[X];
-		data->coord->dir[X] = data->coord->dir[X] * cos(-data->rote_speed) - data->coord->dir[Y] * sin (-data->rote_speed);
-		data->coord->dir[Y] = dir * sin (-data->rote_speed) + data->coord->dir[Y] * cos(-data->rote_speed);
-		data->coord->plane[X] = data->coord->plane[X] * cos(-data->rote_speed) - data->coord->plane[Y] * sin (-data->rote_speed);
-		data->coord->plane[Y] = plane * sin (-data->rote_speed) + data->coord->plane[Y] * cos(-data->rote_speed);
+		if (data->worldmap[(int)(data->coord->pos[X] - data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == false)
+			data->coord->pos[X] -=  data->coord->dir[X] * MOVE_SPPED;
+		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] - data->coord->dir[Y] * MOVE_SPPED)] == false)
+			data->coord->pos[Y] -= data->coord->dir[Y] * MOVE_SPPED;
 	}
 	else if (c == MLX_KEY_D)
 	{
 		dir = data->coord->dir[X];
 		plane = data->coord->plane[X];
-		data->coord->dir[X] = data->coord->dir[X] * cos(data->rote_speed) - data->coord->dir[Y] * sin (data->rote_speed);
-		data->coord->dir[Y] = dir * sin (data->rote_speed) + data->coord->dir[Y] * cos(data->rote_speed);
-		data->coord->plane[X] = data->coord->plane[X] * cos(data->rote_speed) - data->coord->plane[Y] * sin (data->rote_speed);
-		data->coord->plane[Y] = plane * sin (data->rote_speed) + data->coord->plane[Y] * cos(data->rote_speed);
+		data->coord->dir[X] = data->coord->dir[X] * cos(-ROT_SPEED) - data->coord->dir[Y] * sin (-ROT_SPEED);
+		data->coord->dir[Y] = dir * sin (-ROT_SPEED) + data->coord->dir[Y] * cos(-ROT_SPEED);
+		data->coord->plane[X] = data->coord->plane[X] * cos(-ROT_SPEED) - data->coord->plane[Y] * sin (-ROT_SPEED);
+		data->coord->plane[Y] = plane * sin (-ROT_SPEED) + data->coord->plane[Y] * cos(-ROT_SPEED);
+	}
+	else if (c == MLX_KEY_A)
+	{
+		dir = data->coord->dir[X];
+		plane = data->coord->plane[X];
+		data->coord->dir[X] = data->coord->dir[X] * cos(ROT_SPEED) - data->coord->dir[Y] * sin (ROT_SPEED);
+		data->coord->dir[Y] = dir * sin (ROT_SPEED) + data->coord->dir[Y] * cos(ROT_SPEED);
+		data->coord->plane[X] = data->coord->plane[X] * cos(ROT_SPEED) - data->coord->plane[Y] * sin (ROT_SPEED);
+		data->coord->plane[Y] = plane * sin (ROT_SPEED) + data->coord->plane[Y] * cos(ROT_SPEED);
 	}
 	else if (c == MLX_KEY_UP)
 		printf("Aguardando desenvolvimento da tecla [UP]\n");

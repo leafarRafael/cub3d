@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/13 13:06:32 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/14 17:31:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int	draw_plaine(t_data *data)
 				data->rgb_floor[1], data->rgb_floor[2], data->rgb_floor[3]);
 		draw_pixel(plaine, pos, color, data->window.image);
 	}
-	if (mlx_image_to_window(data->window.mlx, data->window.image, 0, 0) == -1)
-		return (1);
 	return (0);
 }
 
