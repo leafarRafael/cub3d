@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 17:34:17 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 08:47:14 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,16 @@ static void ctrl(int c, t_data *data)
 
 	if (c == MLX_KEY_W)
 	{
-		if (data->worldmap[(int)(data->coord->pos[X] + data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == false)
+		if (data->worldmap[(int)(data->coord->pos[X] + data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == '0')
 			data->coord->pos[X] +=  data->coord->dir[X] * MOVE_SPPED;
-		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] + data->coord->dir[Y] * MOVE_SPPED)] == false)
+		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] + data->coord->dir[Y] * MOVE_SPPED)] == '0')
 			data->coord->pos[Y] += data->coord->dir[Y] * MOVE_SPPED;
 	}
 	else if (c == MLX_KEY_S)
 	{
-		if (data->worldmap[(int)(data->coord->pos[X] - data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == false)
+		if (data->worldmap[(int)(data->coord->pos[X] - data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == '0')
 			data->coord->pos[X] -=  data->coord->dir[X] * MOVE_SPPED;
-		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] - data->coord->dir[Y] * MOVE_SPPED)] == false)
+		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] - data->coord->dir[Y] * MOVE_SPPED)] == '0')
 			data->coord->pos[Y] -= data->coord->dir[Y] * MOVE_SPPED;
 	}
 	else if (c == MLX_KEY_D)

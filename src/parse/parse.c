@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 17:33:25 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 08:48:57 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include "defines.h"
 
 static int init_data(t_data *data, char *file);
-static int **cpy_file(char *file);
+static char **cpy_file(char *file);
 static void	init_coord(t_plr *coord, t_data *data);
 
 t_data *parse(int argc, char **argv)
@@ -62,11 +62,11 @@ static int init_data(t_data *data, char *file)
 	return (0);
 }
 
-static int **cpy_file(char *file)
+static char **cpy_file(char *file)
 {
 	int		fd;
 	int		i;
-	int		**cpy;
+	char	**cpy;
 	char	*str;
 
 	cpy = NULL;
@@ -79,26 +79,13 @@ static int **cpy_file(char *file)
 		free(str);
 		i++;
 	}
-	cpy = malloc(sizeof(int *) * (i + 1));
+	cpy = malloc(sizeof(char *) * (i + 1));
 	close(fd);
 	fd = open(file, O_RDONLY);
 	i = 0;
-	int m = 0;
-	int index;
 	while ((str = get_next_line(fd)))
 	{
-		m = 0;
-		index = 0;
-		cpy[i] = malloc(sizeof(int) * (ft_strlen(str) +1));
-		while (str[m])
-		{
-			if (str[m] != ' ' && str[m] != '\n')
-			{
-				cpy[i][index] = str[m] - '0';
-				index++;
-			}
-			m++;
-		}
+		cpy[i] = str;
 		i++;
 	}
 	cpy[i] = NULL;

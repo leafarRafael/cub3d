@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:53 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 14:19:05 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 08:45:44 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	find_collision(t_data *data, t_dda *dda, t_ray *ray)
 			dda->map[Y] += dda->step[Y];
 			dda->side = 1;
 		}
-		if (data->worldmap[dda->map[X]][dda->map[Y]] > 0)
+		if (data->worldmap[dda->map[X]][dda->map[Y]] != '0')
 			dda->hit = 1;
 	}
 	if (dda->side == 0)
