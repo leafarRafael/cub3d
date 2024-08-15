@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 08:48:57 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 15:40:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static int init_data(t_data *data, char *file)
 {
 	data->window.mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	data->window.image = mlx_new_image(data->window.mlx, WIDTH, HEIGHT);
-	data->window.player = mlx_new_image(data->window.mlx, 200, 200);
+	data->window.player = mlx_new_image(data->window.mlx, 400, 400);
+	data->window.wall[NORTH] = mlx_load_png("textures/wall.png");
 	data->rgb_floor[0] = 0;
 	data->rgb_floor[1] = 100;
 	data->rgb_floor[2] = 0;
@@ -103,6 +104,5 @@ static void init_coord(t_plr *coord, t_data *data)
 	coord->dir[Y] = 0;
 	coord->time[CURRENT] = 0;
 	coord->time[OLD_TIME] = 0;
-
 	data->coord = coord; 
 }

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 08:42:36 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 09:20:16 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
  #define DATA_H
 
 #include <MLX42.h>
+
+typedef enum s_texture
+{
+	NORTH = 0,
+	SOUTH,
+	WEST,
+	EAST,
+}			t_texture_index;
 
 typedef	struct s_components_mlx
 {

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:53 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 08:45:44 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 11:59:15 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ static void define_step(t_data *data, t_dda *dda, t_ray *ray)
 	}
 }
 
-#include <stdlib.h>
 static void	find_collision(t_data *data, t_dda *dda, t_ray *ray)
 {
 	while (dda->hit == 0)

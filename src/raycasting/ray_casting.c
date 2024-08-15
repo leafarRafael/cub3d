@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 11:48:18 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 11:58:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,6 @@ static void	init(t_ray *ray, t_data *data)
 	ray->ray_dir[X] = data->coord->dir[X] + data->coord->plane[X] * ray->camX;
 	ray->ray_dir[Y] = data->coord->dir[Y] + data->coord->plane[Y] * ray->camX;
 	ray->distance_wall = 0;
-/* 	printf("ray->index = %d\n", ray->index);
-	printf("2 * ray->index = %d\n", 2 * ray->index);
-	printf("(double) WIDTH -1 = %f\n", (double) WIDTH -1);
-	printf("ray->camX = %f\n", ray->camX);
-	printf("ray->ray_dir[X] = %f\n", ray->ray_dir[X]);
-	printf("ray->ray_dir[Y] = %f\n", ray->ray_dir[Y]); */
-	//exit(1);
 }
 
 
@@ -95,5 +88,5 @@ static void draw(t_data *data, t_dda *dda, t_ray ray)
 	{
 		mlx_put_pixel(data->window.image, ray.index, ray.draw_start, red);
 		ray.draw_start++;
-	}	
+	}
 }
