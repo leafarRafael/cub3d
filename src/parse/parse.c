@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 15:40:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/17 15:36:16 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 #include "libft.h"
 #include <stdio.h>
 #include "defines.h"
+#include <math.h>
+# define M_PI__2 1.57079632679489661923
 
 static int init_data(t_data *data, char *file);
 static char **cpy_file(char *file);
@@ -48,7 +50,10 @@ static int init_data(t_data *data, char *file)
 	data->window.mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	data->window.image = mlx_new_image(data->window.mlx, WIDTH, HEIGHT);
 	data->window.player = mlx_new_image(data->window.mlx, 400, 400);
-	data->window.wall[NORTH] = mlx_load_png("textures/wall.png");
+	data->window.wall[NORTH] = mlx_load_png("textures/eagle.png");
+	data->window.wall[SOUTH] = mlx_load_png("textures/bluestone.png");
+	data->window.wall[WEST] = mlx_load_png("textures/bluestone.png");
+	data->window.wall[EAST] = mlx_load_png("textures/wood.png");
 	data->rgb_floor[0] = 0;
 	data->rgb_floor[1] = 100;
 	data->rgb_floor[2] = 0;
@@ -96,12 +101,14 @@ static char **cpy_file(char *file)
 
 static void init_coord(t_plr *coord, t_data *data)
 {
-	coord->pos[X] = 22;
-	coord->pos[Y] = 12;
-	coord->plane[X] = 0;
-	coord->plane[Y] = 0.66;
-	coord->dir[X] = -1;
-	coord->dir[Y] = 0;
+	coord->pos[X] = 12;
+	coord->pos[Y] = 22;
+
+	coord->dir[Y] = 1;
+	coord->dir[X] = 0;
+
+	coord->plane[Y] = coord->dir[X] * sin(M_PI__2) + coord->dir[Y] * cos(M_PI__2);
+	coord->plane[X] = coord->dir[X] * cos(M_PI__2) + coord->dir[Y] * -sin(M_PI__2);
 	coord->time[CURRENT] = 0;
 	coord->time[OLD_TIME] = 0;
 	data->coord = coord; 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/14 17:31:49 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/15 18:28:39 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	draw_plaine(t_data *data)
 
 void	define_value(int ptr[2], int pos_x, int pos_y)
 {
-	ptr[Y] = pos_y;
-	ptr[X] = pos_x;
+	ptr[X] = pos_y;
+	ptr[Y] = pos_x;
 }
 
 static void	draw_pixel(int plaine[2], int pos[2], int color, mlx_image_t *image)
@@ -61,12 +61,12 @@ static void	draw_pixel(int plaine[2], int pos[2], int color, mlx_image_t *image)
 	int	x;
 
 	y = 0;
-	while (y < plaine[Y])
+	while (y < plaine[X])
 	{
 		x = 0;
-		while (x < plaine[X])
+		while (x < plaine[Y])
 		{
-			mlx_put_pixel(image, pos[X] + x, pos[Y] + y, color);
+			mlx_put_pixel(image, pos[Y] + x, pos[X] + y, color);
 			x++;
 		}
 		y++;

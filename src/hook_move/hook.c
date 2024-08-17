@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 08:47:14 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/17 15:35:59 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,35 +55,41 @@ static void ctrl(int c, t_data *data)
 
 	if (c == MLX_KEY_W)
 	{
-		if (data->worldmap[(int)(data->coord->pos[X] + data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == '0')
-			data->coord->pos[X] +=  data->coord->dir[X] * MOVE_SPPED;
-		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] + data->coord->dir[Y] * MOVE_SPPED)] == '0')
-			data->coord->pos[Y] += data->coord->dir[Y] * MOVE_SPPED;
+		if (data->worldmap[(int)(data->coord->pos[Y] + data->coord->dir[Y] * MOVE_SPPED)][(int) (data->coord->pos[X])] == '0')
+			data->coord->pos[Y] +=  data->coord->dir[Y] * MOVE_SPPED;
+		if (data->worldmap[(int)data->coord->pos[Y]][(int)(data->coord->pos[X] + data->coord->dir[X] * MOVE_SPPED)] == '0')
+			data->coord->pos[X] += data->coord->dir[X] * MOVE_SPPED;
 	}
 	else if (c == MLX_KEY_S)
 	{
-		if (data->worldmap[(int)(data->coord->pos[X] - data->coord->dir[X] * MOVE_SPPED)][(int) (data->coord->pos[Y])] == '0')
-			data->coord->pos[X] -=  data->coord->dir[X] * MOVE_SPPED;
-		if (data->worldmap[(int)data->coord->pos[X]][(int)(data->coord->pos[Y] - data->coord->dir[Y] * MOVE_SPPED)] == '0')
-			data->coord->pos[Y] -= data->coord->dir[Y] * MOVE_SPPED;
+		if (data->worldmap[(int)(data->coord->pos[Y] - data->coord->dir[Y] * MOVE_SPPED)][(int) (data->coord->pos[X])] == '0')
+			data->coord->pos[Y] -=  data->coord->dir[Y] * MOVE_SPPED;
+		if (data->worldmap[(int)data->coord->pos[Y]][(int)(data->coord->pos[X] - data->coord->dir[X] * MOVE_SPPED)] == '0')
+			data->coord->pos[X] -= data->coord->dir[X] * MOVE_SPPED;
 	}
-	else if (c == MLX_KEY_D)
+	else if (c == MLX_KEY_LEFT)
 	{
-		dir = data->coord->dir[X];
-		plane = data->coord->plane[X];
-		data->coord->dir[X] = data->coord->dir[X] * cos(-ROT_SPEED) - data->coord->dir[Y] * sin (-ROT_SPEED);
-		data->coord->dir[Y] = dir * sin (-ROT_SPEED) + data->coord->dir[Y] * cos(-ROT_SPEED);
-		data->coord->plane[X] = data->coord->plane[X] * cos(-ROT_SPEED) - data->coord->plane[Y] * sin (-ROT_SPEED);
-		data->coord->plane[Y] = plane * sin (-ROT_SPEED) + data->coord->plane[Y] * cos(-ROT_SPEED);
+		dir = data->coord->dir[Y];
+		plane = data->coord->plane[Y];
+		data->coord->dir[Y] = data->coord->dir[Y] * cos(ROT_SPEED) - data->coord->dir[X] * sin (ROT_SPEED);
+		data->coord->dir[X] = dir * sin (ROT_SPEED) + data->coord->dir[X] * cos(ROT_SPEED);
+		data->coord->plane[Y] = data->coord->plane[Y] * cos(ROT_SPEED) - data->coord->plane[X] * sin (ROT_SPEED);
+		data->coord->plane[X] = plane * sin (ROT_SPEED) + data->coord->plane[X] * cos(ROT_SPEED);
 	}
-	else if (c == MLX_KEY_A)
+	else if (c == MLX_KEY_RIGHT)
 	{
-		dir = data->coord->dir[X];
-		plane = data->coord->plane[X];
-		data->coord->dir[X] = data->coord->dir[X] * cos(ROT_SPEED) - data->coord->dir[Y] * sin (ROT_SPEED);
-		data->coord->dir[Y] = dir * sin (ROT_SPEED) + data->coord->dir[Y] * cos(ROT_SPEED);
-		data->coord->plane[X] = data->coord->plane[X] * cos(ROT_SPEED) - data->coord->plane[Y] * sin (ROT_SPEED);
-		data->coord->plane[Y] = plane * sin (ROT_SPEED) + data->coord->plane[Y] * cos(ROT_SPEED);
+
+		dir = data->coord->dir[Y];
+		plane = data->coord->plane[Y];
+		double dir3 =  data->coord->dir[Y] * cos(-ROT_SPEED) - data->coord->dir[X] * sin (-ROT_SPEED);
+		double dir4 =  dir * sin (-ROT_SPEED) + data->coord->dir[X] * cos(-ROT_SPEED);
+		double plane3 = data->coord->plane[Y] * cos(-ROT_SPEED) - data->coord->plane[X] * sin (-ROT_SPEED);
+		double plane4 = plane * sin (-ROT_SPEED) + data->coord->plane[X] * cos(-ROT_SPEED);
+		printf("dir3 = %f dir4 = %f plane3 %f plane4 %f\n", dir3, dir4, plane3, plane4);
+		data->coord->dir[Y] = data->coord->dir[Y] * cos(-ROT_SPEED) - data->coord->dir[X] * sin (-ROT_SPEED);
+		data->coord->dir[X] = dir * sin (-ROT_SPEED) + data->coord->dir[X] * cos(-ROT_SPEED);
+		data->coord->plane[Y] = data->coord->plane[Y] * cos(-ROT_SPEED) - data->coord->plane[X] * sin (-ROT_SPEED);
+		data->coord->plane[X] = plane * sin (-ROT_SPEED) + data->coord->plane[X] * cos(-ROT_SPEED);
 	}
 	else if (c == MLX_KEY_UP)
 		printf("Aguardando desenvolvimento da tecla [UP]\n");
