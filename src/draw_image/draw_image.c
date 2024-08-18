@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 18:28:39 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/18 17:05:56 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ int	draw_plaine(t_data *data)
 	int	plaine[2];
 	int	pos[2];
 
-	{//zerando as cores da imagem
+	{
 		define_value(pos, 0, 0);
 		define_value(plaine, WIDTH, HEIGHT);
 		color = ft_color(0, 0, 0, 0);
 		draw_pixel(plaine, pos, color, data->window.image);
 	}
-	{//pintando a metade superior da imagem
+	{
 		define_value(pos, 0, 0);
 		define_value(plaine, WIDTH, HEIGHT / 2);
 		color = ft_color(data->rgb_cel[0],
 				data->rgb_cel[1], data->rgb_cel[2],data->rgb_cel[3]);
 		draw_pixel(plaine, pos, color, data->window.image);
 	}
-	{//pintando a metade inferior da imagem
+	{
 		define_value(plaine, WIDTH, HEIGHT / 2);
 		define_value(pos, 0, HEIGHT / 2);
 		color = ft_color(data->rgb_floor[0],

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/13 14:14:41 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/18 11:50:06 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ PARSE			:= parse/
 HOOK_MOVE		:= hook_move/
 DRAW_IMAGE		:= draw_image/
 RAYCASTING		:= raycasting/
+TEXTURE			:= pixels_texture/
 INCLUDE			:= ../includes
 MLX42			:= ../lib/MLX42/include/MLX42/
 LIBFT			:= ../lib/lib_get_print/includes/
@@ -44,7 +45,8 @@ INCLUDES		:= -I $(RAYCASTING)\
 				-I $(HOOK_MOVE)\
 				-I $(MLX42)\
 				-I $(LIBFT)\
-				-I $(DRAW_IMAGE)
+				-I $(DRAW_IMAGE)\
+				-I $(TEXTURE)
 
 #-----------------------------------------------------------------------------------------
 # Source files
@@ -53,6 +55,7 @@ FILE_PARSE		:= parse.c
 FILE_HOOK		:= hook.c
 FILE_DRAW_IMAGE	:= draw_image.c
 FILE_RAY		:= ray_casting.c dda.c
+FILE_TEXTURE	:= pixels_texture.c
 
 #-----------------------------------------------------------------------------------------
 # Source files
@@ -61,6 +64,7 @@ SRC_FILES		:= $(addprefix $(DRAW_IMAGE), $(FILE_DRAW_IMAGE))\
 					$(addprefix $(UTILS), $(FILE_UTILS))\
 					$(addprefix $(PARSE), $(FILE_PARSE))\
 					$(addprefix $(HOOK_MOVE), $(FILE_HOOK))\
+					$(addprefix $(TEXTURE), $(FILE_TEXTURE))\
 					main.c\
 
 #-----------------------------------------------------------------------------------------

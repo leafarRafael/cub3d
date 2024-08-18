@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:53 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 18:28:39 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/18 18:32:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,15 @@ static void	init_dda_variables(t_dda *dda, t_data *data, t_ray *ray)
 {
 	dda->map[Y] = (int) data->coord->pos[Y];
 	dda->map[X] = (int) data->coord->pos[X];
-	dda->delta_dist[Y] = (ray->ray_dir[Y] == 0) ? 1e30 : fabs(1 / ray->ray_dir[Y]);
-	dda->delta_dist[X] = (ray->ray_dir[X] == 0) ? 1e30 : fabs(1 / ray->ray_dir[X]);
+	if (ray->ray_dir[Y] == 0)
+		dda->delta_dist[Y] = INFINITY;
+	else 
+		dda->delta_dist[Y] = fabs(1 / ray->ray_dir[Y]);
+
+	if (ray->ray_dir[X] == 0)
+		dda->delta_dist[X] = INFINITY;
+	else
+		dda->delta_dist[X] = fabs(1 / ray->ray_dir[X]);
 	dda->hit = 0;
 }
 
@@ -68,21 +75,27 @@ static void	find_collision(t_data *data, t_dda *dda, t_ray *ray)
 	{
 		if (dda->side_dist[Y] < dda->side_dist[X])
 		{
-			dda->side_dist[Y] = dda->side_dist[Y] + dda->delta_dist[Y];
-			dda->map[Y] = dda->map[Y] + dda->step[Y];
-			dda->side = 0;
+			dda->side_dist[Y] += dda->delta_dist[Y];
+			dda->map[Y] += dda->step[Y];
+			if (ray->ray_dir[Y] < 0)
+				dda->side = NORTH;
+			else
+				dda->side = SOUTH;
 		}
 		else
 		{
 			dda->side_dist[X] += dda->delta_dist[X];
 			dda->map[X] += dda->step[X];
-			dda->side = 1;
+			if (ray->ray_dir[X] < 0)
+				dda->side = WEST;
+			else
+				dda->side = EAST;
 		}
 		if (data->worldmap[dda->map[Y]][dda->map[X]] != '0')
 			dda->hit = 1;
 	}
-	if (dda->side == 0)
-		ray->distance_wall = (dda->side_dist[Y] - dda->delta_dist[Y]);
-	else
+	if (dda->side == WEST || dda->side == EAST)
 		ray->distance_wall = (dda->side_dist[X] - dda->delta_dist[X]);
+	else
+		ray->distance_wall = (dda->side_dist[Y] - dda->delta_dist[Y]);
 }
