@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_image.h                                       :+:      :+:    :+:   */
+/*   draw_ceiling_floor.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:34:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/11 15:36:05 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:01:28 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_IMAGE_H
-# define DRAW_IMAGE_H
+#ifndef DRAW_CEILING_FLOOR_H
+# define DRAW_CEILING_FLOOR_H
 
 # include <MLX42.h>
 
-int	draw_plaine(t_data *data);
+int	draw_ceiling_floor(t_data *data);
 
 #endif

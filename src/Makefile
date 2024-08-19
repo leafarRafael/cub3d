@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/19 15:03:38 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/19 16:04:41 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,16 +50,16 @@ INCLUDES		:= -I $(RAYCASTING)\
 
 #-----------------------------------------------------------------------------------------
 # Source files
-FILE_UTILS		:= utils.c
-FILE_PARSE		:= parse.c coordinates.c
-FILE_HOOK		:= hook.c
-FILE_DRAW_IMAGE	:= draw_image.c
-FILE_RAY		:= ray_casting.c dda.c
-FILE_TEXTURE	:= pixels_texture.c
+FILE_UTILS			:= utils.c
+FILE_PARSE			:= parse.c coordinates.c
+FILE_HOOK			:= hook.c
+DRAW_CEILING_FLOOR	:= draw_ceiling_floor.c draw_texture_image.c
+FILE_RAY			:= ray_casting.c dda.c
+FILE_TEXTURE		:= pixels_texture.c
 
 #-----------------------------------------------------------------------------------------
 # Source files
-SRC_FILES		:= $(addprefix $(DRAW_IMAGE), $(FILE_DRAW_IMAGE))\
+SRC_FILES		:= $(addprefix $(DRAW_IMAGE), $(DRAW_CEILING_FLOOR))\
 					$(addprefix $(RAYCASTING), $(FILE_RAY))\
 					$(addprefix $(UTILS), $(FILE_UTILS))\
 					$(addprefix $(PARSE), $(FILE_PARSE))\

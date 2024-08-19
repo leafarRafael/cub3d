@@ -3,22 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/18 17:05:22 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:02:59 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hook.h"
 #include "data.h"
 #include "parse.h"
-#include "draw_image.h"
+#include "draw_ceiling_floor.h"
 #include "libft.h"
 #include "MLX42.h"
-#include <stdlib.h>
 #include "ray_casting.h"
-#include "defines.h"
 #include <stdio.h>
 #include "utils.h"
 
@@ -29,7 +27,7 @@ int main(int argc, char **argv)
 	data = parse(argc, argv);
 	if (!data)
 		return (error_handler("ERROR\n", NULL, NULL, NULL));
-	draw_plaine(data);
+	draw_ceiling_floor(data);
 	ray_casting(data);
 	mlx_image_to_window(data->window.mlx, data->window.image, 0, 0);
 	mlx_loop_hook(data->window.mlx, ft_hook, (void*)data);

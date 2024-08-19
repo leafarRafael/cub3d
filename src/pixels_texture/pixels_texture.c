@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixels_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:38:37 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/18 19:01:09 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:12:40 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include <MLX42.h>
 #include "libft.h"
 #include <math.h>
+#include "draw_texture_image.h"
 
 static unsigned int	rearrange_color(unsigned int argb);
-static int draw(t_data *data, t_ray *ray, int bufercolor[HEIGHT]);
 
 int	buffer_pixel_texture(t_data *data, t_dda *dda, t_ray *ray)
 {
@@ -51,17 +51,7 @@ int	buffer_pixel_texture(t_data *data, t_dda *dda, t_ray *ray)
 			bufercolor[i] = rearrange_color(color);
 		}
 	}
-	return (draw(data, ray, bufercolor));
-}
-
-static int draw(t_data *data, t_ray *ray, int bufercolor[HEIGHT])
-{
-	while (ray->draw_start < ray->draw_end)
-	{
-		mlx_put_pixel(data->window.image, ray->index, ray->draw_start, bufercolor[ray->draw_start]);
-		ray->draw_start++;
-	}
-	return (0);
+	return (draw_texture_on_image(data, ray, bufercolor));
 }
 
 static unsigned int	rearrange_color(unsigned int argb)

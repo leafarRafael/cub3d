@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/18 17:02:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/19 16:01:50 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <MLX42.h>
 #include "data.h"
 #include <stdio.h>
-#include "draw_image.h"
+#include "draw_ceiling_floor.h"
 #include <libft.h>
 #include "defines.h"
 #include "ray_casting.h"
@@ -44,7 +44,7 @@ void ft_hook(void* param)
 		ctrl(MLX_KEY_S, data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_W))
 		ctrl(MLX_KEY_W, data);
-	draw_plaine(data);
+	draw_ceiling_floor(data);
 	ray_casting(data);
 }
 
