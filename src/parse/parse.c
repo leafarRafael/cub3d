@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/18 18:04:57 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/19 15:05:04 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,22 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "get_next_line.h"
-#include "libft.h"
-#include <stdio.h>
 #include "defines.h"
-#include <math.h>
-# define M_PI__2 1.57079632679489661923
+#include "coordinates.h"
 
 static int init_data(t_data *data, char *file);
 static char **cpy_file(char *file);
-static void	init_coord(t_plr *coord, t_data *data);
 
 t_data *parse(int argc, char **argv)
 {
-	static t_data	*data;
-	static t_plr	*coord;
+	static t_data	data;
+	static t_plr	coord;
 
 	if (argc != 2)
 		return (NULL);
-	if (!argv)
-		return (NULL);
-	data = malloc(sizeof(t_data));
-	coord = malloc(sizeof(t_plr));
-	init_data(data, argv[1]);
-	init_coord(coord, data);
-	return (data);
+	init_data(&data, argv[1]);
+	set_initial_coordinates(&coord, &data);
+	return (&data);
 }
 
 static int init_data(t_data *data, char *file)
@@ -97,17 +89,4 @@ static char **cpy_file(char *file)
 	cpy[i] = NULL;
 	close(fd);
 	return (cpy);
-}
-
-static void init_coord(t_plr *coord, t_data *data)
-{
-	coord->pos[X] = 12.5;
-	coord->pos[Y] = 22.5;
-	coord->dir[Y] = 0;
-	coord->dir[X] = -1;
-	coord->plane[Y] = coord->dir[X] * sin(M_PI__2) + coord->dir[Y] * cos(M_PI__2) * 0.66;
-	coord->plane[X] = coord->dir[X] * cos(M_PI__2) + coord->dir[Y] * -sin(M_PI__2) * 0.66;
-	coord->time[CURRENT] = 0;
-	coord->time[OLD_TIME] = 0;
-	data->coord = coord; 
 }

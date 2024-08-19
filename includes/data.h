@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/15 09:20:16 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/19 10:36:32 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ typedef struct s_player
 	double	pos[2];
 	double	dir[2];
 	double	plane[2];
-	double	time[2];
-
 }	t_plr;
 
 typedef struct s_data

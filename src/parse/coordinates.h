@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   coordinates.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 13:29:25 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/19 14:57:09 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/19 15:06:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINES_H
- #define DEFINES_H
+#ifndef COORDINATES_H
+ #define COORDINATES_H
 
-#define texWidth 64
-#define texHeight 64
-#define mapWidth 24
-#define mapHeight 24
-#define WIDTH 800
-#define HEIGHT 600
-#define MOVE_SPPED 0.05
-#define ROT_SPEED 0.03
-#define X 0
-#define Y 1
-#define FOV 0.66
+typedef struct s_player t_plr;
+typedef struct s_data t_data;
+
+/**
+ * @brief Set the initial coordinates object
+ * 
+ * @param coord 
+ * @param data 
+ */
+
+void set_initial_coordinates(t_plr *coord, t_data *data);
 
 #endif
