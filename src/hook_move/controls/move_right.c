@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 12:00:45 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/20 13:12:10 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,17 @@ void	muve_right(t_data *data)
  * the player's Y coordinate will be updated.
  * 
  * @param data A pointer to the main game data structure (t_data).
- * Checks that the position update does not result in a collision
- * and updates data->coord->pos[Y].
+ * 
+ * The function first checks whether the position update is valid:
+ * This is done by checking the player's positional vector
+ * (using only the integer part of the Y and X axis) relative to the 2D map. 
+ * If the content of `map[y][x]` is '0', the position is valid.
+ *  
+ * The variable `data->coord->pos[Y]` is then updated by subtracting
+ * the product of the player's plane on the Y axis and MOVE_SPEED (0.05).
+ * Depending on the plane the player is facing, this operation can result 
+ * in an increase or decrease in the Y positional axis.
+ * 
  * */
 static void	muve_axis_y(t_data *data)
 {
@@ -72,11 +81,20 @@ static void	muve_axis_y(t_data *data)
  * This function checks for possible collisions before updating the player's
  * X-axis position.
  * If the space ahead is free (represented as '0' on the 2d map),
- * the player's X coordinate will be updated.
+ * the player's Y coordinate will be updated.
  * 
  * @param data A pointer to the main game data structure (t_data).
- * Checks that the position update does not result in a collision
- * and updates data->coord->pos[X].
+ * 
+ * The function first checks whether the position update is valid:
+ * This is done by checking the player's positional vector
+ * (using only the integer part of the Y and X axis) relative to the 2D map. 
+ * If the content of `map[y][x]` is '0', the position is valid.
+ *  
+ * The variable `data->coord->pos[X]` is then updated by subtracting
+ * the product of the player's plane on the X axis and MOVE_SPEED (0.05).
+ * Depending on the plane the player is facing, this operation can result 
+ * in an increase or decrease in the X positional axis.
+ * 
  * */
 static void	muve_axis_x(t_data *data)
 {
