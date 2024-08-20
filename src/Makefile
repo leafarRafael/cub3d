@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/19 16:04:41 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/20 09:00:34 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ CMD_CLEAN		:= rm -Rf
 UTILS			:= utils/
 PARSE			:= parse/
 HOOK_MOVE		:= hook_move/
-DRAW_IMAGE		:= draw_image/
+CTRL			:= hook_move/controls/
+RENDER_IMAGE	:= render_image/
 RAYCASTING		:= raycasting/
 TEXTURE			:= pixels_texture/
 INCLUDE			:= ../includes
@@ -45,24 +46,29 @@ INCLUDES		:= -I $(RAYCASTING)\
 				-I $(HOOK_MOVE)\
 				-I $(MLX42)\
 				-I $(LIBFT)\
-				-I $(DRAW_IMAGE)\
-				-I $(TEXTURE)
+				-I $(RENDER_IMAGE)\
+				-I $(TEXTURE)\
+				-I $(CTRL)
 
 #-----------------------------------------------------------------------------------------
 # Source files
-FILE_UTILS			:= utils.c
-FILE_PARSE			:= parse.c coordinates.c
-FILE_HOOK			:= hook.c
-DRAW_CEILING_FLOOR	:= draw_ceiling_floor.c draw_texture_image.c
-FILE_RAY			:= ray_casting.c dda.c
-FILE_TEXTURE		:= pixels_texture.c
+FILE_UTILS		:= utils.c
+FILE_PARSE		:= parse.c coordinates.c
+FILE_HOOK		:= hook.c
+FILE_CTRL		:= move_up.c move_down.c move_left.c move_right.c\
+					rotate_cam_right.c rotate_cam_left.c
+
+RENDER			:= render_ceiling_floor.c render_texture_image.c
+FILE_RAY		:= ray_casting.c dda.c
+FILE_TEXTURE	:= pixels_texture.c
 
 #-----------------------------------------------------------------------------------------
 # Source files
-SRC_FILES		:= $(addprefix $(DRAW_IMAGE), $(DRAW_CEILING_FLOOR))\
+SRC_FILES		:= $(addprefix $(RENDER_IMAGE), $(RENDER))\
 					$(addprefix $(RAYCASTING), $(FILE_RAY))\
 					$(addprefix $(UTILS), $(FILE_UTILS))\
 					$(addprefix $(PARSE), $(FILE_PARSE))\
+					$(addprefix $(CTRL), $(FILE_CTRL))\
 					$(addprefix $(HOOK_MOVE), $(FILE_HOOK))\
 					$(addprefix $(TEXTURE), $(FILE_TEXTURE))\
 					main.c\

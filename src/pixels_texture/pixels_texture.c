@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:38:37 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 16:12:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/20 08:07:21 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <MLX42.h>
 #include "libft.h"
 #include <math.h>
-#include "draw_texture_image.h"
+#include "render_texture_image.h"
 
 static unsigned int	rearrange_color(unsigned int argb);
 
@@ -51,7 +51,7 @@ int	buffer_pixel_texture(t_data *data, t_dda *dda, t_ray *ray)
 			bufercolor[i] = rearrange_color(color);
 		}
 	}
-	return (draw_texture_on_image(data, ray, bufercolor));
+	return (render_texture_on_image(data, ray, bufercolor));
 }
 
 static unsigned int	rearrange_color(unsigned int argb)

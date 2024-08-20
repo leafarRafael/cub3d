@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_texture_image.h                               :+:      :+:    :+:   */
+/*   render_texture_image.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 17:44:39 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/20 08:06:46 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_TEXTURE_IMAGE_H
-# define DRAW_TEXTURE_IMAGE_H
+#ifndef RENDER_TEXTURE_IMAGE_H
+# define RENDER_TEXTURE_IMAGE_H
 
 # include <MLX42.h>
 # include "defines.h"
@@ -44,6 +44,6 @@ typedef struct s_data			t_data;
  *  at a corresponding Y-coordinate on the screen.
  */
 
-int	draw_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT]);
+int	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT]);
 
 #endif

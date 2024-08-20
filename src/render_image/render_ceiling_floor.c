@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_ceiling_floor.c                               :+:      :+:    :+:   */
+/*   render_ceiling_floor.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 17:10:15 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/20 08:03:58 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include "defines.h"
 
-static void	draw_pixel(int plaine[2],
+static void	render_pixel(int plaine[2],
 				int pos[2], int color, mlx_image_t *image);
 static void	define_value(int ptr[2], int value1, int value2);
 
@@ -35,7 +35,7 @@ static void	define_value(int ptr[2], int value1, int value2);
  *          window.image: The image buffer where the pixels will be drawn.
  */
 
-void	draw_ceiling_floor(t_data *data)
+void	render_ceiling_floor(t_data *data)
 {
 	int	color;
 	int	plaine[2];
@@ -45,21 +45,21 @@ void	draw_ceiling_floor(t_data *data)
 		define_value(pos, 0, 0);
 		define_value(plaine, WIDTH, HEIGHT);
 		color = ft_color(0, 0, 0, 0);
-		draw_pixel(plaine, pos, color, data->window.image);
+		render_pixel(plaine, pos, color, data->window.image);
 	}
 	{
 		define_value(pos, 0, 0);
 		define_value(plaine, WIDTH, HEIGHT / 2);
 		color = ft_color(data->rgb_cel[0],
 				data->rgb_cel[1], data->rgb_cel[2], data->rgb_cel[3]);
-		draw_pixel(plaine, pos, color, data->window.image);
+		render_pixel(plaine, pos, color, data->window.image);
 	}
 	{
 		define_value(plaine, WIDTH, HEIGHT / 2);
 		define_value(pos, 0, HEIGHT / 2);
 		color = ft_color(data->rgb_floor[0],
 				data->rgb_floor[1], data->rgb_floor[2], data->rgb_floor[3]);
-		draw_pixel(plaine, pos, color, data->window.image);
+		render_pixel(plaine, pos, color, data->window.image);
 	}
 }
 
@@ -101,7 +101,7 @@ static void	define_value(int ptr[2], int pos_x, int pos_y)
  * @param image A pointer to the `mlx_image_t` structure that
  * 			represents the image where the pixels will be drawn.
  */
-static void	draw_pixel(int plaine[2], int pos[2], int color, mlx_image_t *image)
+static void	render_pixel(int plaine[2], int pos[2], int color, mlx_image_t *image)
 {
 	int	y;
 	int	x;

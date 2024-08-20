@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_texture_image.c                               :+:      :+:    :+:   */
+/*   render_texture_image.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 17:44:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/20 08:03:01 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
  *  - Each element in this array represents the color of a pixel 
  *  at a corresponding Y-coordinate on the screen.
  */
-int	draw_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT])
+int	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT])
 {
 	while (ray->draw_start < ray->draw_end)
 	{
