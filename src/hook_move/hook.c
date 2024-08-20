@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 09:01:34 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/20 11:16:43 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include "ray_casting.h"
 #include "controls.h"
 
-void ft_hook(void* param)
+void	ft_hook(void *param)
 {
-	t_data *data;
+	t_data	*data;
 
-	data = (t_data*) param;
+	data = (t_data *) param;
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(data->window.mlx);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_LEFT))
@@ -28,7 +28,7 @@ void ft_hook(void* param)
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_RIGHT))
 		rotate_cam_right(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_A))
-		muve_left(data);;
+		muve_left(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_D))
 		muve_right(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_S))
