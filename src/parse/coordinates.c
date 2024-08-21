@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coordinates.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 14:57:09 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 15:35:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/21 15:01:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,5 @@ static int set_initial_direction(double dir[2], char c)
 static void set_vector_rotation_cam_plane(double plane[2], double dir[2])
 {
 	plane[Y] = dir[X] * FOV;
-	plane[X] = -dir[Y] * FOV;	
+	plane[X] = -dir[Y] * FOV;
 }

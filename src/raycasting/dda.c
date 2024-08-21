@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:53 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/18 18:32:49 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/21 17:27:40 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ static void	init_dda_variables(t_dda *dda, t_data *data, t_ray *ray)
 	dda->map[X] = (int) data->coord->pos[X];
 	if (ray->ray_dir[Y] == 0)
 		dda->delta_dist[Y] = INFINITY;
-	else 
+	else
 		dda->delta_dist[Y] = fabs(1 / ray->ray_dir[Y]);
-
 	if (ray->ray_dir[X] == 0)
 		dda->delta_dist[X] = INFINITY;
 	else

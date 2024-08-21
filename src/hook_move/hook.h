@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:51:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 11:17:39 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/21 13:49:36 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
  *  - MLX_KEY_RIGHT: Rotates the camera to the right.
  *  - MLX_KEY_A: Moves the player to the left.
  *  - MLX_KEY_D: Moves the player to the right.
- *  - MLX_KEY_S: Moves the player down.
- *  - MLX_KEY_W: Moves the player up.
+ *  - MLX_KEY_S: Move the player backwards.
+ *  - MLX_KEY_W: Move the player forward.
  * 
  * After updating the player's coordinates and camera rotation,
  * the function calls:

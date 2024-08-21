@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/20 09:00:34 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/21 13:56:05 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ FILE_UTILS		:= utils.c
 FILE_PARSE		:= parse.c coordinates.c
 FILE_HOOK		:= hook.c
 FILE_CTRL		:= move_up.c move_down.c move_left.c move_right.c\
-					rotate_cam_right.c rotate_cam_left.c
+					rotate_right.c rotate_left.c
 
 RENDER			:= render_ceiling_floor.c render_texture_image.c
 FILE_RAY		:= ray_casting.c dda.c

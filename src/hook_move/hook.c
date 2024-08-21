@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 11:16:43 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/21 11:30:31 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,4 @@ void	ft_hook(void *param)
 		muve_down(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_W))
 		muve_up(data);
-	render_ceiling_floor(data);
-	ray_casting(data);
 }

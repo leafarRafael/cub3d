@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_up.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 13:13:29 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/21 13:50:23 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "defines.h"
 #include <math.h>
 #include "controls.h"
+#include "render_ceiling_floor.h"
+#include "ray_casting.h"
 
 static void	muve_axis_y(t_data *data);
 static void	muve_axis_x(t_data *data);
@@ -23,7 +25,7 @@ static void	muve_axis_x(t_data *data);
  * 
  * This function handles the movement logic when the player
  * presses a movement key, specifically the key mapped to 
- * moving upward in the game world.
+ * moving forward in the game world.
  * 
  * @param data A pointer to the main game data structure (t_data).
  *  
@@ -41,6 +43,8 @@ void	muve_up(t_data *data)
 {
 	muve_axis_y(data);
 	muve_axis_x(data);
+	render_ceiling_floor(data);
+	ray_casting(data);
 }
 
 /**
