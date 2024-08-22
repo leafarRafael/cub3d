@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixels_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:38:37 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/21 15:50:38 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/22 08:27:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	buffer_pixel_texture(t_data *data, t_dda *dda, t_ray *ray)
 			wallX = data->coord->pos[Y] + ray->distance_wall * ray->ray_dir[Y];
 		wallX -= floor(wallX);
 		texX = (int)(wallX * (double)data->window.wall[dda->side]->width);
-		step = 1.0 * data->window.wall[dda->side]->height / ray->line_height;
-		texPos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2) * step;
+		step = 1.0 * data->window.wall[dda->side]->height / ray->column_height;
+		texPos = (ray->draw_start - HEIGHT / 2 + ray->column_height / 2) * step;
 		for(int i  = ray->draw_start; i < ray->draw_end; i++)
 		{
 			texY = (int)texPos & (data->window.wall[dda->side]->height -1);

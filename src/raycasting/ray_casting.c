@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/21 17:29:31 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/22 09:15:33 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <MLX42.h>
 #include "pixels_texture.h"
 
-static void	define_ray_dir(t_ray *ray, t_data *data);
+static void	ray_dir(t_ray *ray, t_data *data);
 static void set_column_height(t_ray *ray);
 
 /**
@@ -43,7 +43,6 @@ static void set_column_height(t_ray *ray);
  *  - buffer_pixel_texture(data, &dda, &ray):
  *      Samples the correct pixels from the texture and stores them in the buffer to be drawn to the screen.
  */
-
 void	ray_casting(t_data *data)
 {
 	t_ray	ray;
@@ -52,7 +51,7 @@ void	ray_casting(t_data *data)
 	ray.index = 0;
 	while (ray.index < WIDTH)
 	{
-		define_ray_dir(&ray, data);
+		ray_dir(&ray, data);
 		ft_dda(data, &ray, &dda);
 		set_column_height(&ray);
 		buffer_pixel_texture(data, &dda, &ray);
@@ -61,27 +60,53 @@ void	ray_casting(t_data *data)
 }
 
 /**
- * @brief 
+ * @brief Calculates the ray direction vector for the current column.
  * 
- * @param ray 
- * @param data 
- */
-
-static void	define_ray_dir(t_ray *ray, t_data *data)
+ *	This function calculates the angle of each beam that will be fired,
+ *  covering all columns within the field of view (FOV).
+ * 
+ * @param ray Pointer to structure with raycasting algorithm variable.
+ * @param data A pointer to the main game data structure (t_data).
+ * The following attributes are calculated or updated updated in this function:
+ *  - cam:
+ * 	Is the basis for calculating the angle of the radius direction vector.
+ *	- ray->ray_dir[](Y and X):
+ * 	This is the direction in which the beam will be fired.
+ *	- ray->distance_wall:
+ * 	You will then be given the distance by radius to the collision.
+ **/
+static void	ray_dir(t_ray *ray, t_data *data)
 {
-	ray->camX = 2 * ray->index / (double) WIDTH -1;
-	ray->ray_dir[Y] = data->coord->dir[Y] + (data->coord->plane[Y] * ray->camX);
-	ray->ray_dir[X] = data->coord->dir[X] + (data->coord->plane[X] * ray->camX);
+	double	cam;
+	
+	cam = 2 * ray->index / (double) WIDTH -1;
+	ray->ray_dir[Y] = data->coord->dir[Y] + (data->coord->plane[Y] * cam);
+	ray->ray_dir[X] = data->coord->dir[X] + (data->coord->plane[X] * cam);
 	ray->distance_wall = 0;
 }
 
+/**
+ * @brief Calculates the start and end point for rendering the texture.
+ * 
+ * Here we calculate the vertical range of pixels that will be rendered.
+ * 
+ * @param ray Pointer to structure with raycasting algorithm variable.
+ * 
+ * 	The following attributes are calculated or updated updated in this function:
+ *  - ray->column_height:
+ * 	Result between the ratio of the distance traveled and the height of the screen.
+ * 	- ray->draw_start and ray->draw_end::
+ * 	point in the window where the column's rendering begins and ends respectively.
+ *  We make a protection in case the start and end
+ *  values are outside the window's range.
+ **/
 static void set_column_height(t_ray *ray)
 {
-	ray->line_height = (int) (HEIGHT / ray->distance_wall);
-	ray->draw_start = (-ray->line_height / 2) + (HEIGHT / 2);
+	ray->column_height = (int)(HEIGHT / ray->distance_wall);
+	ray->draw_start = (-ray->column_height / 2) + (HEIGHT / 2);
+	ray->draw_end = ray->column_height / 2 + HEIGHT / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
-	ray->draw_end = 	ray->line_height / 2 + HEIGHT / 2;
 	if (ray->draw_end >= HEIGHT)
 		ray->draw_end = HEIGHT -1;
 }
