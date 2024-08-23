@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 08:06:46 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 09:57:42 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ typedef struct s_data			t_data;
  *  at a corresponding Y-coordinate on the screen.
  */
 
-int	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT]);
+void	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT]);
 
 #endif

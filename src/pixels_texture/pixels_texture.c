@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:38:37 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/22 18:16:36 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 10:03:05 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,74 +14,77 @@
 #include "ray_casting.h"
 #include "dda.h"
 #include "defines.h"
-#include <MLX42.h>
-#include "libft.h"
 #include <math.h>
 #include "render_texture_image.h"
+#include "pixels_texture.h"
 
-static unsigned int	rearrange_color(unsigned int argb);
-static double define_wallX(t_data *data, t_ray *ray, t_dda *dda);
-static void get_pixels_texture(t_dda *dda, t_ray *ray, t_data *data, int tex[2], int bufercolor[HEIGHT]);
+static int	get_coordinate_x_text(t_data *data, t_ray *ray, t_dda *dda);
+static void	calc_coord_tex(t_data *data, t_dda *dda, t_ray *ray, t_text *pix);
+static void	get_color_buffer(t_ray *ray, t_text *pix);
 
-int	buffer_pixel_texture(t_data *data, t_dda *dda, t_ray *ray)
+void	buffer_pixel_texture(t_data *data, t_dda *dda, t_ray *ray)
 {
-	double		wallX;
-	int			tex[2];
-	int			bufercolor[HEIGHT];
+	t_text	pixel;
 
 	if (data->worldmap[dda->map[Y]][dda->map[X]] != '0')
 	{
-		wallX = define_wallX(data,ray, dda);
-		tex[X] = (int)(wallX * (double)data->window.wall[dda->side]->width);
-		get_pixels_texture(dda, ray, data, tex, bufercolor);
-		return (render_texture_on_image(data, ray, bufercolor));
+		calc_coord_tex(data, dda, ray, &pixel);
+		get_color_buffer(ray, &pixel);
+		render_texture_on_image(data, ray, pixel.buffer);
 	}
-	return (0);
 }
 
-static void get_pixels_texture(t_dda *dda, t_ray *ray, t_data *data, int tex[2], int bufercolor[HEIGHT])
+static void	calc_coord_tex(t_data *data, t_dda *dda, t_ray *ray, t_text *pix)
 {
-	uint32_t		color;
-	int				h;
-	double	 		step;
-	double			texPos;
-	mlx_texture_t	*text;
-
-	text = data->window.wall[dda->side];
-	h = data->window.wall[dda->side]->height;
-	step = (double)text->height / ray->column_height;
-	texPos = (ray->draw_start - HEIGHT / 2 + ray->column_height / 2) * step;
-	for(int i  = ray->draw_start; i < ray->draw_end; i++)
-	{
-		tex[Y] = (int)texPos & (text->height -1);
-		color = ((uint32_t*)text->pixels)[h * tex[Y] + tex[X]];
-		bufercolor[i] = rearrange_color(color);
-		texPos += step;
-	}	
-}
-
-static double define_wallX(t_data *data, t_ray *ray, t_dda *dda)
-{
-	double		wallX;
+	int	pos_height;
+	int	size_height;
 	
-	if(dda->side == NORTH || dda->side == SOUTH)
-		wallX = data->coord->pos[X] + ray->distance_wall * ray->ray_dir[X];
-	else
-		wallX = data->coord->pos[Y] + ray->distance_wall * ray->ray_dir[Y];
-	wallX -= floor(wallX);
-	return (wallX); 
+	pix->height = data->window.wall[dda->side]->height;
+	pix->width = data->window.wall[dda->side]->width;
+	pix->pixels = data->window.wall[dda->side]->pixels;
+	pos_height = ray->draw_start - HEIGHT_2;
+	size_height = ray->column_height / 2;
+	pix->step = (double)pix->height / ray->column_height;
+	pix->texPos = (pos_height + size_height) * pix->step;	
+	pix->tex[X] = get_coordinate_x_text(data, ray, dda);
 }
 
-static unsigned int	rearrange_color(unsigned int argb)
-{
-	unsigned int	blue;
-	unsigned int	green;
-	unsigned int	red;
-	unsigned int	alpha;
 
-	blue = (argb & 0xFF) << 24;
-	green = (argb & 0xFF00) << 8;
-	red = (argb & 0xFF0000) >> 8;
-	alpha = (argb & 0xFF000000) >> 24;
-	return (blue | green | red | alpha);
+static int	get_coordinate_x_text(t_data *data, t_ray *ray, t_dda *dda)
+{
+	double	distance[2];
+	double	wall;
+	int		pos_x;
+	double	width;
+
+	distance[X] = ray->distance_wall * ray->ray_dir[X];
+	distance[Y] = ray->distance_wall * ray->ray_dir[Y];	
+	width = (double)data->window.wall[dda->side]->width;
+	if(dda->side == NORTH || dda->side == SOUTH)
+		wall = data->coord->pos[X] + distance[X];
+	else
+		wall = data->coord->pos[Y] + distance[Y];
+	wall -= floor(wall);
+	pos_x = (int)(wall * width);
+	return (pos_x); 
+}
+
+static void	get_color_buffer(t_ray *ray, t_text *pix)
+{
+	int	color;
+	int	index;
+	int i;
+
+	color = 0;
+	index = 0;
+	i = ray->draw_start;
+	while(i < ray->draw_end)
+	{
+		pix->tex[Y] = (int)pix->texPos & (pix->height -1);
+		index = pix->height * pix->tex[Y] + pix->tex[X];
+		color = ((uint32_t*)pix->pixels)[index];
+		pix->buffer[i] = rearrange_color(color);
+		pix->texPos += pix->step;
+		i++;
+	}
 }

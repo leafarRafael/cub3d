@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/22 10:02:45 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/23 08:46:59 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ FILE_CTRL		:= move_up.c move_down.c move_left.c move_right.c\
 RENDER			:= render_ceiling_floor.c render_texture_image.c
 FILE_RAY		:= ray_casting.c
 FILE_DDA		:= dda.c side.c find_collision.c
-FILE_TEXTURE	:= pixels_texture.c
+FILE_TEXTURE	:= pixels_texture.c arrange_rgba.c
 
 #-----------------------------------------------------------------------------------------
 # Source files

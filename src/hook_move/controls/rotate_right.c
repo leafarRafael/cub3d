@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_right.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/21 15:06:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 07:48:52 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,21 @@ static void	rotate_plane(t_data *data);
  * 		Controls the horizontal component of the player's direction vector,
  *		which affects the player's viewing angle along the east-west axis.
  *  - data->coord->dir[Y]:
- *      Controls the vertical component of the player's direction vector,
+ *  	Controls the vertical component of the player's direction vector,
  * 		which affects the player's viewing angle along the north-south axis.
  *  - data->coord->plane[](Y or X):
- *      Define the camera plane, which is perpendicular to the direction vector.
- * 		This plane is crucial for determining the field of view (FOV)
- * 		and correctly rendering the 3D perspective on the 2D screen.
+ *   	Define the camera plane, which is perpendicular to the direction vector.
+ * 	 	This plane is crucial for determining the field of view (FOV)
+ * 	 	and correctly rendering the 3D perspective on the 2D screen.
  * 
- * The auxiliary functions:
- * 	- rotate_dir(data):
- * 		Calculates and updates the direction vector.
- *	- rotate_plane(data);
- * 		Calculates and updates the plane vector.
-forward
+ * @return int The return is to signal an update in the
+ * 			   coordinates and execute the updated rendering.
  */
-void	rotate_cam_right(t_data *data)
+int	rotate_cam_right(t_data *data)
 {
 	rotate_dir(data);
 	rotate_plane(data);
-	render_ceiling_floor(data);
-	ray_casting(data);
+	return (1);
 }
 
 /**

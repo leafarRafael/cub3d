@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_down.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/21 13:50:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 07:46:24 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ static void	muve_axis_x(t_data *data);
  *      Updates the player's X-coordinate on the map.
  *  - data->coord->dir[](Y or X): 
  *      Used to determine the direction the player is facing for movement.
+ * 
+ * @return int The return is to signal an update in the
+ * 			   coordinates and execute the updated rendering.
  */
-void	muve_down(t_data *data)
+int	muve_down(t_data *data)
 {
 	muve_axis_y(data);
 	muve_axis_x(data);
-	render_ceiling_floor(data);
-	ray_casting(data);
+	return (1);
 }
 
 /**

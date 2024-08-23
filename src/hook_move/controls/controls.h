@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 09:48:52 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 07:37:33 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ typedef struct s_ctrl_rotate
 	double	pla;
 }		t_rotate;
 
-void	muve_up(t_data *data);
-void	muve_down(t_data *data);
-void	muve_left(t_data *data);
-void	muve_right(t_data *data);
-void	rotate_cam_left(t_data *data);
-void	rotate_cam_right(t_data *data);
+int	muve_up(t_data *data);
+int	muve_down(t_data *data);
+int	muve_left(t_data *data);
+int	muve_right(t_data *data);
+int	rotate_cam_left(t_data *data);
+int	rotate_cam_right(t_data *data);
 
 #endif

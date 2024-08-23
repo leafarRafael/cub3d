@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 08:03:58 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/22 20:32:27 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static void	define_value(int ptr[2], int value1, int value2);
  * defined color values from the `data` structure to fill these areas.
  * 
  @param data A pointer to the main game data structure (`t_data`) that holds:
- *          rgb_cel: An array containing the RGBA values for the ceiling color.
- *          rgb_floor: An array containing the RGBA values for the floor color.
- *          window.image: The image buffer where the pixels will be drawn.
+ *   rgb_cel: An array containing the RGBA values for the ceiling color.
+ *   rgb_floor: An array containing the RGBA values for the floor color.
+ *   window.image: The image buffer where the pixels will be drawn.
  */
 
 void	render_ceiling_floor(t_data *data)

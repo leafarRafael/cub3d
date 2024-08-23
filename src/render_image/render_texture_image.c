@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 08:03:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 09:59:00 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "defines.h"
 
 /**
- * @brief Renders a vertical line of pixels from a texture onto the screen image.
+ * @brief Renders a vertical line of pixels from a texture on to the screen image.
  * 
  * This function iterates through a specified vertical segment on the screen, 
  * filling it with pixel colors extracted from a texture.
@@ -37,7 +37,7 @@
  *  - Each element in this array represents the color of a pixel 
  *  at a corresponding Y-coordinate on the screen.
  */
-int	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT])
+void	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT])
 {
 	while (ray->draw_start < ray->draw_end)
 	{
@@ -45,5 +45,4 @@ int	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT])
 			ray->draw_start, bufercolor[ray->draw_start]);
 		ray->draw_start++;
 	}
-	return (0);
 }

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   arrange_rgba.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 09:05:21 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/23 08:45:17 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/23 08:45:59 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINES_H
- #define DEFINES_H
+unsigned int	rearrange_color(unsigned int argb)
+{
+	unsigned int	blue;
+	unsigned int	green;
+	unsigned int	red;
+	unsigned int	alpha;
 
-#define texWidth 64
-#define texHeight 64
-#define mapWidth 24
-#define mapHeight 24
-#define WIDTH 800
-#define HEIGHT 600
-#define HEIGHT_2 HEIGHT / 2
-#define MOVE_SPPED 0.05
-#define ROT_SPEED 0.03
-#define X 0
-#define Y 1
-#define FOV 0.66
-
-#endif
+	blue = (argb & 0xFF) << 24;
+	green = (argb & 0xFF00) << 8;
+	red = (argb & 0xFF0000) >> 8;
+	alpha = (argb & 0xFF000000) >> 24;
+	return (blue | green | red | alpha);
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_left.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/21 13:55:48 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 07:47:07 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,15 @@ static void	rotate_plane(t_data *data);
  * 		Calculates and updates the direction vector.
  *	- rotate_plane(data);
  * 		Calculates and updates the plane vector.
- *  - render_ceiling_floor(data):
- * 		Renders the ceiling and floor based on the updated data.
- * 	- ray_casting(data):
- * 		Performs raycasting to render the game image with the new data.
+ * 
+ * @return int The return is to signal an update in the
+ * 			   coordinates and execute the updated rendering.
  */
-void	rotate_cam_left(t_data *data)
+int	rotate_cam_left(t_data *data)
 {
 	rotate_dir(data);
 	rotate_plane(data);
-	render_ceiling_floor(data);
-	ray_casting(data);
+	return (1);
 }
 
 /**
