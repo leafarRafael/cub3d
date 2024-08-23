@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/20 08:07:32 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 16:07:43 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 
 	data = parse(argc, argv);
 	if (!data)
-		return (error_handler("ERROR\n", NULL, NULL, NULL));
+		return (display_error("ERROR\n", NULL, NULL, NULL));
 	render_ceiling_floor(data);
 	ray_casting(data);
 	mlx_image_to_window(data->window.mlx, data->window.image, 0, 0);

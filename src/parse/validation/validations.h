@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   parse.validations.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 14:29:33 by myokogaw         ###   ########.fr       */
+/*   Created: 2024/08/22 13:52:06 by myokogaw          #+#    #+#             */
+/*   Updated: 2024/08/22 13:52:06 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
- #define UTILS_H
+#ifndef PARSE_VALIDATIONS_H
+# define PARSE_VALIDATIONS_H
 
-int		ft_color(int r, int g, int b, int a);
-int 	display_error(char *s1, char *s2, char *s3, char *s4);
+int     validating_rgb(t_parser *parser);
+int		check_rgb_id_dup(t_parser *parser);
+void	check_tex_id_dup(t_parser *parser, t_texture_index id, int len_id);
+void	check_file(t_parser *parser);
+void	check_arguments(t_parser *parser, int ac, char **av);
 
 #endif
