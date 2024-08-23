@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/23 08:46:59 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/23 14:49:52 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,8 @@ TEXTURE			:= pixels_texture/
 INCLUDE			:= ../includes
 MLX42			:= ../lib/MLX42/include/MLX42/
 LIBFT			:= ../lib/lib_get_print/includes/
+LINKED_L		:= ../lib/linked_list/include/
+LINKED_M		:= ../lib/matrix_list/include/
 
 #-----------------------------------------------------------------------------------------
 # Header file includes

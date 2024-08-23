@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:04 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/11 13:28:12 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/23 14:48:19 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ PATH_MAKE_LIB	:= ./lib/lib_get_print
 # Path to LIBFT_LIST
 LINKED_LIST		:= ./lib/lib_list.a
 MAKE_LINKED_L	:= ./lib/linked_list
+MAKE_M_LIST		:= ./lib/matrix_list
 
 #-----------------------------------------------------------------------------------------
 # Path to the static library
@@ -59,7 +60,7 @@ $(NAME):
 
 #-----------------------------------------------------------------------------------------
 # Rule to create the static library by compiling source files in subdirectories
-$(NAME): object libmlx linked_list libft
+$(NAME): object libmlx linked_list libft matrix_list
 
 
 #-----------------------------------------------------------------------------------------
@@ -76,6 +77,21 @@ libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4 --no-print-directory
 
 #-----------------------------------------------------------------------------------------
+# Rule to create the static library Matrix List
+matrix_list:
+	@$(MAKE) -C $(MAKE_M_LIST) --no-print-directory
+
+matrix_list_clean:
+	@$(MAKE) -C $(MAKE_M_LIST) clean --no-print-directory
+
+matrix_list_fclean:
+	@$(MAKE) -C $(MAKE_M_LIST) fclean --no-print-directory
+
+matrix_list_re:
+	@$(MAKE) -C $(MAKE_M_LIST) re --no-print-directory
+
+
+#-----------------------------------------------------------------------------------------
 # Rule to create the static library Linked List
 linked_list:
 	@$(MAKE) -C $(MAKE_LINKED_L) --no-print-directory
@@ -88,7 +104,6 @@ linked_list_fclean:
 
 linked_list_re:
 	@$(MAKE) -C $(MAKE_LINKED_L) re --no-print-directory
-
 
 #-----------------------------------------------------------------------------------------
 # Rule to create the static library LIBFT
@@ -110,7 +125,7 @@ libft_re:
 clean: object_clean
 	@$(CLEAN_CMD) $(BINARY)
 
-fclean: clean libft_fclean linked_list_fclean
+fclean: clean libft_fclean linked_list_fclean matrix_list_fclean
 	@$(CLEAN_CMD) $(NAME)
 
 re: fclean all
