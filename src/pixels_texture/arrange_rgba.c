@@ -6,11 +6,22 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 08:45:17 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 08:45:59 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 10:27:19 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	rearrange_color(unsigned int argb)
+/**
+ * @brief Arranges the color components of an ARGB value.
+ * 
+ * This function takes a 32-bit unsigned integer representing a color 
+ * in ARGB format and arranges the components into a new order: 
+ * Blue, Green, Red, Alpha. 
+ * 
+ * @param argb The input color value in ARGB.
+ * @return unsigned int The arranged color value with the order BGRA.
+ */
+
+unsigned int	arrange_color(unsigned int argb)
 {
 	unsigned int	blue;
 	unsigned int	green;

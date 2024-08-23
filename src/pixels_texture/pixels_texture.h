@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 08:54:40 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 09:58:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 10:25:28 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ typedef struct s_coord_texture
 }	t_text;
 
 void			buffer_pixel_texture(t_data *data, t_dda *dda, t_ray *ray);
-unsigned int	rearrange_color(unsigned int argb);
+unsigned int	arrange_color(unsigned int argb);
 
 #endif

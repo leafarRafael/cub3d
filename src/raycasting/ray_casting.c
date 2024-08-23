@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 09:04:18 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/23 10:36:28 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "defines.h"
 #include <MLX42.h>
 #include "pixels_texture.h"
+#include "render_texture_image.h"
 
 static void	ray_dir(t_ray *ray, t_data *data);
 static void set_column_height(t_ray *ray);
@@ -42,6 +43,9 @@ static void set_column_height(t_ray *ray);
  *      Calculates the start and end positions of the wall slice on the screen based on the distance to the wall.
  *  - buffer_pixel_texture(data, &dda, &ray):
  *      Samples the correct pixels from the texture and stores them in the buffer to be drawn to the screen.
+ * 	- render_texture_on_image(data, &ray, ray.buffer):
+ * 		Renders an image with texture pixels.
+ * 	
  */
 void	ray_casting(t_data *data)
 {
@@ -55,6 +59,7 @@ void	ray_casting(t_data *data)
 		ft_dda(data, &ray, &dda);
 		set_column_height(&ray);
 		buffer_pixel_texture(data, &dda, &ray);
+		render_texture_on_image(data, &ray, ray.buffer);
 		ray.index++;
 	}
 }
