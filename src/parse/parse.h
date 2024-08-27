@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:57:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 14:40:33 by myokogaw         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:50:39 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_parser_metadata {
 typedef	struct s_parser {
 	t_parser_metadata		meta;
 	enum e_parser_errors	error;
+	char					**map;
 	char					*pathname_textures[4];
 	int						ceiling_rgb[4];
 	int						floor_rgb[4];

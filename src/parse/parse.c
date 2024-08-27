@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 16:48:36 by myokogaw         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:52:38 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,14 @@ void	check_empty_file(t_parser *parser)
 
 int	ft_char_map(char c)
 {
-	if (c == '0' || c == '1' || c == 'N'
-		|| c == 'W' || c == 'E' || c == 'S')
-		return (true);
-	return (false);
+	return (c == '0' || c == '1' || c == 'N'
+		|| c == 'W' || c == 'E' || c == 'S');
 }
 
 int	is_map_line(t_parser *parser)
 {
 	int		char_index;
-	// char	*trimmed_line;
 
-	// trimmed_line = ft_strtrim(parser->meta.line, " \n\r\t");
-	// free(parser->meta.line);
-	// parser->meta.line = trimmed_line;
 	char_index = 0;
 	while (ft_char_map(parser->meta.line[char_index]))
 		char_index++;
@@ -129,23 +123,21 @@ int	check_line(t_parser *parser)
 	char *line;
 
 	line = parser->meta.line;
-	if (parser->meta.start_map_content == true)
+	if (parser->meta.start_map_content == true && line != NULL)
 	{
-		if ((ft_strlen(line) == 1 && !ft_strncmp(line, "\n", 1))
-			|| (ft_strlen(line) == 2 && !ft_strncmp(line, "\r\n", 2)))
+		if ((!ft_strncmp(line, "\n", 1)) || !ft_strncmp(line, "\r\n", 2))
 			parser->error = E_MAP_EMPTY_LINE;
 		if (is_map_line(parser))
 			parser->error = E_MAP_INV_ELEM;
 		format_map_error(parser);
 		return (EXIT_SUCCESS);
 	}
-	if ((ft_strlen(line) == 1 && !ft_strncmp(line, "\n", 1))
-		|| (ft_strlen(line) == 2 && !ft_strncmp(line, "\r\n", 2)))
+	if (line != NULL && (!ft_strncmp(line, "\n", 1) || !ft_strncmp(line, "\r\n", 2)))
 	{
 		free(line);
 		return (EXIT_FAILURE);
 	}
-	if (parser->meta.start_map_content == false
+	if (line != NULL && parser->meta.start_map_content == false
 		&& is_map_line(parser) && all_filled(parser))
 		parser->meta.start_map_content = true;
 	return (EXIT_SUCCESS);
@@ -153,19 +145,18 @@ int	check_line(t_parser *parser)
 
 void	get_valid_line(t_parser *parser)
 {
-	if (parser->meta.line != NULL && parser->num_line != 1)
+	static int	not_first;
+	if (parser->meta.line != NULL && not_first != false)
 	{
 		free(parser->meta.line);
 		parser->meta.line = get_next_line(parser->fd);
 		parser->num_line += 1;
 	}
+	not_first = true;
 	while (parser->meta.line)
 	{
-		// printf("file line %d\n", parser->num_line);
 		if (!check_line(parser))
 			return ;
-		// if (parser->start_map_content == true)
-		// 	check_empty_line_on_map(parser);
 		parser->meta.line = get_next_line(parser->fd);
 		parser->num_line += 1;
 	}
@@ -212,7 +203,6 @@ void	get_line_metadata(t_parser *parser)
 	if (parser->meta.content_id_str != NULL)
 		free(parser->meta.content_id_str);
 	parser->meta.content_id_str = ft_strtrim(parser->meta.end_id_str, " \n\r\t");
-	// printf("")
 	check_empty_content(parser);
 	ft_strlcpy(parser->meta.cur_id, parser->meta.start_id_str, (parser->meta.end_id_str - parser->meta.start_id_str + 1));
 	return ;
@@ -223,7 +213,6 @@ int	id_resolver(t_parser *parser)
 	int	len_id;
 
 	len_id = ft_strlen(parser->meta.cur_id);
-	// printf("cur_id %s %d len id curr_line %d\n", parser->meta.cur_id, len_id, parser->num_line);
 	if (!ft_strncmp(parser->meta.cur_id, "NO", len_id))
 		check_tex_id_dup(parser, NORTH, len_id);
 	else if (!ft_strncmp(parser->meta.cur_id, "SO", len_id))
@@ -243,6 +232,10 @@ int	id_resolver(t_parser *parser)
 
 void	get_file_info(t_parser *parser)
 {
+	int y_axis;
+
+	y_axis = 0;
+	parser->map = ft_calloc(1, sizeof(char **));
 	check_empty_file(parser);
 	while (true)
 	{
@@ -255,10 +248,11 @@ void	get_file_info(t_parser *parser)
 					parser->error = E_IDENT_INV;
 				format_identifier_error(parser);
 			}
-			// else if (parser->start_map_content == true)
-			// {
-
-			// }
+			else if (parser->meta.start_map_content == true)
+			{
+				parser->map[y_axis] = ft_strdup(parser->meta.line);
+				y_axis++;
+			}
 		}
 		else
 			break ;

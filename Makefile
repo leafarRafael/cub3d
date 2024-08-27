@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:04 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/23 14:48:19 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/27 17:57:39 by myokogaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,17 @@ CLEAN_CMD		:= rm -Rf
 #-----------------------------------------------------------------------------------------
 # Paths to the subdirectories containing source files
 PATH_MAKE_OBJ	:= src
+
+#-----------------------------------------------------------------------------------------
+# Paths to the subdirectories containing tested files
+MAPS = $(addprefix maps/, dup0.identifier.cub dup1.identifier.cub empty.cub id.without_content.cub \
+		identifier.without.cub map.cub map.invalid_elem.cub map.without.cub map_OK.cub map_OK_not_rectangular.cub \
+		map_badly_form_color.cub map_badly_form_texture.cub map_duplicate_WE.cub map_duplicate_color.cub map_element_incomplete.cub \
+		map_element_more_then_complete.cub map_leaky_borders.cub map_leaky_not_rectangular.cub map_missing_color.cub \
+		map_missing_one_element.cub map_missing_texture.cub map_multiple_F.cub map_multiple_player.cub map_multiple_textures.cub \
+		map_no_extension map_no_player.cub map_with_double_element_after_file_content_is_set.cub map_wrong_bg_badly_formatted.cub \
+		map_wrong_bg_color_with_char.cub map_wrong_bg_numbers.cub map_wrong_texture_path.cub maps.ber maps.cub no_content.cub \
+		rgb0.invalid.cub rgb1.invalid.cub rgb2.invalid.cub rgb3.invalid.cub test.cub)
 
 #-----------------------------------------------------------------------------------------
 # Default rule to create the executable
@@ -129,5 +140,12 @@ fclean: clean libft_fclean linked_list_fclean matrix_list_fclean
 	@$(CLEAN_CMD) $(NAME)
 
 re: fclean all
+#-----------------------------------------------------------------------------------------
+# Rule to tests
+valgrind:
+	@for map in $(MAPS); do \
+		echo "\n\e[0;35mRunning Valgrind with map: $$map\033[0m"; \
+		valgrind -q --leak-check=full ./$(NAME) $$map; \
+	done
 
-.PHONY: all clean fclean re object_clean object
+.PHONY: all clean fclean re object_clean object tests

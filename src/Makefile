@@ -6,7 +6,7 @@
 #    By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/23 16:58:38 by myokogaw         ###   ########.fr        #
+#    Updated: 2024/08/27 17:45:45 by myokogaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME			:= cub3D.a
 
 #-----------------------------------------------------------------------------------------
 # Compiler and flags
-CFLAGS			:= -Wall -Werror -Wextra -O3 -MMD -g3
+CFLAGS			:= -Wall -Werror -Wextra -g #-O3 -MMD -g3
 CC				:= cc
 O_FLAGS			:= -c
 
