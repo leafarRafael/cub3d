@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coordinates.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 14:57:09 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/21 15:01:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 14:04:06 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void set_vector_rotation_cam_plane(double plane[2], double dir[2]);
 
 void set_initial_coordinates(t_plr *coord, t_data *data)
 {
-	set_initial_player_position(coord->pos, 22, 12);
+	set_initial_player_position(coord->pos, 22.5, 11.5);
 	set_initial_direction(coord->dir,'W');
 	set_vector_rotation_cam_plane(coord->plane, coord->dir);
 	data->coord = coord; 

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 10:32:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/05/27 12:56:55 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 12:35:15 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_remove_specific_node(t_lst *lst, t_node *node)
 	if (ft_check_in_lst(lst, node))
 		return (-1);
 	if (lst->head == node)
-		return (ft_remove_node_front(lst));
+		return (lst_rmv_front(lst));
 	if (lst->last == node)
 		return (lst_rmv_back(lst));
 	if (lst->last != node || lst->head != node)

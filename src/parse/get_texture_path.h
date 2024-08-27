@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   get_texture_path.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/27 15:17:24 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/27 12:09:31 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/27 17:57:32 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
- #define UTILS_H
+#ifndef GET_TEXTURE_PATH_H
+ #define GET_TEXTURE_PATH_H
 
-#include "matrix_lst.h"
-
-int		ft_color(int r, int g, int b, int a);
-int		is_space(char c);
-void	ft_putmtrx(t_mlst *mlst);
+#define NO "NO "
+#define SO "SO "
+#define WE "WE "
+#define EA "EA "
 
 #endif

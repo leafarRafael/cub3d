@@ -6,32 +6,21 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:46:09 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/06/03 14:08:55 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 14:54:12 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_lst.h"
+#include "libft.h"
 
-int	ft_find_str_inlist(t_lst *lst, char *str, int size)
+int	ft_strlstcmp(t_lst *lst, char *str)
 {
-	t_var	v;
-	int		index;
+	char	*new;
+	int		i;
 
-	v.i = 0;
-	index = 0;
-	v.temp_node = lst->head;
-	while (v.i < lst->size && v.i <= size)
-	{
-		if (str[index] == v.temp_node->c)
-			index++;
-		else
-			index = 0;
-		if (index == size)
-			break ;
-		v.temp_node = v.temp_node->next;
-		v.i++;
-	}
-	if (index == size)
-		return (index);
-	return (0);
+	i = 0;
+	new = ft_cpy_lst_to_array(lst);
+	i = ft_memcmp(new, str, ft_strlen(str));
+	free(new);
+	return (i);
 }

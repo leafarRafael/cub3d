@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   valid_file.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/27 15:17:24 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/27 08:45:48 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/27 10:20:50 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
- #define UTILS_H
 
-#include "matrix_lst.h"
+#ifndef VALID_FILE_H
+ #define VALID_FILE_H
 
-int		ft_color(int r, int g, int b, int a);
-int		is_space(char c);
-void	ft_putmtrx(t_mlst *mlst);
+int		valid_file(int argc, char *file);
 
 #endif

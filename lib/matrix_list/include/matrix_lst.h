@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:34:14 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 14:51:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 14:28:41 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int						insert_lnode_between(t_mlst *mlst, t_llst *lnode,
 t_llst					*mlst_rmv_return_lnode(t_mlst *mlst, t_llst *lnode);
 int						ft_add_mlstnode_back(t_mlst *mlst, t_llst *lnode);
 int						ft_add_mlstnode_front(t_mlst *mlst, t_llst *lnode);
-int						add_lexicographic_value(t_mlst *mlst, char limiter);
-t_mlst					*ft_bubble_sort(t_mlst *mlst);
+t_llst	*find_str_in_matrix(t_mlst *m_lst, char *str);
 
 #endif

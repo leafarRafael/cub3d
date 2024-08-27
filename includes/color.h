@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/27 15:17:24 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/05/23 17:59:45 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/27 10:58:31 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
- #define UTILS_H
+#ifndef COLOR_H
+# define COLOR_H
 
-#include "matrix_lst.h"
+# define RED "\x1B[31m"
+# define GRN "\x1B[32m"
+# define YEL "\x1B[33m"
+# define BLU "\x1B[34m"
+# define MAG "\x1B[35m"
+# define CYN "\x1B[36m"
+# define WHT "\x1B[37m"
+# define RST "\x1B[0m"
 
-int		ft_color(int r, int g, int b, int a);
-int		is_space(char c);
-void	ft_putmtrx(t_mlst *mlst);
+# define RESET "\033[0m"
+# define AMARELO "\033[33m"
 
 #endif

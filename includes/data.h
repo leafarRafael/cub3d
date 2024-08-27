@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 10:36:32 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 17:35:18 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,15 @@ typedef struct s_player
 
 typedef struct s_data
 {
-	t_comp_mlx	window;
-	t_plr		*coord;
 	char 		**worldmap;
+	char		*path_text[5];
+	char		*floor;
+	char		*ceiling;
 	int			rgb_floor[4];
 	int			rgb_cel[4];
 	int			player_rgb[4];
+	t_plr		*coord;
+	t_comp_mlx	window;
 }	t_data;
 
 

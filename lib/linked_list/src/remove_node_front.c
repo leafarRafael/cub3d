@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   remove_node_front.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 09:51:10 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/04/29 10:56:58 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 12:35:15 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	ft_one_node(t_lst *lst);
 static int	ft_two_node(t_lst *lst);
 static int	ft_three_more(t_lst *lst);
 
-int	ft_remove_node_front(t_lst *lst)
+int	lst_rmv_front(t_lst *lst)
 {
 	if (!lst)
 		return (-1);

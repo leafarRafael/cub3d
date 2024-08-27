@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_lst.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 08:47:19 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/01 12:59:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 16:25:46 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ int		ft_create_node_add_back(t_lst *lst, char content);
 int		ft_add_node_back(t_lst *lst, t_node *node);
 int		ft_create_add_node_front(t_lst *lst, char content);
 int		ft_add_node_front(t_lst *lst, t_node *node);;
-int		ft_remove_node_front(t_lst *lst);
+int		lst_rmv_front(t_lst *lst);
 int		lst_rmv_back(t_lst *lst);
 int		ft_remove_specific_node(t_lst *lst, t_node *node);
 int		ft_remove_specific_content(t_lst *lst, char c);
 int		ft_delete_list(t_lst *lst);
 int		ft_add_string_in_list(t_lst *lst, char *array);
 int		ft_lst_btwn_lst(t_lst *lst_d, t_node *n_a, t_node *n_b, t_lst *lst_n);
-int		ft_find_str_inlist(t_lst *lst, char *str, int size);
+int		ft_strlstcmp(t_lst *lst, char *str);
 char	*ft_cpy_lst_to_array(t_lst *lst);
 void	ft_putlst_fd(t_lst *lst, int new_line, int fd);
 int		insert_node_between(t_lst *lst, t_node *node, t_lst *new_lst);

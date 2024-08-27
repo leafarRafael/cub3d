@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 09:05:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 13:36:45 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@
 #define X 0
 #define Y 1
 #define FOV 0.66
+#define EXTENSION ".cub"
+#define SIZE_EXTEN 4
+#define FAIL -1
+#define MIN_NBR_OF_ELEMENTS 8
 
 #endif

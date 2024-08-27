@@ -26,7 +26,7 @@ SRC				:= ./src/init_list.c\
 
 NUM_FILES		:= $(words $(SRC))
 OBJS			:= ./objs_circular_linked_list
-INCLUDES		:= -I ./include
+INCLUDES		:= -I ./include -I ../lib_get_print/includes/
 O_FILE			:= $(SRC:%.c=$(OBJS)/%.o)
 CC				:= cc
 CFLAGS 			:= -Wall -Werror -Wextra

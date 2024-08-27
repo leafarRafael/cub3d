@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 15:50:11 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/27 18:24:55 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,72 +21,48 @@
 #include "get_next_line.h"
 #include "defines.h"
 #include "coordinates.h"
+#include "valid_file.h"
+#include <stdio.h>
+#include <string.h>
+#include "error.h"
+#include "parse.h"
 
-static int init_data(t_data *data, char *file);
-static char **cpy_file(char *file);
+static int init_data(t_data *data, t_mlst *mlst);
 
 t_data *parse(int argc, char **argv)
 {
 	static t_data	data;
 	static t_plr	coord;
+	int				status;
+	t_mlst			*mlst_file;
 
-	if (argc != 2)
-		return (NULL);
-	init_data(&data, argv[1]);
+	status = valid_file(argc, argv[1]);
+	if (status)
+		exit(error_handler("Error\n", argv[1], msg_error(status), NULL) + status);
+	mlst_file = NULL;
+	mlst_file = get_file(argv[1]);
+	if (mlst_file == NULL)
+		exit(error_handler("Error\n", "Invalid formate file\n", NULL, NULL));
+	if (get_texture_in_file(mlst_file, &data))
+		exit(error_handler("Error\n", "The texture path is wrong or has multiple definitions.\n", NULL, NULL));
+	if (get_ceiling_floor(mlst_file, &data))
+		exit(error_handler("Error\n", "The texture path is wrong or has multiple definitions.\n", NULL, NULL));
+	init_data(&data, mlst_file);
 	set_initial_coordinates(&coord, &data);
 	return (&data);
 }
 
-static int init_data(t_data *data, char *file)
+static int init_data(t_data *data, t_mlst *mlst)
 {
 	data->window.mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	data->window.image = mlx_new_image(data->window.mlx, WIDTH, HEIGHT);
 	data->window.player = mlx_new_image(data->window.mlx, 400, 400);
-	data->window.wall[NORTH] = mlx_load_png("textures/eagle.png");
-	data->window.wall[SOUTH] = mlx_load_png("textures/bluestone.png");
-	data->window.wall[WEST] = mlx_load_png("textures/mossy.png");
-	data->window.wall[EAST] = mlx_load_png("textures/wood.png");
-	data->rgb_floor[0] = 0;
-	data->rgb_floor[1] = 100;
-	data->rgb_floor[2] = 0;
-	data->rgb_floor[3] = 255;
-	data->rgb_cel[0] = 0;
-	data->rgb_cel[1] = 0;
-	data->rgb_cel[2] = 100;
-	data->rgb_cel[3] = 255;
-	data->worldmap = cpy_file(file);
+	data->window.wall[NORTH] = mlx_load_png(data->path_text[NORTH]);
+	data->window.wall[SOUTH] = mlx_load_png(data->path_text[SOUTH]);
+	data->window.wall[WEST] = mlx_load_png(data->path_text[WEST]);
+	data->window.wall[EAST] = mlx_load_png(data->path_text[EAST]);
+	data->worldmap = ft_cpy_mtrllst_to_cmtrx(mlst);
 	if(!data->worldmap)
 		return (1);
 	return (0);
-}
-
-static char **cpy_file(char *file)
-{
-	int		fd;
-	int		i;
-	char	**cpy;
-	char	*str;
-
-	cpy = NULL;
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	i = 0;
-	while ((str = get_next_line(fd)))
-	{
-		free(str);
-		i++;
-	}
-	cpy = malloc(sizeof(char *) * (i + 1));
-	close(fd);
-	fd = open(file, O_RDONLY);
-	i = 0;
-	while ((str = get_next_line(fd)))
-	{
-		cpy[i] = str;
-		i++;
-	}
-	cpy[i] = NULL;
-	close(fd);
-	return (cpy);
 }
