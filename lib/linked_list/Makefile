@@ -43,8 +43,8 @@ $(OBJS)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
-	@printf "Linked List progress [%s]\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
-
+	@printf "linked_list progress [%s]\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
+	@sleep 0.1
 
 clean:
 	@$(CMD_CLEAN) $(OBJS)

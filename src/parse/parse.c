@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 15:50:11 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/28 18:29:53 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,23 @@
 #include "get_next_line.h"
 #include "defines.h"
 #include "coordinates.h"
+#include "parse.h"
+#include "matrix_lst.h"
 
 static int init_data(t_data *data, char *file);
 static char **cpy_file(char *file);
 
 t_data *parse(int argc, char **argv)
 {
+	t_mlst			*mlst;
 	static t_data	data;
 	static t_plr	coord;
 
-	if (argc != 2)
-		return (NULL);
+	valid_arguments(argc, argv);
+	mlst = read_file(argv[1]);
+	if (mlst->size == 0)
+		exit(error_handler("ERROR\n", "fail to read file\n", NULL, NULL) + ft_delete_matrix(mlst));
+	//get_attr(mlst, &data);
 	init_data(&data, argv[1]);
 	set_initial_coordinates(&coord, &data);
 	return (&data);

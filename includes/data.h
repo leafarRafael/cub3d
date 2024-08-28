@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/19 10:36:32 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/28 18:30:15 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef enum s_texture
 	SOUTH,
 	WEST,
 	EAST,
+	FLOOR,
+	CEILING,
 }			t_texture_index;
 
 typedef	struct s_components_mlx
@@ -38,14 +40,21 @@ typedef struct s_player
 	double	plane[2];
 }	t_plr;
 
+typedef struct s_atributes
+{
+	char	*str;
+	int		status;
+}		t_atr;
+
 typedef struct s_data
 {
 	t_comp_mlx	window;
+	t_atr		args_file[6];
 	t_plr		*coord;
 	char 		**worldmap;
 	int			rgb_floor[4];
 	int			rgb_cel[4];
-	int			player_rgb[4];
+	int			atr;
 }	t_data;
 
 

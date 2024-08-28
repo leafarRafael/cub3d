@@ -25,7 +25,7 @@ t_node	*find_type_rtrn_ptr(t_lst *lst, int type)
 	node = lst->head;
 	while (i <= lst->size)
 	{
-		if (node->c == type)
+		if (node->type == type)
 			return (node);
 		i++;
 		node = node->next;

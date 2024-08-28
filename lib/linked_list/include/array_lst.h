@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_lst.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: tforster <tfforster@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 08:47:19 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/01 12:59:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/06/04 15:46:36 by tforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 typedef struct s_node
 {
 	char			c;
+	int				type;
+	int				paren;
+	int				priority;
+	int				fd_here_doc;
+	int				lex_val;
 	struct s_node	*next;
 	struct s_node	*prev;
 }			t_node;

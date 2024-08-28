@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/23 14:49:52 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/28 18:35:33 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ CMD_CLEAN		:= rm -Rf
 # DIRECTORY and Header file
 UTILS			:= utils/
 PARSE			:= parse/
+VALID			:= parse/valid_file/
+READ_FILE		:= parse/read_file/
 HOOK_MOVE		:= hook_move/
 CTRL			:= hook_move/controls/
 RENDER_IMAGE	:= render_image/
@@ -47,9 +49,13 @@ INCLUDES		:= -I $(RAYCASTING)\
 				-I$(INCLUDE)\
 				-I $(UTILS)\
 				-I $(PARSE)\
+				-I $(VALID)\
+				-I $(READ_FILE)\
 				-I $(HOOK_MOVE)\
 				-I $(MLX42)\
 				-I $(LIBFT)\
+				-I $(LINKED_L)\
+				-I $(LINKED_M)\
 				-I $(RENDER_IMAGE)\
 				-I $(TEXTURE)\
 				-I $(CTRL)
@@ -58,6 +64,8 @@ INCLUDES		:= -I $(RAYCASTING)\
 # Source files
 FILE_UTILS		:= utils.c
 FILE_PARSE		:= parse.c coordinates.c
+FILE_VALID		:= valid_file.c
+FILE_READ		:= read_file.c
 FILE_HOOK		:= hook.c
 FILE_CTRL		:= move_up.c move_down.c move_left.c move_right.c\
 					rotate_right.c rotate_left.c
@@ -77,6 +85,8 @@ SRC_FILES		:= $(addprefix $(RENDER_IMAGE), $(RENDER))\
 					$(addprefix $(CTRL), $(FILE_CTRL))\
 					$(addprefix $(HOOK_MOVE), $(FILE_HOOK))\
 					$(addprefix $(TEXTURE), $(FILE_TEXTURE))\
+					$(addprefix $(VALID), $(FILE_VALID))\
+					$(addprefix $(READ_FILE), $(FILE_READ))\
 					main.c\
 
 #-----------------------------------------------------------------------------------------

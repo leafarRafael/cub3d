@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 09:05:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/28 17:53:11 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,14 @@
 #define X 0
 #define Y 1
 #define FOV 0.66
+#define FAIL -1
+#define EXT ".cub"
+#define SIZE_EXT 4
+#define NO "NO"
+#define WE "WE"
+#define EA "EA"
+#define SO "SO"
+#define F "F"
+#define C "C"
 
 #endif
