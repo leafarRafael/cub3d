@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/28 17:53:11 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/30 08:29:00 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 #define WE "WE"
 #define EA "EA"
 #define SO "SO"
-#define F "F"
-#define C "C"
+#define ERROR 37
 
 #endif

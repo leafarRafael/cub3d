@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/28 18:35:33 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/30 09:59:29 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ UTILS			:= utils/
 PARSE			:= parse/
 VALID			:= parse/valid_file/
 READ_FILE		:= parse/read_file/
+GET_ATTR		:= parse/get_attr/
 HOOK_MOVE		:= hook_move/
 CTRL			:= hook_move/controls/
 RENDER_IMAGE	:= render_image/
@@ -58,12 +59,14 @@ INCLUDES		:= -I $(RAYCASTING)\
 				-I $(LINKED_M)\
 				-I $(RENDER_IMAGE)\
 				-I $(TEXTURE)\
+				-I $(GET_ATTR)\
 				-I $(CTRL)
 
 #-----------------------------------------------------------------------------------------
 # Source files
 FILE_UTILS		:= utils.c
 FILE_PARSE		:= parse.c coordinates.c
+FILE_ATTR		:= get_attr.c set_ceiling_floor.c set_path_texture.c
 FILE_VALID		:= valid_file.c
 FILE_READ		:= read_file.c
 FILE_HOOK		:= hook.c
@@ -87,6 +90,7 @@ SRC_FILES		:= $(addprefix $(RENDER_IMAGE), $(RENDER))\
 					$(addprefix $(TEXTURE), $(FILE_TEXTURE))\
 					$(addprefix $(VALID), $(FILE_VALID))\
 					$(addprefix $(READ_FILE), $(FILE_READ))\
+					$(addprefix $(GET_ATTR), $(FILE_ATTR))\
 					main.c\
 
 #-----------------------------------------------------------------------------------------

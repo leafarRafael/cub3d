@@ -3,28 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:12:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/28 18:35:22 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/30 08:21:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "data.h"
 #include "utils.h"
-#include <MLX42.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "get_next_line.h"
 #include "defines.h"
-#include "coordinates.h"
-#include "parse.h"
-#include <stdio.h>
 #include <string.h>
-#include "libft.h"
 #include <errno.h>
 #include "matrix_lst.h"
 
