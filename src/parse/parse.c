@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 09:56:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/30 19:18:50 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,13 @@
 #include "matrix_lst.h"
 #include <stdio.h>
 #include "get_attr.h"
+#include "is_valid_map.h"
+#include "normalize_map.h"
+#include "flood_fill.h"
 
 static int init_data(t_data *data, char *file);
 static char **cpy_file(char *file);
+void	put_map(t_mlst *mlst);
 
 t_data *parse(int argc, char **argv)
 {
@@ -40,13 +44,15 @@ t_data *parse(int argc, char **argv)
 	if (mlst->size == 0)
 		exit(error_handler("ERROR\n", "fail to read file\n", NULL, NULL) + ft_delete_matrix(mlst));
 	get_attr(mlst, &data);
-	printf("%s\n", data.args_file[NORTH].str);
-	printf("%s\n", data.args_file[SOUTH].str);
-	printf("%s\n", data.args_file[WEST].str);
-	printf("%s\n", data.args_file[EAST].str);
-	printf("%s\n", data.args_file[FLOOR].str);
-	printf("%s\n", data.args_file[CEILING].str);
-	exit(1);
+	if (is_valid_map(mlst))
+		exit(error_handler("ERROR\n", "is invalid map\n", NULL, NULL) + ft_delete_matrix(mlst));
+	normalize(mlst);
+	data.coord = &coord;
+	data.worldmap = ft_cpy_mtrllst_to_cmtrx(mlst);
+	get_player_pos(&data);
+	flood_fill(data.worldmap, mlst->size, data.coord->pos[Y], data.coord->pos[X]);
+	for (int i = 0; data.worldmap[i]; i++)
+		printf("%s\n", data.worldmap[i]);
 	init_data(&data, argv[1]);
 	set_initial_coordinates(&coord, &data);
 	return (&data);
@@ -104,4 +110,19 @@ static char **cpy_file(char *file)
 	cpy[i] = NULL;
 	close(fd);
 	return (cpy);
+}
+
+void	put_map(t_mlst *mlst)
+{
+	int		i;
+	t_llst	*llst;
+
+	i = 0;
+	llst = mlst->head;
+	while (i < mlst->size)
+	{
+		ft_putlst_fd(llst->lst, 0, 2);
+		i++;
+		llst = llst->next;
+	}
 }

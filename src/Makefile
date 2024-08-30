@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/30 09:59:29 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/08/30 18:59:14 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,9 @@ PARSE			:= parse/
 VALID			:= parse/valid_file/
 READ_FILE		:= parse/read_file/
 GET_ATTR		:= parse/get_attr/
+VALID_MAP		:= parse/is_valid_map/
+NORMALIZE_MAP	:= parse/normalize_map/
+FLOOD_FILL_MAP	:= parse/flood_fill/
 HOOK_MOVE		:= hook_move/
 CTRL			:= hook_move/controls/
 RENDER_IMAGE	:= render_image/
@@ -60,14 +63,20 @@ INCLUDES		:= -I $(RAYCASTING)\
 				-I $(RENDER_IMAGE)\
 				-I $(TEXTURE)\
 				-I $(GET_ATTR)\
+				-I $(VALID_MAP)\
+				-I $(NORMALIZE_MAP)\
+				-I $(FLOOD_FILL_MAP)\
 				-I $(CTRL)
 
 #-----------------------------------------------------------------------------------------
 # Source files
 FILE_UTILS		:= utils.c
 FILE_PARSE		:= parse.c coordinates.c
+FILE_VALID_MAP	:= is_valid_map.c
 FILE_ATTR		:= get_attr.c set_ceiling_floor.c set_path_texture.c
 FILE_VALID		:= valid_file.c
+FILE_NORMALIZE	:= normalize_map.c
+FILE_FLOOD_FILL	:= flood_fill.c
 FILE_READ		:= read_file.c
 FILE_HOOK		:= hook.c
 FILE_CTRL		:= move_up.c move_down.c move_left.c move_right.c\
@@ -91,6 +100,9 @@ SRC_FILES		:= $(addprefix $(RENDER_IMAGE), $(RENDER))\
 					$(addprefix $(VALID), $(FILE_VALID))\
 					$(addprefix $(READ_FILE), $(FILE_READ))\
 					$(addprefix $(GET_ATTR), $(FILE_ATTR))\
+					$(addprefix $(VALID_MAP), $(FILE_VALID_MAP))\
+					$(addprefix $(NORMALIZE_MAP), $(FILE_NORMALIZE))\
+					$(addprefix $(FLOOD_FILL_MAP), $(FILE_FLOOD_FILL))\
 					main.c\
 
 #-----------------------------------------------------------------------------------------
@@ -122,7 +134,7 @@ $(OBJS)/%.o: %.c
 
 #-----------------------------------------------------------------------------------------
 # Include dependency files
-#-include $(DEP_FILES)
+-include $(DEP_FILES)
 
 #-----------------------------------------------------------------------------------------
 # Rule to clean

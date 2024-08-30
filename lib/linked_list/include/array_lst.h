@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_lst.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 08:47:19 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 10:30:22 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/30 16:35:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,13 @@
 typedef struct s_node
 {
 	char			c;
-	int				type;
-	int				paren;
-	int				priority;
-	int				fd_here_doc;
-	int				lex_val;
 	struct s_node	*next;
 	struct s_node	*prev;
 }			t_node;
 
 typedef struct s_lst
 {
+	int			is_space;
 	t_node		*head;
 	t_node		*last;
 	int			size;
@@ -70,7 +66,6 @@ int		ft_find_str_inlist(t_lst *lst, char *str, int size);
 char	*ft_cpy_lst_to_array(t_lst *lst);
 void	ft_putlst_fd(t_lst *lst, int new_line, int fd);
 int		insert_node_between(t_lst *lst, t_node *node, t_lst *new_lst);
-t_node	*find_type_rtrn_ptr(t_lst *lst, int type);
 int		ft_find_head(t_lst *lst, char *str, int size);
 int		ft_find_last(t_lst *lst, char *str, int size);
 

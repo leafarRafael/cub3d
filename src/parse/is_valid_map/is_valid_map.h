@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_node.c                                        :+:      :+:    :+:   */
+/*   is_valid_map.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 09:54:28 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 16:29:42 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/30 14:18:14 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/30 14:41:01 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_lst.h"
+#ifndef IS_VALID_MAP
+ #define IS_VALID_MAP
 
-t_node	*ft_init_node(char c)
-{
-	t_node	*new_node;
+typedef struct s_matrix_list t_mlst;
 
-	if (c == '\0')
-		return (NULL);
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->c = c;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
-}
+int	is_valid_map(t_mlst *mlst);
+
+#endif

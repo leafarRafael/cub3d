@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_node.c                                        :+:      :+:    :+:   */
+/*   normalize_map.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 09:54:28 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 16:29:42 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/30 15:40:44 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/30 18:05:56 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_lst.h"
+#ifndef NORMALIZE_MAP_H
+ #define NORMALIZE_MAP_H
 
-t_node	*ft_init_node(char c)
-{
-	t_node	*new_node;
+typedef struct s_matrix_list t_mlst;
 
-	if (c == '\0')
-		return (NULL);
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->c = c;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
-}
+int	normalize(t_mlst *mlst);
+
+#endif

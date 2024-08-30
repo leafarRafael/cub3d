@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_node.c                                        :+:      :+:    :+:   */
+/*   flood_fill.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 09:54:28 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 16:29:42 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/30 18:56:27 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/30 18:57:04 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_lst.h"
+#ifndef FLOOD_FILL_H
+# define FLOOD_FILL_H
 
-t_node	*ft_init_node(char c)
-{
-	t_node	*new_node;
+void	get_player_pos(t_data *data);
+void	flood_fill(char **map, int map_max_y, int y, int x);
 
-	if (c == '\0')
-		return (NULL);
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->c = c;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
-}
+#endif

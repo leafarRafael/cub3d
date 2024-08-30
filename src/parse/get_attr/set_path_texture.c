@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_path_texture.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 08:40:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 10:46:07 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/30 16:16:41 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	set_path_texture(t_lst *lst, t_data *data)
 	if (!is_space_tab(lst->head->next->next->c))
 		return (ERROR);
 	coord = get_coord(lst->head->c, lst->head->next->c);
-	if (coord == NORTH && &data->args_file[NORTH])
+	if (coord == NORTH)
 		return (set_path(&data->args_file[NORTH], lst, data));
 	if (coord == SOUTH)
 		return (set_path(&data->args_file[SOUTH], lst, data));

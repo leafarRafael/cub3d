@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_attr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:41:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 10:45:55 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/30 16:18:34 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <get_attr.h>
 
-static int	is_flor_ceiling(char c);
+static int	is_floor_ceiling(char c);
 static int	is_coord(char c);
 int			add_attr(t_lst *lst, t_data *data);
 
@@ -46,7 +46,7 @@ int		add_attr(t_lst *lst, t_data *data)
 		return (1);
 	if (lst->size < 3)
 		return (ERROR);
-	if (is_flor_ceiling(lst->head->c))
+	if (is_floor_ceiling(lst->head->c))
 		return (set_ceiling_floor(lst, data));
 	if (is_coord(lst->head->c))
 		return (set_path_texture(lst, data));
@@ -58,7 +58,7 @@ static int	is_coord(char c)
 	return (c == 'N' || c == 'S' || c == 'W' || c == 'E');
 }
 
-static int	is_flor_ceiling(char c)
+static int	is_floor_ceiling(char c)
 {
 	return (c == 'F' || c == 'C');
 }

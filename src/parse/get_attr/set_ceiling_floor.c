@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_ceiling_floor.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 08:40:01 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 10:44:04 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/30 16:16:53 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static int	set_atribute(t_atr *atr, t_lst *lst, t_data *data)
 	while (lst->size && is_new_line(lst->head->c))
 		ft_remove_node_front(lst);
 	if (!lst->size)
+		return (ERROR);
+	if (atr->str)
 		return (ERROR);
 	atr->str = ft_cpy_lst_to_array(lst);
 	if (!atr->str)
