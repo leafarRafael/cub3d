@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 15:40:44 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 19:38:32 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/31 16:12:46 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 static int	get_biggest_line(t_mlst *mlst);
 static void	subs(t_lst *lst);
 static void	normalize_line(t_lst *lst, int size);
+// static void draw_bounds(t_mlst *mlst);
 
 int	normalize(t_mlst *mlst)
 {
@@ -24,8 +25,8 @@ int	normalize(t_mlst *mlst)
 	t_llst	*llst;
 	int		size;
 
+	// draw_bounds(mlst);
 	size = get_biggest_line(mlst);
-	
 	i = 0;
 	llst = mlst->head;
 	while (i < mlst->size)
@@ -61,9 +62,9 @@ static int	get_biggest_line(t_mlst *mlst)
 static void	normalize_line(t_lst *lst, int size)
 {
 	if (is_new_line(lst->last->c))
-		lst->last->c = '9';
+		lst->last->c = '#';
 	while (lst->size <= size)
-		ft_create_node_add_back(lst, '9');
+		ft_create_node_add_back(lst, '#');
 
 }
 
@@ -77,9 +78,26 @@ static void	subs(t_lst *lst)
 	while (i < lst->size)
 	{
 		if (is_new_line(node->c))
-			node->c = '9';
+			node->c = '#';
 		node = node->next;
 		i++;
 	}
 }
 
+// static void draw_bounds(t_mlst *mlst)
+// {
+// 	t_llst	*llst;
+// 	int		i;
+
+// 	ft_add_list_front(mlst, ft_duplst(mlst->head->lst, ft_cpynode, ft_add_node_back));
+// 	ft_add_list_back(mlst, ft_duplst(mlst->head->lst, ft_cpynode, ft_add_node_back));
+// 	i = 0;
+// 	llst = mlst->head;
+// 	while (i < mlst->size)
+// 	{
+// 		ft_create_add_node_front(llst->lst, '#');
+// 		ft_create_node_add_back(llst->lst, '#');
+// 		i++;
+// 		llst = llst->next;
+// 	}
+// }

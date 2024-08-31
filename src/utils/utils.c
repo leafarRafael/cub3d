@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 19:29:48 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/31 11:20:11 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,9 @@ int 	error_handler(char *s1, char *s2, char *s3, char *s4)
 	if (s4)
 		ft_putstr_fd(s4, 2);
 	return (0);
+}
+
+int	is_coord(char c)
+{
+	return (c == 'N' || c == 'S' || c == 'W' || c == 'E');
 }

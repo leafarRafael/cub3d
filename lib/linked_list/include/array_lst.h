@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 08:47:19 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 16:35:37 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/31 15:28:18 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ typedef struct s_var_array_list
 t_lst	*ft_init_lst(void);
 t_lst	*ft_duplst(t_lst *ori_lst,
 			t_node (*ft_cpy(t_node *)), int (*add_n)(t_lst *, t_node *));
+t_node	*ft_cpynode(t_node *node_origin);
 t_lst	*ft_create_lst_add_str(char *array);
 t_node	*ft_init_node(char c);
-t_node	*ft_cpynode(t_node *node_origin);
 t_node	*ft_remove_return_node(t_lst *lst, t_node *node);
 int		ft_create_node_add_back(t_lst *lst, char content);
 int		ft_add_node_back(t_lst *lst, t_node *node);

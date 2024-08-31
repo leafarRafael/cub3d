@@ -6,11 +6,12 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 19:18:50 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/31 16:14:30 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 #include "data.h"
 #include "utils.h"
 #include <MLX42.h>
@@ -20,18 +21,17 @@
 #include <fcntl.h>
 #include "get_next_line.h"
 #include "defines.h"
-#include "coordinates.h"
 #include "parse.h"
 #include "matrix_lst.h"
-#include <stdio.h>
 #include "get_attr.h"
 #include "is_valid_map.h"
 #include "normalize_map.h"
+#include "set_player.h"
 #include "flood_fill.h"
+#include "stdio.h"
 
-static int init_data(t_data *data, char *file);
-static char **cpy_file(char *file);
-void	put_map(t_mlst *mlst);
+void put(t_mlst *mlst);
+static int init_data(t_data *data);
 
 t_data *parse(int argc, char **argv)
 {
@@ -49,16 +49,24 @@ t_data *parse(int argc, char **argv)
 	normalize(mlst);
 	data.coord = &coord;
 	data.worldmap = ft_cpy_mtrllst_to_cmtrx(mlst);
-	get_player_pos(&data);
+	set_player(&data);
+	// for(int i = 0; data.worldmap[i]; i++)
+	// 	printf("%s\n", data.worldmap[i]);
 	flood_fill(data.worldmap, mlst->size, data.coord->pos[Y], data.coord->pos[X]);
-	for (int i = 0; data.worldmap[i]; i++)
+	ft_delcmtrx(data.worldmap);
+	data.worldmap = ft_cpy_mtrllst_to_cmtrx(mlst);
+	data.worldmap[(int)data.coord->pos[Y]][(int)data.coord->pos[X]] = '0';
+	for(int i = 0; data.worldmap[i]; i++)
 		printf("%s\n", data.worldmap[i]);
-	init_data(&data, argv[1]);
-	set_initial_coordinates(&coord, &data);
+	ft_delete_matrix(mlst);
+	printf("player pos Y = %f player pos X = %f\n", data.coord->pos[Y], data.coord->pos[X]);
+	printf("player dir Y = %f player dir X = %f\n", data.coord->dir[Y], data.coord->dir[X]);
+	printf("player plane Y = %f player plane X = %f\n", data.coord->plane[Y], data.coord->plane[X]);
+	init_data(&data);
 	return (&data);
 }
 
-static int init_data(t_data *data, char *file)
+static int init_data(t_data *data)
 {
 	data->window.mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	data->window.image = mlx_new_image(data->window.mlx, WIDTH, HEIGHT);
@@ -75,54 +83,21 @@ static int init_data(t_data *data, char *file)
 	data->rgb_cel[1] = 0;
 	data->rgb_cel[2] = 100;
 	data->rgb_cel[3] = 255;
-	data->worldmap = cpy_file(file);
-	if(!data->worldmap)
-		return (1);
 	return (0);
 }
 
-static char **cpy_file(char *file)
-{
-	int		fd;
-	int		i;
-	char	**cpy;
-	char	*str;
-
-	cpy = NULL;
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	i = 0;
-	while ((str = get_next_line(fd)))
-	{
-		free(str);
-		i++;
-	}
-	cpy = malloc(sizeof(char *) * (i + 1));
-	close(fd);
-	fd = open(file, O_RDONLY);
-	i = 0;
-	while ((str = get_next_line(fd)))
-	{
-		cpy[i] = str;
-		i++;
-	}
-	cpy[i] = NULL;
-	close(fd);
-	return (cpy);
-}
-
-void	put_map(t_mlst *mlst)
+void put(t_mlst *mlst)
 {
 	int		i;
 	t_llst	*llst;
 
 	i = 0;
 	llst = mlst->head;
-	while (i < mlst->size)
+	while(i < mlst->size)
 	{
-		ft_putlst_fd(llst->lst, 0, 2);
-		i++;
+		ft_putlst_fd(llst->lst, 1, 2);
 		llst = llst->next;
+		i++;
 	}
+
 }

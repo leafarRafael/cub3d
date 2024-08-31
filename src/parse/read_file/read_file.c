@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:12:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 08:21:37 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/31 11:26:40 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_mlst *read_file(char *file)
 	int		fd;
 	char	*line;
 	t_mlst	*mlst;
-
 
 	fd = open(file, O_RDONLY);
 	if (fd == FAIL)

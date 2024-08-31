@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coordinates.c                                      :+:      :+:    :+:   */
+/*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 14:57:09 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 15:34:35 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/31 13:16:50 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/08/31 16:15:22 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "defines.h"
 #include "data.h"
+#include "defines.h"
+#include "utils.h"
+#include <stdio.h>
 
-static int	set_initial_direction(double dir[2], char c);
-static void	set_initial_player_position(double pos[2], double y, double x);
+static void	set_coords(t_data *data);
+static int	set_direction(double dir[2], char c);
 static void set_vector_rotation_cam_plane(double plane[2], double dir[2]);
 
 /**
@@ -23,7 +25,7 @@ static void set_vector_rotation_cam_plane(double plane[2], double dir[2]);
  * This function sets the initial player position, direction, and calculates the
  * camera plane vector based on predefined values. It also updates the main game
  * data structure to include the initialized player coordinates.
- *  
+ * 
 * @param coord A pointer to the player structure (`t_plr`) that contains:
  *              - `pos[2]` for storing the player's X and Y coordinates.
  *              - `dir[2]` for storing the direction the player is looking.
@@ -34,12 +36,11 @@ static void set_vector_rotation_cam_plane(double plane[2], double dir[2]);
  *          The `coord` field of this structure is updated to point to the `coord` parameter.
  */
 
-void set_initial_coordinates(t_plr *coord, t_data *data)
+void set_player(t_data *data)
 {
-	set_initial_player_position(coord->pos, 22.5, 12.5);
-	set_initial_direction(coord->dir,'W');
-	set_vector_rotation_cam_plane(coord->plane, coord->dir);
-	data->coord = coord; 
+	set_coords(data);
+	set_direction(data->coord->dir, data->identifier);
+	set_vector_rotation_cam_plane(data->coord->plane, data->coord->dir);
 }
 
 /**
@@ -54,10 +55,33 @@ void set_initial_coordinates(t_plr *coord, t_data *data)
  * @param y the Y-axis position in the 2D map 
  * @param x the X-axis position in the 2D map
  */
-static void	set_initial_player_position(double pos[2], double y, double x)
+
+static void	set_coords(t_data *data)
 {
-	pos[X] = x;
-	pos[Y] = y;
+	char	**map;
+	int		x;
+	int		y;
+
+	x = 0;
+	y = 0;
+	map = data->worldmap;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (is_coord(map[y][x]))
+			{
+				data->coord->pos[X] = (double)x + 0.5;
+				data->coord->pos[Y] = (double)y + 0.5;
+				data->identifier = map[y][x];
+				map[y][x] = '0';
+				return ;
+			}
+			x += 1;
+		}
+		y += 1;
+	}
 }
 
 /**
@@ -74,16 +98,17 @@ static void	set_initial_player_position(double pos[2], double y, double x)
  * 		'A' for EAST  = (dir[Y] = 0,	dir[X] = 1)
  * @return 0 if valid direction, 1 otherwise
  */
-static int set_initial_direction(double dir[2], char c)
+
+static int	set_direction(double dir[2], char c)
 {
-	if (c != 'W' && c != 'A' && c != 'N' && c != 'S')
+	if (c != 'W' && c != 'E' && c != 'N' && c != 'S')
 		return (1);
 	if (c == 'W')
 	{
 		dir[Y] = 0;
 		dir[X] = -1;
 	}
-	else if (c == 'A')
+	else if (c == 'E')
 	{
 		dir[Y] = 0;
 		dir[X] = 1;
