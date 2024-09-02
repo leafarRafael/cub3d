@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_ceiling_floor.h                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 14:34:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 14:21:32 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/09/02 10:23:39 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/09/02 10:25:30 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_CEILING_FLOOR_H
-# define RENDER_CEILING_FLOOR_H
+#include "libft.h"
 
-typedef struct s_data	t_data;
-
-int	render_ceiling_floor(t_data *data);
-
-#endif
+int	ft_free(void *ptr)
+{
+	if (ptr)
+	{
+		free(ptr);
+		ptr = NULL;
+		return (0);
+	}
+	return (1);
+}

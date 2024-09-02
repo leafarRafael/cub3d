@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:42:35 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/05/21 10:10:34 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 10:25:10 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			ft_toupper(int c);
 int			ft_tolower(int c);
 int			ft_atoi(const char *nptr);
 int			ft_delcmtrx(char **matrix);
+int			ft_free(void *str);
 long		ft_atol(const char *nptr);
 long long	ft_atoll(const char *nptr);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);

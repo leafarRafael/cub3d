@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_ceiling_floor.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 08:40:01 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/31 11:24:14 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 12:19:14 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "defines.h"
 #include "utils.h"
 
-static int	get_flor_ceiling(char c);
+static int	get_floor_ceiling(char c);
 static int	set_atribute(t_atr *atr, t_lst *lst, t_data *data);
 
 int	set_ceiling_floor(t_lst *lst, t_data *data)
@@ -24,7 +24,7 @@ int	set_ceiling_floor(t_lst *lst, t_data *data)
 
 	if (!is_space_tab(lst->head->next->c))
 		return (ERROR);
-	identifier = get_flor_ceiling(lst->head->c);
+	identifier = get_floor_ceiling(lst->head->c);
 	if (identifier == FLOOR)
 		return (set_atribute(&data->args_file[FLOOR], lst, data));
 	if (identifier == CEILING)
@@ -37,6 +37,8 @@ static int	set_atribute(t_atr *atr, t_lst *lst, t_data *data)
 	ft_remove_node_front(lst);
 	while (lst->size && is_new_line(lst->head->c))
 		ft_remove_node_front(lst);
+	while (lst->size && is_new_line(lst->last->c))
+		ft_remove_node_back(lst);
 	if (!lst->size)
 		return (ERROR);
 	if (atr->str)
@@ -49,7 +51,7 @@ static int	set_atribute(t_atr *atr, t_lst *lst, t_data *data)
 	return (0);
 }
 
-static int	get_flor_ceiling(char c)
+static int	get_floor_ceiling(char c)
 {
 	if (c == 'F')
 		return (FLOOR);

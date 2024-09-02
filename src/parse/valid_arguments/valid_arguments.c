@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:38:12 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/28 14:13:36 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 09:45:58 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include "defines.h"
 #include <string.h>
 #include <errno.h>
+#include "error_handler.h"
 
 static void	valid_extension(char *file);
 static void	valid_empty_and_permission(char *file);

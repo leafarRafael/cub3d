@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 14:18:16 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/31 16:09:23 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 09:45:29 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "defines.h"
 #include <stdio.h>
 #include "utils.h"
+#include "error_handler.h"
 
 static int	check_is_valid_char(char c);
 static int	valid_line(t_lst *lst, int *nbr);

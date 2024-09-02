@@ -1,12 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_file.h                                       :+:      :+:    :+:   */
+/*   set_rgb.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 13:38:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/31 11:49:31 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/09/02 15:26:04 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/09/02 15:27:14 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SET_RGB_H
+# define SET_RGB_H
+
+typedef struct s_data	t_data;
+
+int	set_rgb(t_data *data);
+
+#endif

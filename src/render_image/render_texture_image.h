@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 10:27:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 10:08:25 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "defines.h"
 
 typedef struct s_ray_casting	t_ray;
-typedef struct s_player			t_plr;
+typedef struct s_coordinates	t_coord;
 typedef struct s_data			t_data;
 
 /**

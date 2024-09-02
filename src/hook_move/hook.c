@@ -6,13 +6,14 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 08:16:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 11:05:11 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <MLX42.h>
 #include "data.h"
 #include "render_ceiling_floor.h"
+#include "error_handler.h"
 #include "ray_casting.h"
 #include "controls.h"
 #include <stdio.h>

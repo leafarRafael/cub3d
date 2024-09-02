@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:12:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/31 11:26:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 09:45:53 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <string.h>
 #include <errno.h>
 #include "matrix_lst.h"
+#include "error_handler.h"
 
 t_mlst *read_file(char *file)
 {

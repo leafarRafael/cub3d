@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_ceiling_floor.h                             :+:      :+:    :+:   */
+/*   valid_arguments.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 14:34:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 14:21:32 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/08/28 13:38:08 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/09/02 14:11:11 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_CEILING_FLOOR_H
-# define RENDER_CEILING_FLOOR_H
+#ifndef VALID_ARGUMENTS_H
+# define VALID_ARGUMENTS_H
 
-typedef struct s_data	t_data;
-
-int	render_ceiling_floor(t_data *data);
+void	valid_arguments(int argc, char **argv);
 
 #endif

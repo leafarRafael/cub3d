@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:38:37 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 10:57:06 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 09:46:34 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "defines.h"
 #include <math.h>
 #include "pixels_texture.h"
+#include "error_handler.h"
 
 static int	get_coordinate_x_text(t_data *data, t_ray *ray, t_dda *dda);
 static void	calc_coord_tex(t_data *data, t_dda *dda, t_ray *ray, t_text *pix);

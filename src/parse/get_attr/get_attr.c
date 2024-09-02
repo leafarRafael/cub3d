@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_attr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:41:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/31 11:20:38 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 09:45:07 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "utils.h"
 #include <stdlib.h>
 #include <get_attr.h>
+#include "error_handler.h"
 
 static int	is_floor_ceiling(char c);
 int			add_attr(t_lst *lst, t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_path_texture.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 08:40:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/31 11:24:50 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 12:18:30 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static int	set_path(t_atr *atr, t_lst *lst, t_data *data)
 	ft_remove_node_front(lst);
 	while (lst->size && is_new_line(lst->head->c))
 		ft_remove_node_front(lst);
+	while (lst->size && is_new_line(lst->last->c))
+		ft_remove_node_back(lst);
 	if (!lst->size)
 		return (ERROR);
 	if (atr->str)

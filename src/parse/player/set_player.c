@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 13:16:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/31 16:15:22 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 09:58:34 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void set_vector_rotation_cam_plane(double plane[2], double dir[2]);
  * camera plane vector based on predefined values. It also updates the main game
  * data structure to include the initialized player coordinates.
  * 
-* @param coord A pointer to the player structure (`t_plr`) that contains:
+* @param coord A pointer to the player structure (`t_coord`) that contains:
  *              - `pos[2]` for storing the player's X and Y coordinates.
  *              - `dir[2]` for storing the direction the player is looking.
  *              - `plane[2]` for calculating the rotation of the camera plane.
@@ -36,8 +36,9 @@ static void set_vector_rotation_cam_plane(double plane[2], double dir[2]);
  *          The `coord` field of this structure is updated to point to the `coord` parameter.
  */
 
-void set_player(t_data *data)
+void	set_player(t_data *data, t_coord *coord)
 {
+	data->coord = coord;
 	set_coords(data);
 	set_direction(data->coord->dir, data->identifier);
 	set_vector_rotation_cam_plane(data->coord->plane, data->coord->dir);
