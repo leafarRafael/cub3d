@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 16:28:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 16:31:18 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@
 #define E_ARGS "Invalid arguments"
 #define E_COLOR "Ivalid color\n"
 #define E_MEM "Memory error\n"
+#define E_MLX "Instaces png, window or image"
 
 #endif
