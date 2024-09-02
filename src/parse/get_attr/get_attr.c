@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:41:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 09:45:07 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 16:18:42 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@
 static int	is_floor_ceiling(char c);
 int			add_attr(t_lst *lst, t_data *data);
 
-void	get_attr(t_mlst *mlst, t_data *data)
+int	get_attr(t_mlst *mlst, t_data *data)
 {
 	int	status;
 
 	status = 0;
 	data->atr = 6;
-	while (data->atr > 0)
+	while (data->atr > 0 && mlst->size)
 	{
 		status = add_attr(mlst->head->lst, data);
 		if (status == ERROR)
-			exit(error_handler("ERROR\n", "Invalid identifier\n", NULL, NULL) + 20);
+			return (ERROR);
 		ft_remove_lst_front(mlst);
 	}
+	return (0);
 }
 
 int		add_attr(t_lst *lst, t_data *data)

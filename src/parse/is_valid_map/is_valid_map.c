@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 14:18:16 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 09:45:29 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 15:58:41 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ int	is_valid_map(t_mlst *mlst)
 	int		nbr_player_pos;
 	t_llst	*llst;
 
-	while (mlst->head->lst->is_space == 0)
+	while (mlst->size && mlst->head->lst->is_space == 0)
 		ft_remove_lst_front(mlst);
-	while (mlst->last->lst->is_space == 0)
+	while (mlst->size && mlst->last->lst->is_space == 0)
 		ft_remove_list_back(mlst);
+	if (!mlst->size)
+		exit(error_handler("Ivalid map\n", 0, 0, 0) + ft_delete_matrix(mlst));
 	i = 0;
 	llst = mlst->head;
 	nbr_player_pos = 0;

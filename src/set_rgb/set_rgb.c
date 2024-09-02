@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:25:16 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 15:41:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 15:53:13 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "libft.h"
 
 static int	valid_add_rgb(char *color, int rgb[4]);
+static int	valid_value(int c);
+static int	valid_color(char *color);
+static int	valid_size(char	**color);
 
 int	set_rgb(t_data *data)
 {
@@ -24,10 +27,6 @@ int	set_rgb(t_data *data)
 		return  (ERROR);
 	return (0);
 }
-
-static int	valid_value(int c);
-static int	valid_color(char *color);
-static int	valid_size(char	**color);
 
 static int	valid_add_rgb(char *color, int rgb[4])
 {

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 11:49:36 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 16:22:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@
 #define E_F_R_F "fail to read file\n"
 #define E_MAP "is invalid map\n"
 #define GAME "cub3d"
+#define E_INDEN "Invalid indentifier\n"
+#define E_ARGS "Invalid arguments"
+#define E_COLOR "Ivalid color\n"
 
 #endif
