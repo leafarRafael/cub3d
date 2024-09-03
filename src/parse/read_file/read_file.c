@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:12:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 09:45:53 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 08:35:25 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ t_mlst *read_file(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == FAIL)
-		exit(error_handler("ERROR\n", strerror(errno), "\n", NULL));
+		return (NULL);
 	mlst = init_mlst();
 	if (!mlst)
-		exit(error_handler("ERROR\n", "fail to alloc\n", NULL, NULL));
+		return (NULL);
 	line = get_next_line(fd);
 	while (line)
 	{

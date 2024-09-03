@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:42:02 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 12:05:57 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 09:11:26 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,27 @@
 #include <stdlib.h>
 #include "utils.h"
 #include "matrix_lst.h"
+#include "error_handler.h"
+#include <string.h>
+#include <errno.h>
 
-int	error_handler(char *s1, char *s2, char *s3, char *s4)
+const char	*error_msg(int e_error);
+
+int	error_handler(int e_error)
 {
+	if (e_error == 0)
+		return (0);
 	ft_putstr_fd("ERROR:\n", 2);
-	if (s1)
-		ft_putstr_fd(s1, 2);
-	if (s2)
-		ft_putstr_fd(s2, 2);
-	if (s3)
-		ft_putstr_fd(s3, 2);
-	if (s4)
-		ft_putstr_fd(s4, 2);
-	return (0);
+	if (errno)
+	{
+		ft_putstr_fd(strerror(errno), 2);
+		ft_putstr_fd("\n", 2);
+		destroy_data(get_data());
+		return (errno);
+	}
+	ft_putstr_fd((char*)error_msg(e_error), 2);
+	destroy_data(get_data());
+	return (e_error);
 }
 
 int	destroy_data(t_data *data)
@@ -55,4 +63,19 @@ int	destroy_data(t_data *data)
 	if (data->mlst)
 		ft_delete_matrix(data->mlst);
 	return (0);
+}
+
+const char	*error_msg(int e_error)
+{
+	const char	*error[] = {"",
+	E_ARGS, 
+	E_MEM,
+	E_F_R_F,
+	E_INDEN,
+	E_INVALID_MAP,
+	E_RGB, 
+	E_INVALID_MAP,
+	E_MLX
+	};
+	return (error[e_error]);
 }

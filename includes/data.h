@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 14:47:05 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 09:00:36 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ typedef enum s_texture
 	FLOOR,
 	CEILING,
 }			t_texture_index;
-
-typedef enum s_rgb
-{
-	R = 0,
-	G,
-	B,
-	A,
-}		e_rgb;
 
 typedef	struct s_components_mlx
 {
@@ -68,5 +60,6 @@ typedef struct s_data
 	int			atr;
 }	t_data;
 
+t_data	*get_data(void);
 
 #endif

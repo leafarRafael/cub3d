@@ -1,11 +1,11 @@
-NO textures/eagla.png 
+NO textures/eagle.png 
 WE textures/bluestone.png
 SO textures/mossy.png
 EA textures/wood.png
 
 C 255,255,255
 
-F 255,255,201
+F 255,255,1
 
 111111111111111111111111
 1000000000000W0000000001

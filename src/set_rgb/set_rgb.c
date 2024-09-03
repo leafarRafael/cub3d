@@ -6,13 +6,14 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:25:16 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 15:53:13 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 08:01:29 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
 #include "defines.h"
 #include "libft.h"
+#include "set_rgb.h"
 
 static int	valid_add_rgb(char *color, int rgb[4]);
 static int	valid_value(int c);

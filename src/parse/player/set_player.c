@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 13:16:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 16:18:15 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 09:02:17 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ static void set_vector_rotation_cam_plane(double plane[2], double dir[2]);
  *          The `coord` field of this structure is updated to point to the `coord` parameter.
  */
 
-void	set_player(t_data *data, t_coord *coord)
+void	set_player(t_data *data)
 {
-	data->coord = coord;
 	set_coords(data);
 	set_direction(data->coord->dir, data->identifier);
 	set_vector_rotation_cam_plane(data->coord->plane, data->coord->dir);

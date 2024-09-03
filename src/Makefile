@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/09/02 15:30:22 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/09/03 09:05:03 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ CMD_CLEAN		:= rm -Rf
 #-----------------------------------------------------------------------------------------
 # DIRECTORY and Header file
 UTILS			:= utils/
+DATA			:= initialize_data/
 PARSE			:= parse/
 VALID			:= parse/valid_arguments/
 READ_FILE		:= parse/read_file/
@@ -53,6 +54,7 @@ LINKED_M		:= ../lib/matrix_list/include/
 #-----------------------------------------------------------------------------------------
 # Header file includes
 INCLUDES		:= -I $(RAYCASTING)\
+				-I $(DATA)\
 				-I $(DDA)\
 				-I$(INCLUDE)\
 				-I $(UTILS)\
@@ -79,6 +81,7 @@ INCLUDES		:= -I $(RAYCASTING)\
 #-----------------------------------------------------------------------------------------
 # Source files
 FILE_UTILS		:= utils.c
+FILE_INIT_DATA	:= init_data.c
 FILE_ERROR		:= error_handler.c
 FILE_PARSE		:= parse.c
 FILE_VALID_MAP	:= is_valid_map.c
@@ -101,6 +104,7 @@ FILE_CTRL		:= move_up.c move_down.c move_left.c move_right.c\
 #-----------------------------------------------------------------------------------------
 # Source files
 SRC_FILES		:= $(addprefix $(RENDER_IMAGE), $(RENDER))\
+					$(addprefix $(DATA), $(FILE_INIT_DATA))\
 					$(addprefix $(RAYCASTING), $(FILE_RAY))\
 					$(addprefix $(DDA), $(FILE_DDA))\
 					$(addprefix $(UTILS), $(FILE_UTILS))\

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 14:18:16 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 15:58:41 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 08:36:34 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_valid_map(t_mlst *mlst)
 	while (mlst->size && mlst->last->lst->is_space == 0)
 		ft_remove_list_back(mlst);
 	if (!mlst->size)
-		exit(error_handler("Ivalid map\n", 0, 0, 0) + ft_delete_matrix(mlst));
+		return (ERROR);
 	i = 0;
 	llst = mlst->head;
 	nbr_player_pos = 0;
@@ -44,7 +44,7 @@ int	is_valid_map(t_mlst *mlst)
 		i++;
 	}
 	if (nbr_player_pos != 1)
-		exit(error_handler("ERROR\n", "ARROZ\n", NULL, NULL) + ft_delete_matrix(mlst));
+		return (ERROR);
 	return (0);
 }
 
