@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:22 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 12:32:27 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 15:23:14 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	init_atributes_mlx(t_data *data)
 		return (ERROR);
 	if (!data->window.mlx)
 		return (ERROR);
-	return (SUCESSES);
+	return (SUCCESS);
 }
 
 /**
@@ -81,5 +81,5 @@ static int	loadpng(mlx_texture_t **wall, char *path_to_png)
 	(*wall) = mlx_load_png(path_to_png);
 	if (!(*wall))
 		return (ERROR);
-	return (SUCESSES);
+	return (SUCCESS);
 }

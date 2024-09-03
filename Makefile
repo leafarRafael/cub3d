@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:04 by rbutzke           #+#    #+#              #
-#    Updated: 2024/09/03 12:32:57 by myokogaw         ###   ########.fr        #
+#    Updated: 2024/09/03 12:53:57 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

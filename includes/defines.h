@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 13:04:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 11:59:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 15:23:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 #define SO "SO"
 #define GAME "cub3d"
 #define ERROR 37
-#define SUCESSES 0
+#define SUCCESS 0
 
 
 #endif
