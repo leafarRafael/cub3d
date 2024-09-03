@@ -1,9 +1,8 @@
 
-NO ./assets/textures/wall_textures/tile02.png
-WE ./assets/textures/wall_textures/tile01.png
-SO ./assets/textures/wall_textures/tile03.png 
-EA ./assets/textures/wall_textures/tile04.png
-EA ./assets/textures/wall_textures/tile04.png
+NO textures/bluestone.png
+WE textures/colorstone.png
+SO textures/mossy.png 
+EA textures/purplestone.png
 
 F 75,75,75                
 C 47,55,66

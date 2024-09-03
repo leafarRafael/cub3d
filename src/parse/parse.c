@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2024/09/03 11:40:58 by rbutzke          ###   ########.fr       */
+=======
+/*   Updated: 2024/09/03 12:00:43 by myokogaw         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +37,6 @@ t_data	*parse(int argc, char **argv)
 	if (valid_arguments(argc, argv))
 		exit(error_handler(E_ARGUMENTS));
 	data = get_data();
-	data = get_data();
-	data = get_data();
-	data = get_data();
-	data = get_data();
-	data = get_data();
-	
 	data->mlst = read_file(argv[1]);
 	if (!data->mlst)
 		exit(error_handler(E_MEMORY));

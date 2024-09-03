@@ -1,11 +1,16 @@
 
-NO ./assets/textures/wall_textures/tile02.png
-WE ./assets/textures/wall_textures/tile01.png
-SO ./assets/textures/wall_textures/tile03.png 
-EA ./assets/textures/wall_textures/tile04.png
 
-C 47,55,66,600,500,200,300
-F 255,75,123                
+
+
+NO textures/greystone.png
+WE textures/colorstone.png
+SO textures/eagle.png                                   
+
+C                               55,55,66
+F 0,120,30      
+F 0,120,30
+
+EA                      textures/greenlight.png
 
 1111111111111111111111111
 1000000000110000000000001
@@ -22,3 +27,12 @@ F 255,75,123
 1000000000110000000000001
 1000000000000000000000001
 1111111111111111111111111
+
+
+
+
+
+
+
+
+

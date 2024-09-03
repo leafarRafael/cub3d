@@ -1,17 +1,23 @@
+F                                       200,100,0                  
 
-NO ./assets/textures/wall_textures/tile02.png
-WE ./assets/textures/wall_textures/tile01.png
-SO ./assets/textures/wall_textures/tile03.png 
-EA ./assets/textures/wall_textures/tile04.png
 
-F 75,75,75                
-C 47,55,66
+
+WE textures/colorstone.png
+
+C 244,233,120
+
+
+NO                          textures/greystone.png
+SO textures/eagle.png                       
+EA textures/greenlight.png
+
+
 
 1111111111111111111111111
 1000000000110000000000001
 1011000001110000000000001
 1001000000000000000000001
-1001000000000000000000001
+10010000000000S0000000001
 1011000000100000000000001
 1000000001010000000000001
 1001000000100000000000001
@@ -22,3 +28,4 @@ C 47,55,66
 1000000000110000000000001
 1000000000000000000000001
 1111111111111111111111111
+

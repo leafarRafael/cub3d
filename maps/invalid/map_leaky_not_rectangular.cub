@@ -1,14 +1,14 @@
 F                                       153,153,102                  
 
 
-WE               ./assets/textures/wall_textures/tile01.png
+WE               textures/colorstone.png
 
 C 51,51,153
 
 
-NO ./assets/textures/wall_textures/tile02.png
-SO               ./assets/textures/wall_textures/tile03.png 
-        EA       ./assets/textures/wall_textures/tile04.png
+NO textures/bluestone.png
+SO               textures/mossy.png 
+        EA       textures/purplestone.png
 
 
 

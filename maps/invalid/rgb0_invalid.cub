@@ -1,11 +1,11 @@
 
-NO ./assets/textures/wall_textures/tile02.png
-WE ./assets/textures/wall_textures/tile01.png
-SO ./assets/textures/wall_textures/tile03.png 
-EA ./assets/textures/wall_textures/tile04.png
+NO textures/bluestone.png
+WE textures/colorstone.png
+SO textures/mossy.png 
+EA textures/purplestone.png
 
 C 55,55,66
-F 500,200,200
+F 22,39,59,19            
 
 1111111111111111111111111
 1000000000110000000000001

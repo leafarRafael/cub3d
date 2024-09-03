@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
+#    By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:04 by rbutzke           #+#    #+#              #
-#    Updated: 2024/08/31 15:52:13 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/09/03 12:32:57 by myokogaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,15 +51,13 @@ PATH_MAKE_OBJ	:= src
 #-----------------------------------------------------------------------------------------
 # Paths to test maps
 
-MAPS = $(addprefix maps/, dup0.identifier.cub dup1.identifier.cub empty.cub identifier.without.cub \
-	id.without_content.cub map_badly_form_color.cub map_badly_form_texture.cub map.cub map_duplicate_color.cub \
-	map_duplicate_WE.cub map_element_incomplete.cub map_element_more_then_complete.cub \
-	map_leaky_borders.cub map_leaky_not_rectangular.cub map_missing_color.cub map_missing_one_element.cub \
-	map_missing_texture.cub map_multiple_F.cub map_multiple_player.cub map_multiple_textures.cub \
-	map_no_extension map_no_player.cub map_OK.cub map_OK_not_rectangular.cub maps.ber maps.cub \
-	map_with_double_element_after_file_content_is_set.cub map.without.cub map_wrong_bg_badly_formatted.cub \
-	map_wrong_bg_color_with_char.cub map_wrong_bg_numbers.cub map_wrong_texture_path.cub no_content.cub \
-	rgb0.invalid.cub rgb1.invalid.cub rgb2.invalid.cub rgb3.invalid.cub)
+MAPS = $(addprefix maps/invalid/, empty.cub file_invalid.cub id_rgb_dup_after_all_set.cub \
+		id_rgb_dup_before_all_set.cub id_rgb_missing.cub id_rgb_without_content.cub \
+		id_rgb_without_content_just_spaces.cub id_wall_dup_after_all_set.cub \
+		id_wall_dup_before_all_set.cub id_wall_missing.cub id_wall_without_content.cub \
+		id_wall_without_content_just_spaces.cub map_leaky_borders.cub map_leaky_not_rectangular.cub \
+		map_more_then_one_player.cub map_multiple_player.cub map_no_extension map_no_player.cub \
+		rgb0_invalid.cub rgb1_invalid.cub rgb2_invalid.cub rgb3_invalid.cub rgb4_invalid.cub rgb5_invalid.cub)
 
 #-----------------------------------------------------------------------------------------
 # Default rule to create the executable
@@ -147,7 +145,7 @@ re: fclean all
 valgrind:
 	@for map in $(MAPS); do \
 		echo "\n\e[0;35mRunning Valgrind with map: $$map\033[0m"; \
-		valgrind -q --leak-check=full ./$(NAME) $$map; \
+		valgrind -q --leak-check=full --show-leak-kinds=all ./$(NAME) $$map; \
 	done
 
 
