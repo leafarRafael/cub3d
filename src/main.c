@@ -6,10 +6,11 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 07:48:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 09:10:15 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 09:56:13 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "set_rgb.h"
 #include "hook.h"
 #include "data.h"
 #include "parse.h"
@@ -27,6 +28,8 @@ int main(int argc, char **argv)
 	data = parse(argc, argv);
 	if (!data)
 		return (error_handler(0));
+	if (set_rgb(data))
+		return (error_handler(E_COLOR));
 	if (init_atributes_mlx(data))
 		return (error_handler(E_MLX42));
 	render_ceiling_floor(data);

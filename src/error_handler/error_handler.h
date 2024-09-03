@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:41:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 08:39:41 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 11:23:50 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #define E_INVALID_MAP "is invalid map\n"
 #define E_MEM "Memory error\n"
 #define E_MLX "Instaces png, window or image\n"
+#define NBR_MSG 8
 
 typedef struct s_data t_data;
 

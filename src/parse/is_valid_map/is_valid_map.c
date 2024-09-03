@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 14:18:16 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 08:36:34 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/03 09:51:55 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,7 @@ static int	valid_line(t_lst *lst, int *nbr)
 
 static int	check_is_valid_char(char c)
 {
-	return (c == 'W'
-		|| c == 'S'
-		|| c == 'E'
-		|| c == 'W'
-		|| c == '0'
-		|| c == '1'
-		|| c == ' '
-		|| c == '\t'
-		|| c == '\r'
-		|| c == '\n');
+	return (is_coord(c)
+		|| is_new_line(c)
+		|| ( c == '0' || c == '1'));
 }
