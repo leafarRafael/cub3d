@@ -6,11 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2024/09/03 11:40:58 by rbutzke          ###   ########.fr       */
-=======
-/*   Updated: 2024/09/03 12:00:43 by myokogaw         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2024/09/03 12:45:40 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
