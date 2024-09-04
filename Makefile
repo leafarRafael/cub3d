@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:04 by rbutzke           #+#    #+#              #
-#    Updated: 2024/09/04 13:45:36 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/09/04 14:39:15 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ $(NAME):
 
 #-----------------------------------------------------------------------------------------
 # Rule to create the static library by compiling source files in subdirectories
-$(NAME): object libmlx linked_list libft matrix_list
+$(NAME): libmlx linked_list libft matrix_list object
 
 
 #-----------------------------------------------------------------------------------------

@@ -37,7 +37,7 @@ $(OBJS)/%.o: %.c
 	@$(CC) -I$(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
 	@ar -rc $(NAME) $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
-	@printf "Libft Progress       [%s]\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
+	@printf "[%s] Libft Progress\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
 
 clean:
 	@rm -Rf $(OBJS)

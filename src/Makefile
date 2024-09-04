@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:48 by rbutzke           #+#    #+#              #
-#    Updated: 2024/09/03 09:05:03 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/09/04 14:43:33 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,7 +149,7 @@ $(OBJS)/%.o: %.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
-	@printf "Creating the program binaries   [%s]\r" $(shell echo "$$(($(COUNT) * 100 / $(NUM_FILES)))%")
+	@printf "[%s] Creating the program binaries\r" $(shell echo "$$(($(COUNT) * 100 / $(NUM_FILES)))%")
 
 #-----------------------------------------------------------------------------------------
 # Include dependency files
