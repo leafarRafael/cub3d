@@ -6,16 +6,16 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:08:52 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:51:32 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_H
- #define DATA_H
+# define DATA_H
 
-#include <MLX42.h>
+# include <MLX42.h>
 
-typedef struct s_matrix_list t_mlst;
+typedef struct s_matrix_list	t_mlst;
 
 typedef enum s_texture
 {
@@ -27,7 +27,7 @@ typedef enum s_texture
 	CEILING,
 }			t_texture_index;
 
-typedef	struct s_components_mlx
+typedef struct s_components_mlx
 {
 	mlx_t			*mlx;
 	mlx_image_t		*image;
@@ -53,7 +53,7 @@ typedef struct s_data
 	t_comp_mlx	window;
 	t_atr		args_file[6];
 	t_coord		*coord;
-	char 		**worldmap;
+	char		**worldmap;
 	char		identifier;
 	int			rgb_floor[4];
 	int			rgb_cel[4];

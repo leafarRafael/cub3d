@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixels_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:38:37 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 14:51:16 by myokogaw         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:02:21 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	calc_coord_tex(t_data *data, t_dda *dda, t_ray *ray, t_text *pix)
 	pix->height = data->window.wall[dda->side]->height;
 	pix->width = data->window.wall[dda->side]->width;
 	pix->pixels = data->window.wall[dda->side]->pixels;
-	pos_height = ray->draw_start - HEIGHT_2;
+	pos_height = ray->draw_start - HEIGHT /2;
 	size_height = ray->column_height / 2;
 	pix->step = (double)pix->height / ray->column_height;
 	pix->texpos = (pos_height + size_height) * pix->step;

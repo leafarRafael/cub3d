@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 14:40:19 by myokogaw         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:02:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ static void	ray_dir(t_ray *ray, t_data *data)
 static void	set_column_height(t_ray *ray)
 {
 	ray->column_height = (int)(HEIGHT / ray->distance_wall);
-	ray->draw_start = (-ray->column_height / 2) + HEIGHT_2;
-	ray->draw_end = ray->column_height / 2 + HEIGHT_2;
+	ray->draw_start = (-ray->column_height / 2) + HEIGHT / 2;
+	ray->draw_end = ray->column_height / 2 + HEIGHT / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
 	if (ray->draw_end >= HEIGHT)
