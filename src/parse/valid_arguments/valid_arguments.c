@@ -3,25 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   valid_arguments.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:38:12 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 16:14:25 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 13:53:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <libft.h>
-#include "data.h"
-#include "utils.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include "defines.h"
-#include <string.h>
-#include <errno.h>
-#include "error_handler.h"
+#include "libft.h"
+#include <unistd.h>
+#include <fcntl.h>
 
 static int	valid_extension(char *file);
 static int	valid_empty_and_permission(char *file);
@@ -34,7 +26,7 @@ int	valid_arguments(int argc, char **argv)
 		return (ERROR);
 	if (valid_empty_and_permission(argv[1]))
 		return (ERROR);
-	return (0);
+	return (SUCCESS);
 }
 
 static int	valid_empty_and_permission(char *file)
@@ -48,10 +40,10 @@ static int	valid_empty_and_permission(char *file)
 	if (read(fd, &c, 1) == -1)
 	{
 		close(fd);
-		return (ERROR);	
+		return (ERROR);
 	}
 	close(fd);
-	return (0);
+	return (SUCCESS);
 }
 
 static int	valid_extension(char *file)
@@ -63,5 +55,5 @@ static int	valid_extension(char *file)
 		return (ERROR);
 	if (ft_strnstr(&file[len - SIZE_EXT], EXT, SIZE_EXT) == NULL)
 		return (ERROR);
-	return (0);
+	return (SUCCESS);
 }

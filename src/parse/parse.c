@@ -3,28 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:49:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 12:45:40 by myokogaw         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:02:43 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "valid_arguments.h"
 #include <stdlib.h>
-#include "libft.h"
 #include "data.h"
-#include <MLX42.h>
-#include "defines.h"
-#include "parse.h"
-#include "matrix_lst.h"
+#include "error_handler.h"
+#include "read_file.h"
 #include "get_attr.h"
 #include "is_valid_map.h"
 #include "normalize_map.h"
+#include "matrix_lst.h"
 #include "set_player.h"
 #include "flood_fill.h"
-#include "error_handler.h"
-#include "valid_arguments.h"
-#include "read_file.h"
 
 t_data	*parse(int argc, char **argv)
 {

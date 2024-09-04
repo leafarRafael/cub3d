@@ -1,7 +1,7 @@
-NO textures/bluestone.png
-WE textures/colorstone.png
-SO textures/mossy.png 
-EA textures/purplestone.png
+NO textures/abyss_blue.png
+WE textures/abyss_green.png
+SO textures/abyss_red.png
+EA textures/abyss_white.png
 
 F 75,75,75                
 C 47,55,66

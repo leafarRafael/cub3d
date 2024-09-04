@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   normalize_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 15:40:44 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 09:45:39 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:11:26 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "matrix_lst.h"
 #include "defines.h"
+#include "matrix_lst.h"
 #include "utils.h"
-#include "error_handler.h"
 
 static int	get_biggest_line(t_mlst *mlst);
 static void	subs(t_lst *lst);
 static void	normalize_line(t_lst *lst, int size);
-static void draw_bounds(t_mlst *mlst);
+static void	draw_bounds(t_mlst *mlst);
 
 int	normalize(t_mlst *mlst)
 {
@@ -38,7 +37,7 @@ int	normalize(t_mlst *mlst)
 		i++;
 		llst = llst->next;
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 static int	get_biggest_line(t_mlst *mlst)
@@ -66,7 +65,6 @@ static void	normalize_line(t_lst *lst, int size)
 		lst->last->c = '#';
 	while (lst->size <= size)
 		ft_create_node_add_back(lst, '#');
-
 }
 
 static void	subs(t_lst *lst)
@@ -85,13 +83,15 @@ static void	subs(t_lst *lst)
 	}
 }
 
-static void draw_bounds(t_mlst *mlst)
+static void	draw_bounds(t_mlst *mlst)
 {
 	t_llst	*llst;
 	int		i;
 
-	ft_add_list_front(mlst, ft_duplst(mlst->head->lst, ft_cpynode, ft_add_node_back));
-	ft_add_list_back(mlst, ft_duplst(mlst->head->lst, ft_cpynode, ft_add_node_back));
+	ft_add_list_front(mlst, ft_duplst(mlst->head->lst, ft_cpynode,
+			ft_add_node_back));
+	ft_add_list_back(mlst, ft_duplst(mlst->head->lst, ft_cpynode,
+			ft_add_node_back));
 	i = 0;
 	llst = mlst->head;
 	while (i < mlst->size)

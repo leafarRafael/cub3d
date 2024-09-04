@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_attr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:41:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 16:27:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:12:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
-#include "matrix_lst.h"
 #include "defines.h"
+#include "matrix_lst.h"
 #include "utils.h"
-#include <stdlib.h>
-#include <get_attr.h>
-#include "error_handler.h"
+#include "get_attr.h"
 
 static int	is_floor_ceiling(char c);
 int			add_attr(t_lst *lst, t_data *data);
@@ -34,10 +32,10 @@ int	get_attr(t_mlst *mlst, t_data *data)
 			return (ERROR);
 		ft_remove_lst_front(mlst);
 	}
-	return (0);
+	return (SUCCESS);
 }
 
-int		add_attr(t_lst *lst, t_data *data)
+int	add_attr(t_lst *lst, t_data *data)
 {
 	while (lst->size && is_new_line(lst->head->c))
 		ft_remove_node_front(lst);

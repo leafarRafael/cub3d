@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 09:12:36 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 17:13:38 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:58:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_create_node_add_back(t_lst *lst, char content)
 	new_node = ft_init_node(content);
 	if (!new_node)
 		return (-1);
-	if (content != ' ' && content != '\t' 
+	if (content != ' ' && content != '\t'
 		&& content != '\r' && content != '\n')
 		lst->is_space++;
 	if (lst->size == 0)

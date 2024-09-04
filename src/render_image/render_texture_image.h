@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_texture_image.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 10:08:25 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:28:51 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_data			t_data;
  *  - Each element in this array represents the color of a pixel 
  *  at a corresponding Y-coordinate on the screen.
  */
-void	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT]);
+void	render_texture_on_image(t_data *data,
+			t_ray *ray, int bufercolor[HEIGHT]);
 
 #endif

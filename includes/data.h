@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 08:08:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 09:00:36 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:08:52 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,26 @@ typedef struct s_data
 	int			atr;
 }	t_data;
 
+/**
+ * @brief Retrieves the main data structure for the program.
+ * 
+ * This function returns a pointer to the
+ * main structure (`t_data`) of the program.
+ * The structure is instantiated only once using the singleton pattern,
+ * ensuring that there is a single instance throughout the program's execution.
+ * 
+ * @return t_data* A pointer to the main game data structure.
+ * 
+ * Function overview:
+ * - `t_data` is a structure containing all elements required to run the program.
+ *   Only one instance of this structure should exist,
+ *   hence the application of the singleton pattern.
+ * 
+ * - If the structure has not been instantiated,
+ *   the initialization function (`initialize_data`) 
+ *   is called to create and return the pointer.
+ *   If already instantiated, the existing pointer is returned.
+ */
 t_data	*get_data(void);
 
 #endif

@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 14:18:16 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 12:40:17 by myokogaw         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:10:54 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "matrix_lst.h"
 #include "defines.h"
-#include <stdio.h>
+#include "matrix_lst.h"
 #include "utils.h"
-#include "error_handler.h"
 
 static int	check_is_valid_char(char c);
 static int	valid_line(t_lst *lst, int *nbr);
@@ -45,7 +43,7 @@ int	is_valid_map(t_mlst *mlst)
 	}
 	if (nbr_player_pos != 1)
 		return (ERROR);
-	return (0);
+	return (SUCCESS);
 }
 
 static int	valid_line(t_lst *lst, int *nbr)
@@ -64,12 +62,10 @@ static int	valid_line(t_lst *lst, int *nbr)
 		node = node->next;
 		i++;
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 static int	check_is_valid_char(char c)
 {
-	return (is_coord(c)
-		|| is_new_line(c)
-		|| ( c == '0' || c == '1'));
+	return (is_coord(c) || is_new_line(c) || (c == '0' || c == '1'));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_collision.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 09:54:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/22 16:46:06 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:41:33 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,13 @@
 #include "defines.h"
 
 static void	calculate_distance(t_dda *dda, t_ray *ray);
-static void update_x_axis(t_dda *dda, t_ray *ray);
-static void update_y_axis(t_dda *dda, t_ray *ray);
+static void	update_x_axis(t_dda *dda, t_ray *ray);
+static void	update_y_axis(t_dda *dda, t_ray *ray);
 static int	check_collision(char c);
 
-/**
- * @brief Traverse the 2D map until a collision is detected.
-
- * This function continuously traverses the 2D map in the direction specified by the ray,
- * updating the position on the map and checking for collisions at each step.
- * Once a collision is detected, it calculates the distance traveled by the ray
- * and determines the appropriate texture to render for the corresponding wall.
- * 
- * @param data A pointer to the main game data structure (t_data).
- * @param ray Pointer to structure with raycasting algorithm variable (t_ray).
- * @param dda Pointer to structure with dda algorithm variable (t_dda).
- * 
- * The main loop continues until a collision is detected, during which:
- *
- * 	- update_y_axis(dda, ray) and update_x_axis(dda, ray):
- * 	Update the position and side distances along the Y and X axes, respectively,
- * 	which controls the ray's movement across the 2D map and helps determine the texture.
- * 
- *  - check_collision(map[y][x]):
- * 	Checks if the current position on the map contains a wall or obstacle,
- * 	indicating a collision.
- * 
- *  - calculate_distance(dda, ray);
- * Calculates the distance the ray traveled to the point of collision.
- */
 void	find_collision(t_data *data, t_dda *dda, t_ray *ray)
 {
-	char **map;
+	char	**map;
 	int		y;
 	int		x;
 
@@ -66,27 +41,38 @@ void	find_collision(t_data *data, t_dda *dda, t_ray *ray)
 }
 
 /**
- * @brief Update the X-axis position and manage textures for east and west sides.
+ * @brief Update the X-axis position and manage
+ * 		  textures for east and west sides.
  * 
- * This function increments or decrements the player's position on the X-axis based on the ray's direction.
- * It also updates the side distance along the X-axis and determines whether the collision occurred
- * on the east or west side of a wall, which is used to select the correct texture.
+ * This function increments or decrements the player's
+ * position on the X-axis based on the ray's direction.
  * 
- * @param ray Pointer to the structure containing raycasting algorithm variables (t_ray).
- * @param dda Pointer to the structure containing DDA algorithm variables (t_dda).
+ * It also updates the side distance along the X-axis
+ * and determines whether the collision occurred
+ * on the east or west side of a wall,
+ * which is used to select the correct texture.
+ * 
+ * @param ray Pointer to the structure containing
+ * 			  raycasting algorithm variables (t_ray).
+ * 
+ * @param dda Pointer to the structure containing
+ *            DDA algorithm variables (t_dda).
  * 
  * 	- dda->map[X]:
- * 	Updates the player's position on the 2D map along the X-axis by incrementing or decrementing 
+ * 	Updates the player's position on the 2D map along
+ *  the X-axis by incrementing or decrementing 
  * 	based on the ray's direction.
  * 
  * 	- dda->side_dist[X]:
- * 	Increases the distance from the player's position to the next X-axis grid line
+ * 	Increases the distance from the player's
+ *  position to the next X-axis grid line
  * 	in proportion to the ray's movement across the 2D map.
  * 
  * 	- dda->side:
- * 	Sets the side (east or west) based on the ray's direction, which is used to determine the texture.
+ * 	Sets the side (east or west) based on the ray's direction,
+ *  which is used to determine the texture.
  */
-static void update_x_axis(t_dda *dda, t_ray *ray)
+static void	update_x_axis(t_dda *dda, t_ray *ray)
 {
 	dda->map[X] += dda->step[X];
 	dda->side_dist[X] += dda->delta_dist[X];
@@ -94,31 +80,40 @@ static void update_x_axis(t_dda *dda, t_ray *ray)
 		dda->side = WEST;
 	else
 		dda->side = EAST;
-		
 }
 
 /**
- * @brief Update the Y-axis position and manage textures for north and south sides.
+ * @brief Update the Y-axis position and manage
+ *    	  textures for north and south sides.
  * 
- * This function increments or decrements the player's position on the Y-axis based on the ray's direction.
- * It also updates the side distance along the Y-axis and determines whether the collision occurred
- * on the north or south side of a wall, which is used to select the correct texture.
+ * This function increments or decrements the player's
+ * position on the Y-axis based on the ray's direction.
+ * It also updates the side distance along the Y-axis and
+ * determines whether the collision occurred
+ * on the north or south side of a wall,
+ * which is used to select the correct texture.
  * 
- * @param ray Pointer to the structure containing raycasting algorithm variables (t_ray).
- * @param dda Pointer to the structure containing DDA algorithm variables (t_dda).
+ * @param ray Pointer to the structure containing 
+ * 			  raycasting algorithm variables (t_ray).
+ * 
+ * @param dda Pointer to the structure containing
+ *     		  DDA algorithm variables (t_dda).
  * 
  * 	- dda->map[Y]:
- * 		Updates the player's position on the 2D map along the Y-axis by incrementing or decrementing 
- * 		based on the ray's direction.
+ * 	Updates the player's position on the 2D map
+ *  along the Y-axis by incrementing or decrementing 
+ * 	based on the ray's direction.
  * 
  * 	- dda->side_dist[Y]:
- * 		Increases the distance from the player's position to the next Y-axis grid line
- * 		in proportion to the ray's movement across the 2D map.
+ * 	Increases the distance from the player's position
+ *  to the next Y-axis grid line
+ * 	in proportion to the ray's movement across the 2D map.
  * 
  * 	- dda->side:
- * 		Sets the side (north or south) based on the ray's direction, which is used to determine the texture.
+ * 	Sets the side (north or south) based on the ray's direction,
+ *  which is used to determine the texture.
  */
-static void update_y_axis(t_dda *dda, t_ray *ray)
+static void	update_y_axis(t_dda *dda, t_ray *ray)
 {
 	dda->map[Y] += dda->step[Y];
 	dda->side_dist[Y] += dda->delta_dist[Y];
@@ -131,15 +126,22 @@ static void update_y_axis(t_dda *dda, t_ray *ray)
 /**
  * @brief Calculate the distance traveled by the ray.
  * 
- * This function calculates the distance from the player to the point of collision
- * based on which axis (X or Y) the collision occurred. The calculated distance
- * is stored in the ray structure and used for rendering the correct size of the wall slice.
+ * This function calculates the distance from the
+ * player to the point of collision based on which
+ * axis (X or Y) the collision occurred.
+ * The calculated distance is stored in the ray structure
+ * and used for rendering the correct size of the wall slice.
  * 
- * @param ray Pointer to the structure containing raycasting algorithm variables (t_ray).
- * @param dda Pointer to the structure containing DDA algorithm variables (t_dda).
+ * @param ray Pointer to the structure containing
+ * 			  raycasting algorithm variables (t_ray).
  * 
- * If the collision occurred on the X-axis, the distance is calculated using `side_dist[X] - delta_dist[X]`.
- * If the collision occurred on the Y-axis, it is calculated using `side_dist[Y] - delta_dist[Y]`.
+ * @param dda Pointer to the structure containing
+ *     		  DDA algorithm variables (t_dda).
+ * 
+ * If the collision occurred on the X-axis,
+ * the distance is calculated using side_dist[X] - delta_dist[X].
+ * If the collision occurred on the Y-axis,
+ * it is calculated using side_dist[Y] - delta_dist[Y].
  */
 static int	check_collision(char c)
 {
@@ -151,7 +153,9 @@ static int	check_collision(char c)
 /**
  * @brief Assigns the calculation of the distance traveled.
  * 
- * @param ray Pointer to structure with raycasting algorithm variable (t_ray).
+ * @param ray Pointer to structure with
+ * 			  raycasting algorithm variable (t_ray).
+ * 
  * @param dda Pointer to structure with dda algorithm variable (t_dda).
  * 
  * If the axis where the collision occurred was X, then ray->distance_wal

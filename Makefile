@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 07:47:04 by rbutzke           #+#    #+#              #
-#    Updated: 2024/09/03 12:53:57 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/09/04 13:45:36 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -146,6 +146,7 @@ valgrind:
 	@for map in $(MAPS); do \
 		echo "\n\e[0;35mRunning Valgrind with map: $$map\033[0m"; \
 		valgrind -q --leak-check=full --show-leak-kinds=all ./$(NAME) $$map; \
+		echo -n;\
 	done
 
 

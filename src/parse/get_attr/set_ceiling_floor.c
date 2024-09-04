@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_ceiling_floor.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 08:40:01 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 12:19:14 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:14:23 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	set_atribute(t_atr *atr, t_lst *lst, t_data *data)
 		return (ERROR);
 	atr->status = 1;
 	data->atr--;
-	return (0);
+	return (SUCCESS);
 }
 
 static int	get_floor_ceiling(char c)

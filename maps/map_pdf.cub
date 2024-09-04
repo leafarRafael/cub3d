@@ -1,10 +1,10 @@
-NO textures/bluestone.png
-SO textures/mossy.png 
-WE textures/colorstone.png
-EA textures/purplestone.png
+NO textures/hell.png
+SO textures/undead.png
+WE textures/catacombs.png
+EA textures/dark_skeleton.png
 
-F 220,100,0
-C 225,30,0
+F 10,100,0
+C 10,30,0
 
         1111111111111111111111111
         1000000000110000000000001

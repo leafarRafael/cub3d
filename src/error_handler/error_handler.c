@@ -3,46 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:42:02 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 11:27:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:08:00 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "data.h"
-#include <stdlib.h>
-#include "utils.h"
-#include "matrix_lst.h"
 #include "error_handler.h"
-#include <string.h>
+#include "libft.h"
+#include "matrix_lst.h"
+#include "utils.h"
 #include <errno.h>
+#include <stdlib.h>
+#include <string.h>
 
 static const char	*error_msg(int index_msg);
 
-/**
- * @brief Manages error messages
- * 
- * This function handles error messages by returning the status value
- * and writing the corresponding message to the standard error output.
- * 
- * @param e_error Status and index of the error message.
- * 
- * @return int The termination status of the program.
- * 
- * Function overview:
- * 
- *  - If e_error is 0, the function returns immediately without printing anything.
- * 
- *  - If errno is set (indicating an error occurred), the corresponding error string is printed
- *    and the function returns errno. 
- * 
- * - In other cases, e_error represents the program's exit status and is used as an index
- *   to retrieve and print the appropriate error message from a predefined array.
- * 
- * 	- The function calls destroy_data to free any allocated resources.
- */
 int	error_handler(int e_error)
 {
 	if (e_error == 0)
@@ -55,29 +33,11 @@ int	error_handler(int e_error)
 		destroy_data(get_data());
 		return (errno);
 	}
-	ft_putstr_fd((char*)error_msg(e_error), 2);
+	ft_putstr_fd((char *)error_msg(e_error), 2);
 	destroy_data(get_data());
 	return (e_error);
 }
 
-/**
- * @brief Frees all memory allocated for program execution.
- * 
- * The function handles heap memory release.
- * It checks that the pointer has been allocated and calls the memory release function.
- * 
- * @param data A pointer to the main game data structure (t_data).
- * 
- * @return int Returns 0 for all cases for convenience
- * 
- * Function overview:
- *	- ft_free(): Checks for a null pointer before invoking the free function. 
- *  			 After freeing, the pointer is set to NULL.
- * 	- All other pointers are checked, and their respective release functions are called.
- * 	- Functions prefixed with `MLX` handle the release of resources related to the MLX library.
- * 	- ft_delcmtrx() frees the memory of a 2D matrix.
- *	- ft_delete_matrix() frees memory associated with a linked list..
- */
 int	destroy_data(t_data *data)
 {
 	ft_free(data->args_file[NORTH].str);
@@ -92,9 +52,9 @@ int	destroy_data(t_data *data)
 		ft_delete_matrix(data->mlst);
 	if (data->window.wall[NORTH])
 		mlx_delete_texture(data->window.wall[NORTH]);
-	if(data->window.wall[SOUTH])
+	if (data->window.wall[SOUTH])
 		mlx_delete_texture(data->window.wall[SOUTH]);
-	if(data->window.wall[WEST])
+	if (data->window.wall[WEST])
 		mlx_delete_texture(data->window.wall[WEST]);
 	if (data->window.wall[EAST])
 		mlx_delete_texture(data->window.wall[EAST]);
@@ -107,33 +67,26 @@ int	destroy_data(t_data *data)
 
 /**
  * @brief Function return a string corresponding to the index.
- * 
+ *
  * The function instantiates a constant matrix of strings
  * and returns the one that matches the index passed as an argument.
- * 
+ *
  * @param index_msg The index of the string to be returned.
- * 
+ *
  * @return const char* The string corresponding.
- * 
-* Function overview:
- * - The function instantiates a constant array of strings, where each index 
+ *
+ * Function overview:
+ * - The function instantiates a constant array of strings, where each index
  *   corresponds to a string defined by a macro (e.g., E_ARGS, E_MEM).
  * - It returns the string corresponding to the given index.
- * - If the index is greater than the number of available messages (`NBR_MSG`), 
+ * - If the index is greater than the number of available messages (`NBR_MSG`),
  *   the function returns NULL.
  */
 static const char	*error_msg(int index_msg)
 {
-	const char	*msg[] = {"",
-	E_ARGS, 
-	E_MEM,
-	E_F_R_F,
-	E_INDEN,
-	E_INVALID_MAP,
-	E_RGB, 
-	E_INVALID_MAP,
-	E_MLX
-	};
+	const char	*msg[] = {"", E_ARGS, E_MEM, E_F_R_F, E_INDEN, E_INVALID_MAP,
+		E_RGB, E_INVALID_MAP, E_MLX};
+
 	if (index_msg > NBR_MSG)
 		return (NULL);
 	return (msg[index_msg]);

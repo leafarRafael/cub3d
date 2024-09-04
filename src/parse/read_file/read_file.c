@@ -3,26 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:12:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/03 08:35:25 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:06:29 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include "get_next_line.h"
-#include "defines.h"
-#include <string.h>
-#include <errno.h>
 #include "matrix_lst.h"
-#include "error_handler.h"
+#include "defines.h"
+#include <fcntl.h>
+#include <unistd.h>
 
-t_mlst *read_file(char *file)
+t_mlst	*read_file(char *file)
 {
 	int		fd;
 	char	*line;
@@ -41,6 +35,6 @@ t_mlst *read_file(char *file)
 		free(line);
 		line = get_next_line(fd);
 	}
-	close (fd);
+	close(fd);
 	return (mlst);
 }

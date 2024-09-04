@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_up.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 07:46:51 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:23:43 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,6 @@
 static void	muve_axis_y(t_data *data);
 static void	muve_axis_x(t_data *data);
 
-/**
- * @brief Updates the player's position on the X and Y axes based on user input.
- * 
- * This function handles the movement logic when the player
- * presses a movement key, specifically the key mapped to 
- * moving forward in the game world.
- * 
- * @param data A pointer to the main game data structure (t_data).
- *  
- * The following attributes are utilized or updated within this function:
- *  - data->worldmap: 
- *      Used to validate collisions before updating the player's position.
- *  - data->coord->pos[Y]: 
- *      Updates the player's Y-coordinate on the map.
- *  - data->coord->pos[X]: 
- *      Updates the player's X-coordinate on the map.
- *  - data->coord->dir[](Y or X): 
- *      Used to determine the direction the player is facing for movement.
- * 
- * @return int The return is to signal an update in the
- * 			   coordinates and execute the updated rendering.
- */
 int	muve_up(t_data *data)
 {
 	muve_axis_y(data);

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:17:10 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/30 17:12:42 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:58:26 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_add_node_front(t_lst *lst, t_node *node)
 {
 	if (!lst)
 		return (-1);
-	if (node->c != ' ' && node->c != '\t' 
+	if (node->c != ' ' && node->c != '\t'
 		&& node->c != '\r' && node->c != '\n')
 		lst->is_space++;
 	if (lst->size == 0)

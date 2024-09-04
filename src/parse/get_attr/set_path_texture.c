@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_path_texture.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 08:40:50 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/02 12:18:30 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:14:33 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "data.h"
 #include "defines.h"
 #include "utils.h"
-#include <stdio.h>
 
 static int	set_path(t_atr *atr, t_lst *lst, t_data *data);
 static int	get_coord(char c1, char c2);
