@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:42:02 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:08:00 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:51:35 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
 #include "error_handler.h"
 #include "libft.h"
-#include "matrix_lst.h"
-#include "utils.h"
 #include <errno.h>
-#include <stdlib.h>
 #include <string.h>
+#include "matrix_lst.h"
 
 static const char	*error_msg(int index_msg);
 

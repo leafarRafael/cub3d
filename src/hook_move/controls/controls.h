@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:23:14 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:49:30 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ typedef struct s_ctrl
 	int		y;
 	char	**map;
 }		t_ctrl;
-
-typedef struct s_ctrl_rotate
-{
-	int		x;
-	int		y;
-	double	dir;
-	double	pla;
-}		t_rotate;
 
 /**
  * @brief Updates the player's position on the X and Y axes based on user input.
@@ -52,7 +44,7 @@ typedef struct s_ctrl_rotate
  * @return int The return is to signal an update in the
  * 			   coordinates and execute the updated rendering.
  */
-int	muve_up(t_data *data);
+int	move_up(t_data *data);
 
 /**
  * @brief Updates the player's position on the X and Y axes based on user input.
@@ -76,7 +68,7 @@ int	muve_up(t_data *data);
  * @return int The return is to signal an update in the
  * 				coordinates and execute the updated rendering.
  */
-int	muve_down(t_data *data);
+int	move_down(t_data *data);
 
 /**
  * @brief Updates the player's position on the X and Y axes based on user input.
@@ -100,7 +92,7 @@ int	muve_down(t_data *data);
  * @return int The return is to signal an update in the
  * 			   coordinates and execute the updated rendering.
  */
-int	muve_left(t_data *data);
+int	move_left(t_data *data);
 
 /**
  * @brief Updates the player's position on the X and Y axes based on user input.
@@ -124,7 +116,7 @@ int	muve_left(t_data *data);
  * @return int The return is to signal an update in the
  * 			   coordinates and execute the updated rendering.
  */
-int	muve_right(t_data *data);
+int	move_right(t_data *data);
 
 /**
  * @brief Updates the player's direction and
@@ -158,6 +150,10 @@ int	muve_right(t_data *data);
  * @return int The return is to signal an update in the
  * 			   coordinates and execute the updated rendering.
  */
+int	move_up(t_data *data);
+int	move_down(t_data *data);
+int	move_left(t_data *data);
+int	move_right(t_data *data);
 int	rotate_cam_left(t_data *data);
 
 /**

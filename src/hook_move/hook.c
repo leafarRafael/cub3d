@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:48:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:19:55 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:40:51 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MLX42.h>
+#include "MLX42.h"
 #include "data.h"
 #include "render_ceiling_floor.h"
-#include "error_handler.h"
 #include "ray_casting.h"
 #include "controls.h"
-#include <stdio.h>
 
 void	ft_hook(void *param)
 {
@@ -32,13 +30,13 @@ void	ft_hook(void *param)
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_RIGHT))
 		update += rotate_cam_right(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_A))
-		update += muve_left(data);
+		update += move_left(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_D))
-		update += muve_right(data);
+		update += move_right(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_S))
-		update += muve_down(data);
+		update += move_down(data);
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_W))
-		update += muve_up(data);
+		update += move_up(data);
 	if (update)
 	{
 		render_ceiling_floor(data);

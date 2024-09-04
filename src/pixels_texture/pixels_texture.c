@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   pixels_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:38:37 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:57:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:51:16 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
 #include "dda.h"
 #include "defines.h"
-#include "error_handler.h"
-#include "pixels_texture.h"
 #include "ray_casting.h"
 #include <math.h>
+#include "pixels_texture.h"
 
 static int	get_coordinate_x_text(t_data *data, t_ray *ray, t_dda *dda);
 static void	calc_coord_tex(t_data *data, t_dda *dda, t_ray *ray, t_text *pix);

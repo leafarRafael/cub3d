@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render_ceiling_floor.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:27:55 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:46:42 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MLX42.h>
+#include "MLX42.h"
 #include "utils.h"
 #include "data.h"
-#include "libft.h"
 #include "defines.h"
 
 static void	render_pixel(int plaine[2],

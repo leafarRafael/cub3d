@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 08:41:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:08:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:44:57 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
-#include <stdio.h>
 
 static t_data	*initialize_data(void);
 

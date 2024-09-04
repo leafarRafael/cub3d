@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_atributes_mlx.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:22 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 13:14:50 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:45:20 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MLX42.h>
+#include "MLX42.h"
 #include "data.h"
 #include "defines.h"
-
-#include <stdlib.h>
 
 static int	loadpng(mlx_texture_t **wall, char *path_to_png);
 

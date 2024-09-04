@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_right.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:23:06 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:50:47 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,35 @@
 #include "render_ceiling_floor.h"
 #include "ray_casting.h"
 
-static void	muve_axis_y(t_data *data);
-static void	muve_axis_x(t_data *data);
+static void	move_axis_y(t_data *data);
+static void	move_axis_x(t_data *data);
 
-int	muve_right(t_data *data)
+/**
+ * @brief Updates the player's position on the X and Y axes based on user input.
+ * 
+ * This function handles the movement logic when the player
+ * presses a movement key, specifically the key mapped to 
+ * moving rightward in the game world.
+ * 
+ * @param data A pointer to the main game data structure (t_data).
+ * 
+ * The following attributes are utilized or updated within this function:
+ *  - data->worldmap: 
+ *      Used to validate collisions before updating the player's position.
+ *  - data->coord->pos[Y]: 
+ *      Updates the player's Y-coordinate on the map.
+ *  - data->coord->pos[X]: 
+ *      Updates the player's X-coordinate on the map.
+ *  - data->coord->dir[](Y or X): 
+ *      Used to determine the direction the player is facing for movement.
+ * 
+ * @return int The return is to signal an update in the
+ * 			   coordinates and execute the updated rendering.
+ */
+int	move_right(t_data *data)
 {
-	muve_axis_x(data);
-	muve_axis_y(data);
+	move_axis_x(data);
+	move_axis_y(data);
 	return (1);
 }
 
@@ -48,7 +70,7 @@ int	muve_right(t_data *data)
  * in an increase or decrease in the Y positional axis.
  * 
  * */
-static void	muve_axis_y(t_data *data)
+static void	move_axis_y(t_data *data)
 {
 	t_ctrl	c;
 
@@ -80,7 +102,7 @@ static void	muve_axis_y(t_data *data)
  * in an increase or decrease in the X positional axis.
  * 
  * */
-static void	muve_axis_x(t_data *data)
+static void	move_axis_x(t_data *data)
 {
 	t_ctrl	c;
 

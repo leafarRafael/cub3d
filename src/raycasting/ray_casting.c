@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:35:25 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:40:19 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "ray_casting.h"
 #include "dda.h"
 #include "defines.h"
-#include <MLX42.h>
 #include "pixels_texture.h"
 #include "render_texture_image.h"
 

@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_texture_image.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:28:24 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:46:53 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "MLX42.h"
 #include "data.h"
 #include "ray_casting.h"
 #include "defines.h"

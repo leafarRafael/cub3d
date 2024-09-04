@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 14:23:10 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:47:14 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "matrix_lst.h"
-#include "utils.h"
-
-int	is_new_line(char c)
+int is_new_line(char c)
 {
 	return (c == '\r' || c == '\n' || c == ' ' || c == '\t');
 }

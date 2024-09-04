@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   render_texture_image.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/09/04 11:28:51 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:47:02 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_TEXTURE_IMAGE_H
 # define RENDER_TEXTURE_IMAGE_H
 
-# include <MLX42.h>
 # include "defines.h"
 
 typedef struct s_ray_casting	t_ray;
-typedef struct s_coordinates	t_coord;
 typedef struct s_data			t_data;
 
 /**
