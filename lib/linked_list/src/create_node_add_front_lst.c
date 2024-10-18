@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 09:43:41 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/04/29 10:02:51 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:58:16 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	ft_create_add_node_front(t_lst *lst, char content)
 	new_node = ft_init_node(content);
 	if (!new_node)
 		return (-1);
+	if (content != ' ' && content != '\t'
+		&& content != '\r' && content != '\n')
+		lst->is_space++;
 	if (lst->size == 0)
 	{
 		ft_first_matrix_node(lst, new_node);

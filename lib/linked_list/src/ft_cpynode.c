@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 09:38:33 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/01 12:59:27 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/08/31 15:19:20 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_node	*ft_cpynode(t_node *node_origin)
 	if (!new_node)
 		return (NULL);
 	new_node->c = node_origin->c;
+	new_node->c = '#';
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);

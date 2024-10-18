@@ -3,32 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:15:00 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 16:08:40 by myokogaw         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:12:17 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include "libft.h"
-#include <stdio.h>
-#include <../lib/MLX42/include/MLX42/MLX42.h>
-
-int ft_color(int r, int g, int b, int a)
+int	is_new_line(char c)
 {
-    return (r << 24 | g << 16 | b << 8 | a);
+	return (c == '\r' || c == '\n' || c == ' ' || c == '\t');
 }
 
-int 	display_error(char *s1, char *s2, char *s3, char *s4)
+int	is_space_tab(int c)
 {
-	if (s1)
-		ft_putstr_fd(s1, STDERR_FILENO);
-	if (s2)
-		ft_putstr_fd(s2, STDERR_FILENO);
-	if (s3)
-		ft_putstr_fd(s3, STDERR_FILENO);
-	if (s4)
-		ft_putstr_fd(s4, STDERR_FILENO);
-	return (1);
+	return (c == ' ' || c == '	');
+}
+
+int	ft_color(int r, int g, int b, int a)
+{
+	return (r << 24 | g << 16 | b << 8 | a);
+}
+
+int	is_coord(char c)
+{
+	return (c == 'N' || c == 'S' || c == 'W' || c == 'E');
 }

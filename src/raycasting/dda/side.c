@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   side.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 09:33:11 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/22 16:35:41 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/05 16:11:36 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,7 @@
 
 static void	y_axis(t_data *data, t_dda *dda, t_ray *ray);
 static void	x_axis(t_data *data, t_dda *dda, t_ray *ray);
-/**
- * @brief Determine the side to travel on the 2d map
- * 
- * This function initializes the control variables for both the X and Y axes,
- * allowing the DDA algorithm to correctly determine
- * the direction to move in the grid based on the ray's direction.
- * 
- * @param data A pointer to the main game data structure (t_data).
- * @param ray Pointer to structure with raycasting algorithm variable.
- * @param dda Pointer to structure with dda algorithm variable.
- * 
- * 	- y_axis(data, dda, ray): 
- * 		Initializes the Y-axis control variables for traversal.
- * 	- x_axis(data, dda, ray): 
- * 		Initializes the X-axis control variables for traversal.
- */
+
 void	side(t_data *data, t_dda *dda, t_ray *ray)
 {
 	y_axis(data, dda, ray);
@@ -42,9 +27,12 @@ void	side(t_data *data, t_dda *dda, t_ray *ray)
 /**
  * @brief Initializes the Y-axis control variables
  * 
- * This function sets up the necessary variables to control movement along the Y-axis.
- * It determines whether the ray is moving up (north) or down (south) on the map,
- * and calculates the initial distance to the first grid intersection along the Y-axis.
+ * This function sets up the necessary variables
+ * to control movement along the Y-axis.
+ * It determines whether the ray is moving up
+ * (north) or down (south) on the map,
+ * and calculates the initial distance to
+ * the first grid intersection along the Y-axis.
  * 
  * @param data A pointer to the main game data structure (t_data).
  * @param ray Pointer to structure with raycasting algorithm variable.
@@ -66,7 +54,7 @@ void	side(t_data *data, t_dda *dda, t_ray *ray)
  */
 static void	y_axis(t_data *data, t_dda *dda, t_ray *ray)
 {
-	double	traveled;
+	long double	traveled;
 
 	if (ray->ray_dir[Y] < 0)
 	{
@@ -85,28 +73,36 @@ static void	y_axis(t_data *data, t_dda *dda, t_ray *ray)
 /**
  * @brief Initializes the X-axis control variables.
  * 
- * This function sets up the necessary variables to control movement along the X-axis.
- * It determines whether the ray is moving left (west) or right (east) on the map,
- * and calculates the initial distance to the first grid intersection along the X-axis.
+ * This function sets up the necessary variables
+ * to control movement along the X-axis.
+ * It determines whether the ray is moving
+ * left (west) or right (east) on the map,
+ * and calculates the initial distance to the
+ * first grid intersection along the X-axis.
  * 
  * @param data A pointer to the main game data structure (t_data).
- * @param ray Pointer to the structure containing raycasting algorithm variables.
- * @param dda Pointer to the structure containing DDA algorithm variables.
+ * @param ray Pointer to the structure containing
+ * 			  raycasting algorithm variables.
+ * @param dda Pointer to the structure
+ * 			  containing DDA algorithm variables.
  * 
  * 	- traveled: 
- * 	The distance the player has traveled within the current grid square along the X-axis.
+ * 	The distance the player has traveled within
+ *  the current grid square along the X-axis.
  * 
  *  - dda->step[X]:
  * 	Determines the direction of traversal on the 2D map:
  * 	positive for east (right) and negative for west (left).
  * 
  * 	- dda->side_dist[X]:
- * 	Initializes the distance from the player's current position to the next X-axis grid line.
- * 	This value will be incremented as the DDA algorithm steps through the grid.
+ * 	Initializes the distance from the player's current
+ *  position to the next X-axis grid line.
+ * 	This value will be incremented as
+ *  the DDA algorithm steps through the grid.
  */
 static void	x_axis(t_data *data, t_dda *dda, t_ray *ray)
 {
-	double	traveled;
+	long double	traveled;
 
 	if (ray->ray_dir[X] < 0)
 	{

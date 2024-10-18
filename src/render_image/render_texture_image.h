@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   render_texture_image.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:03:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 10:27:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:47:02 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_TEXTURE_IMAGE_H
 # define RENDER_TEXTURE_IMAGE_H
 
-# include <MLX42.h>
 # include "defines.h"
 
 typedef struct s_ray_casting	t_ray;
-typedef struct s_player			t_plr;
 typedef struct s_data			t_data;
 
 /**
@@ -43,6 +41,7 @@ typedef struct s_data			t_data;
  *  - Each element in this array represents the color of a pixel 
  *  at a corresponding Y-coordinate on the screen.
  */
-void	render_texture_on_image(t_data *data, t_ray *ray, int bufercolor[HEIGHT]);
+void	render_texture_on_image(t_data *data,
+			t_ray *ray, int bufercolor[HEIGHT]);
 
 #endif

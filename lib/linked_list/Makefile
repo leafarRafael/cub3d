@@ -21,7 +21,6 @@ SRC				:= ./src/init_list.c\
 				./src/ft_duplst.c\
 				./src/ft_cpynode.c\
 				./src/lst_insert_node_between.c\
-				./src/find_type_rtrn_ptr.c\
 				./src/find_str_head_last.c
 
 NUM_FILES		:= $(words $(SRC))
@@ -43,8 +42,7 @@ $(OBJS)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
-	@printf "Linked List progress [%s]\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
-
+	@printf "[%s] linked_list progress\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
 
 clean:
 	@$(CMD_CLEAN) $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:27:28 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/05/21 10:15:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/02 11:04:21 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ft_delcmtrx(char **matrix)
 	while (matrix[i])
 	{
 		free(matrix[i]);
+		matrix[i] = NULL;
 		i++;
 	}
 	free(matrix);

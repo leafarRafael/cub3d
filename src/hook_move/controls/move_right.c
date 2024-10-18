@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_right.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 08:10:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 07:46:06 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:50:47 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include "render_ceiling_floor.h"
 #include "ray_casting.h"
 
-static void	muve_axis_y(t_data *data);
-static void	muve_axis_x(t_data *data);
+static void	move_axis_y(t_data *data);
+static void	move_axis_x(t_data *data);
 
 /**
  * @brief Updates the player's position on the X and Y axes based on user input.
@@ -42,10 +42,10 @@ static void	muve_axis_x(t_data *data);
  * @return int The return is to signal an update in the
  * 			   coordinates and execute the updated rendering.
  */
-int	muve_right(t_data *data)
+int	move_right(t_data *data)
 {
-	muve_axis_x(data);
-	muve_axis_y(data);
+	move_axis_x(data);
+	move_axis_y(data);
 	return (1);
 }
 
@@ -70,7 +70,7 @@ int	muve_right(t_data *data)
  * in an increase or decrease in the Y positional axis.
  * 
  * */
-static void	muve_axis_y(t_data *data)
+static void	move_axis_y(t_data *data)
 {
 	t_ctrl	c;
 
@@ -102,7 +102,7 @@ static void	muve_axis_y(t_data *data)
  * in an increase or decrease in the X positional axis.
  * 
  * */
-static void	muve_axis_x(t_data *data)
+static void	move_axis_x(t_data *data)
 {
 	t_ctrl	c;
 

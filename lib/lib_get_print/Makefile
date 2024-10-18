@@ -15,7 +15,7 @@ FILES = libft/src_ctype/ft_isalnum.c libft/src_ctype/ft_isascii.c libft/src_ctyp
 		ft_printf/ft_putpointer.c ft_printf/ft_putstr.c ft_printf/ft_putnbr_base.c\
 		ft_printf/ft_strl.c ft_printf/ft_putchar.c ft_printf/ft_printf.c\
 		libft/src_stdlib/ft_atol.c libft/src_stdlib/ft_atoll.c libft/src_string/src_str/ft_mtrxdup.c\
-		libft/src_string/src_str/ft_delcmtrx.c
+		libft/src_string/src_str/ft_delcmtrx.c libft/src_string/src_str/ft_free.c
 
 NUM_FILES	:= $(words $(FILES))
 
@@ -37,7 +37,7 @@ $(OBJS)/%.o: %.c
 	@$(CC) -I$(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
 	@ar -rc $(NAME) $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
-	@printf "Libft Progress       [%s]\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
+	@printf "[%s] Libft Progress\r" $(shell echo 	"$$(($(COUNT) * 100 / $(NUM_FILES)))%")
 
 clean:
 	@rm -Rf $(OBJS)

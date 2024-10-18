@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:16:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/23 10:36:28 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/05 16:11:36 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,12 @@
 #include "ray_casting.h"
 #include "dda.h"
 #include "defines.h"
-#include <MLX42.h>
 #include "pixels_texture.h"
 #include "render_texture_image.h"
 
 static void	ray_dir(t_ray *ray, t_data *data);
-static void set_column_height(t_ray *ray);
+static void	set_column_height(t_ray *ray);
 
-/**
- * @brief Render the 2d game image with 3d perspective using raycasting.
- * 
- * This function implements the raycasting algorithm to render a 3D view from a 2D map.
- * It works by iterating through each vertical stripe of the screen (represented by the image width),
- * casting a ray from the player's position through the screen's plane in the direction the player is facing.
- * The function calculates the distance to the nearest wall along each ray, 
- * determines the height of the wall to be rendered, and then samples the appropriate texture
- * for that wall segment.
- *
- * @param data A pointer to the main game data structure (t_data).
- * 
- * Steps involved:
- *  - define_ray_dir(&ray, data):
- *      Determines the direction of the current ray based on the player's direction and camera plane.
- *  - ft_dda(data, &ray, &dda):
- *      Performs the Digital Differential Analysis (DDA) algorithm to find the point of collision with a wall on the 2D map.
- *      Also determines the appropriate texture to use for the wall.
- *  - set_column_height(&ray):
- *      Calculates the start and end positions of the wall slice on the screen based on the distance to the wall.
- *  - buffer_pixel_texture(data, &dda, &ray):
- *      Samples the correct pixels from the texture and stores them in the buffer to be drawn to the screen.
- * 	- render_texture_on_image(data, &ray, ray.buffer):
- * 		Renders an image with texture pixels.
- * 	
- */
 void	ray_casting(t_data *data)
 {
 	t_ray	ray;
@@ -82,34 +55,40 @@ void	ray_casting(t_data *data)
  **/
 static void	ray_dir(t_ray *ray, t_data *data)
 {
-	double	cam;
-	
-	cam = 2 * ray->index / (double) WIDTH -1;
+	long double	cam;
+
+	cam = 2 * ray->index / (long double) WIDTH -1;
 	ray->ray_dir[Y] = data->coord->dir[Y] + (data->coord->plane[Y] * cam);
 	ray->ray_dir[X] = data->coord->dir[X] + (data->coord->plane[X] * cam);
 	ray->distance_wall = 0;
 }
 
 /**
- * @brief Calculates the start and end point for rendering the texture.
+ * @brief Calculates the start and end
+ * 		  point for rendering the texture.
  * 
- * Here we calculate the vertical range of pixels that will be rendered.
+ * Here we calculate the vertical range
+ * of pixels that will be rendered.
  * 
  * @param ray Pointer to structure with raycasting algorithm variable.
  * 
- * 	The following attributes are calculated or updated updated in this function:
+ * 	The following attributes are calculated
+ *  or updated updated in this function:
  *  - ray->column_height:
- * 	Result between the ratio of the distance traveled and the height of the screen.
- * 	- ray->draw_start and ray->draw_end::
- * 	point in the window where the column's rendering begins and ends respectively.
+ * 	Result between the ratio of the distance
+ *  traveled and the height of the screen.
+ * 
+ * 	- ray->draw_start and ray->draw_end:
+ * 	point in the window where the column's
+ *  rendering begins and ends respectively.
  *  We make a protection in case the start and end
  *  values are outside the window's range.
  **/
-static void set_column_height(t_ray *ray)
+static void	set_column_height(t_ray *ray)
 {
 	ray->column_height = (int)(HEIGHT / ray->distance_wall);
-	ray->draw_start = (-ray->column_height / 2) + HEIGHT_2;
-	ray->draw_end = ray->column_height / 2 + HEIGHT_2;
+	ray->draw_start = (-ray->column_height / 2) + HEIGHT / 2;
+	ray->draw_end = ray->column_height / 2 + HEIGHT / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
 	if (ray->draw_end >= HEIGHT)

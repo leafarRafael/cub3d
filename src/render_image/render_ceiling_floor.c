@@ -3,37 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   render_ceiling_floor.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: myokogaw <myokogaw@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:17:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/08/22 20:32:27 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:46:42 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MLX42.h>
+#include "MLX42.h"
 #include "utils.h"
 #include "data.h"
-#include "libft.h"
 #include "defines.h"
 
 static void	render_pixel(int plaine[2],
 				int pos[2], int color, mlx_image_t *image);
 static void	define_value(int ptr[2], int value1, int value2);
-
-/**
- * @brief Draw the ceiling and floor colors on the image.
- * 
- * This function fills the image buffer with the colors for the
- * ceiling and floor by dividing the screen into two sections.
- * The ceiling color is drawn on the upper half,
- * and the floor color is drawn on the lower half. The function uses the 
- * defined color values from the `data` structure to fill these areas.
- * 
- @param data A pointer to the main game data structure (`t_data`) that holds:
- *   rgb_cel: An array containing the RGBA values for the ceiling color.
- *   rgb_floor: An array containing the RGBA values for the floor color.
- *   window.image: The image buffer where the pixels will be drawn.
- */
 
 void	render_ceiling_floor(t_data *data)
 {
@@ -78,7 +62,6 @@ void	render_ceiling_floor(t_data *data)
  * @param pos_y The value to assign to the Y
  * 			(index 0) position in the array.
  */
-
 static void	define_value(int ptr[2], int pos_x, int pos_y)
 {
 	ptr[0] = pos_y;
@@ -90,7 +73,7 @@ static void	define_value(int ptr[2], int pos_x, int pos_y)
  * 
  * This function draws a rectangle on the image by iterating over a specified 
  * range of pixels and setting each pixel to the provided color. The rectangle 
- * is defined by the starting position and the dimensions given by `plaine`.
+ * is defined by the starting position and the dimensions given by plaine.
  * 
  * @param plaine A 2-element array representing the width (X) and height (Y) 
  *          of the rectangle to be drawn.
@@ -98,10 +81,11 @@ static void	define_value(int ptr[2], int pos_x, int pos_y)
  *          from where the rectangle will be drawn on the image.
  * @param color The RGBA color value that will be applied to
  * 			the pixels in the rectangle.
- * @param image A pointer to the `mlx_image_t` structure that
+ * @param image A pointer to the mlx_image_t structure that
  * 			represents the image where the pixels will be drawn.
  */
-static void	render_pixel(int plaine[2], int pos[2], int color, mlx_image_t *image)
+static void	render_pixel(int plaine[2], int pos[2],
+		int color, mlx_image_t *image)
 {
 	int	y;
 	int	x;

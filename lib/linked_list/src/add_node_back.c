@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_node_back.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:13:20 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/04/10 14:34:13 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/09/04 11:58:36 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int	ft_add_node_back(t_lst *lst, t_node *node)
 {
 	if (!lst)
 		return (-1);
+	if (node->c != ' ' && node->c != '\t'
+		&& node->c != '\r' && node->c != '\n')
+		lst->is_space++;
 	if (lst->size == 0)
 	{
 		ft_first_matrix_node(lst, node);
